@@ -3,105 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE AUDIO PEOPLE | COLLECTIONS</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TOP TEN</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #1a1a1a; color: #ffffff; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+        .top-bar { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 20px 40px; border-bottom: 1px solid #333; }
+        .container { width: 90%; max-width: 1000px; padding-top: 40px; }
+        .logo { font-weight: bold; font-size: 1.2rem; color: #fff; text-decoration: none; width: 140px; }
+        .main-title { font-size: 1.2rem; letter-spacing: 3px; text-transform: uppercase; color: #fff; text-align: center; flex-grow: 1; }
+        .nav-group { display: flex; gap: 10px; justify-content: flex-end; width: 140px; }
+        .nav-btn { background: transparent; color: #fff; border: 1px solid #e5e4e2; padding: 8px 15px; border-radius: 20px; cursor: pointer; text-decoration: none; font-size: 0.8rem; }
+        .main-content { display: flex; align-items: center; justify-content: space-between; margin-top: 40px; }
+        .text-section { width: 45%; }
+        .title-box { min-height: 120px; display: flex; align-items: flex-end; margin-bottom: 10px; }
+        h1 { font-size: 3.5rem; letter-spacing: -2px; line-height: 1.1; text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); }
+        #best-for { color: #e5e4e2; font-weight: bold; margin-bottom: 10px; font-style: italic; min-height: 20px; }
         
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%); 
-            color: #ffffff; 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            overflow-x: hidden; 
+        /* Golden Description */
+        #description { 
+            color: #d4af37; 
+            line-height: 1.6; 
+            margin-bottom: 20px; 
+            font-size: 0.95rem; 
+            min-height: 120px; 
         }
         
-        .premium-font { font-family: 'Playfair Display', serif; }
-        .text-glow-silver { text-shadow: 0 0 10px rgba(192, 192, 192, 0.6); }
-        .text-glow-gold { text-shadow: 0 0 10px rgba(218, 165, 32, 0.6); }
-
-        .platinum-card {
-            aspect-ratio: 1 / 1;
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            display: block;
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
+        #specs-list { list-style: none; color: #e5e4e2; margin-bottom: 20px; min-height: 140px; }
+        #specs-list li { margin-bottom: 5px; font-size: 0.85rem; }
+        .visual-container { display: flex; flex-direction: column; align-items: center; gap: 30px; }
+        .visual-section { width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(26,26,26,1) 70%); display: flex; justify-content: center; align-items: center; border: 1px solid #878681; cursor: pointer; transition: all 0.4s ease; box-shadow: 0 0 15px rgba(135, 134, 129, 0.2); }
+        .visual-section:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(135, 134, 129, 0.5); }
+        .product-img { width: 320px; height: 320px; object-fit: cover; border: 4px solid #e5e4e2; border-radius: 50%; transition: all 0.4s ease; box-shadow: 0 0 15px #e5e4e2; }
+        .visual-section:hover .product-img { box-shadow: 0 0 25px #e5e4e2; }
+        .order-btn { background: #2b2b2b; color: #ffffff; padding: 15px 35px; border-radius: 50px; font-weight: 600; text-decoration: none; border: 1px solid #444; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: all 0.3s ease; letter-spacing: 1px; font-size: 0.9rem; }
+        .order-btn:hover { background: #3d3d3d; border-color: #666; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.7); }
+        @media (max-width: 768px) {
+            .top-bar { padding: 20px; }
+            .main-content { flex-direction: column-reverse; text-align: center; }
+            .text-section { width: 100%; margin-top: 40px; }
+            .title-box { justify-content: center; min-height: 80px; }
+            h1 { font-size: 2.5rem; }
         }
-
-        .silver-theme:hover {
-            border-color: rgba(200, 200, 200, 0.8);
-            box-shadow: 0 0 20px rgba(192, 192, 192, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05);
-            transform: translateY(-8px);
-        }
-
-        .gold-theme:hover {
-            border-color: rgba(218, 165, 32, 0.8);
-            box-shadow: 0 0 20px rgba(218, 165, 32, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.05);
-            transform: translateY(-8px);
-        }
-
-        .card-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: opacity 0.5s ease; }
-        .platinum-card:hover .card-img { opacity: 1; }
     </style>
 </head>
 <body>
-
-    <nav class="px-6 py-5 border-b border-white/5 flex items-center justify-between">
-        <a href="../../../../index.html" class="premium-font text-xl md:text-2xl tracking-[0.2em] hover:text-gray-400 transition">TOP TEN</a>
-        <h1 class="premium-font text-2xl md:text-3xl tracking-[0.2em] uppercase">THE AUDIO PEOPLE</h1>
-        <button onclick="history.back()" class="text-sm uppercase tracking-[0.2em] border border-white/20 px-6 py-2 hover:bg-white hover:text-black transition duration-300">Back</button>
-    </nav>
-
-    <main class="flex-grow p-4 w-full max-w-7xl mx-auto flex flex-col justify-center gap-6">
-        
-        <section>
-            <h2 class="premium-font text-xl md:text-2xl tracking-[0.3em] uppercase text-gray-300 mb-4 text-center text-glow-silver">Budget</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-                <script>
-                    for(let i=1; i<=5; i++) {
-                        // Updated path: pointing to data/iem/b[i].html
-                        document.write(`
-                            <a href="iem/b${i}.html" class="platinum-card silver-theme">
-                                <img src="iem/images/b${i}.jpg" class="card-img" alt="Budget Item ${i}">
-                                <div class="card-label absolute bottom-0 w-full p-1 text-center border-t border-gray-700">
-                                    <h3 class="premium-font text-[8px] tracking-[0.1em] uppercase">Model B${i}</h3>
-                                </div>
-                            </a>
-                        `);
-                    }
-                </script>
-            </div>
-        </section>
-
-        <div class="w-1/3 h-px bg-gradient-to-r from-transparent via-gray-600 to-transparent mx-auto"></div>
-
-        <section>
-            <h2 class="premium-font text-xl md:text-2xl tracking-[0.3em] uppercase text-yellow-500 mb-4 text-center text-glow-gold">Premium</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-                <script>
-                    for(let i=1; i<=5; i++) {
-                        // Updated path: pointing to data/iem/p[i].html
-                        document.write(`
-                            <a href="iem/p${i}.html" class="platinum-card gold-theme">
-                                <img src="iem/images/p${i}.jpg" class="card-img" alt="Premium Item ${i}">
-                                <div class="card-label absolute bottom-0 w-full p-1 text-center border-t border-yellow-800">
-                                    <h3 class="premium-font text-[8px] tracking-[0.1em] uppercase">Model P${i}</h3>
-                                </div>
-                            </a>
-                        `);
-                    }
-                </script>
-            </div>
-        </section>
-
-    </main>
+<header class="top-bar">
+    <a href="../../../../index.html" class="logo">TOP TEN</a>
+    <div class="main-title">IN EAR MONITORS</div>
+    <div class="nav-group">
+        <a href="iem/iemlog.html" class="nav-btn">READ</a>
+        <a href="../listen.html" class="nav-btn">BACK</a>
+    </div>
+</header>
+<main class="container main-content">
+    <section class="text-section">
+        <div class="title-box">
+            <h1 id="product-title">SIMGOT SuperMix 4</h1>
+        </div>
+        <p id="best-for"></p>
+        <p id="description"></p>
+        <ul id="specs-list"></ul>
+    </section>
+    <section class="visual-container">
+        <div class="visual-section" onclick="changeProduct()">
+            <img id="product-image" src="iem/images/1.jpg" alt="Product" class="product-img">
+        </div>
+        <a id="order-link" href="#" target="_blank" class="order-btn">BUY ON AMAZON</a>
+    </section>
+</main>
+<script>
+    const products = [
+        { name: "SIMGOT SuperMix 4", use: "Best for: All-around audiophile listening", desc: "A premium hybrid IEM featuring four different driver technologies that deliver exceptional detail, powerful bass, and a spacious soundstage.", specs: ["Driver: 1 DD+1 BA+1 Planar+1 PZT", "Freq: 8Hz–40kHz", "Imp: 7.2Ω", "Sens: 120dB/Vrms", "Cable: 0.78mm 2-pin"], link: "https://link.amazon/B02D8ToJT" },
+        { name: "Sennheiser IE 200", use: "Best for: Vocals, classical, acoustic", desc: "A compact, single dynamic driver IEM tuned for natural, balanced sound with excellent vocal clarity. Perfect for long listening sessions.", specs: ["Driver: Single 7mm DD", "Freq: 6Hz–20kHz", "Imp: 18Ω", "Sens: 119dB", "Cable: MMCX"], link: "https://link.amazon/B0cMjLpK8" },
+        { name: "Meze Audio Alba", use: "Best for: Relaxed music sessions", desc: "A stylish single dynamic driver IEM designed for a warm, musical listening experience. It offers smooth vocals, rich mids, and comfortable wear.", specs: ["Driver: Single Dynamic Driver", "Freq: 15Hz–25kHz", "Imp: 32Ω", "Sens: 109dB", "Cable: 2-pin"], link: "https://link.amazon/B09A9roJo" },
+        { name: "SIMGOT EW300", use: "Best for: Pop, EDM, gaming", desc: "A tri-brid IEM combining dynamic, planar, and PZT drivers to produce energetic bass, crisp treble, and impressive detail.", specs: ["Driver: 1 DD+1 Planar+1 PZT", "Freq: 8Hz–40kHz", "Imp: 16Ω", "Sens: 122dB", "Cable: 0.78mm 2-pin"], link: "https://link.amazon/B0iLpdhry" },
+        { name: "7Hz x Crinacle Zero:2", use: "Best for: Budget all-rounder", desc: "An affordable collaboration IEM known for its balanced tuning, clean bass, and outstanding value. An excellent entry-level choice.", specs: ["Driver: Single 10mm DD", "Freq: 10Hz–20kHz", "Imp: 32Ω", "Sens: 108dB", "Cable: 0.78mm 2-pin"], link: "https://link.amazon/B0ejZ9BQ6" },
+        { name: "Tangzu Wan'er S.G. 2", use: "Best for: Beginners, vocals", desc: "A budget-friendly single dynamic driver IEM with a warm, vocal-focused sound signature. Comfortable and easy to drive.", specs: ["Driver: Single Dynamic Driver", "Freq: 20Hz–20kHz", "Imp: 19Ω", "Sens: 113dB", "Cable: 0.78mm 2-pin"], link: "https://link.amazon/B02qt6BWL" },
+        { name: "AFUL Performer 7", use: "Best for: Audiophiles & studio use", desc: "A flagship hybrid IEM engineered for exceptional resolution, imaging, and tonal accuracy. Built for serious high-end performance.", specs: ["Driver: 1 DD+6 BA Hybrid", "Freq: 5Hz–35kHz", "Imp: 11Ω", "Sens: 109dB", "Cable: 2-pin"], link: "https://link.amazon/B02zpwpWF" },
+        { name: "7HZ x Crinacle: Diablo", use: "Best for: Rock, EDM, metal", desc: "A premium planar magnetic IEM delivering deep bass, fast transients, and excellent detail retrieval for energetic, high-resolution audio.", specs: ["Driver: 14.5mm Planar Magnetic", "Freq: 5Hz–40kHz", "Imp: 16Ω", "Sens: 94dB", "Cable: 2-pin"], link: "https://link.amazon/B09EKPDYY" },
+        { name: "Letshuoer S12 Ultra", use: "Best for: Technical listening", desc: "A high-performance planar magnetic IEM offering remarkable speed, clarity, and instrument separation. Ideal for critical listening.", specs: ["Driver: 14.8mm Planar Magnetic", "Freq: 20Hz–40kHz", "Imp: 16Ω", "Sens: 102dB", "Cable: 2-pin"], link: "https://link.amazon/B03On4WUV" },
+        { name: "KZ ZS10 Pro 2", use: "Best for: Bass lovers & gaming", desc: "An upgraded hybrid IEM with powerful bass, detailed highs, and customizable tuning options. A popular choice for exciting sound.", specs: ["Driver: 1 DD+4 BA Hybrid", "Freq: 20Hz–40kHz", "Imp: 26Ω", "Sens: 108dB", "Cable: 0.75mm 2-pin"], link: "https://link.amazon/B03nzH3fF" }
+    ];
+    let currentIndex = 0;
+    function updateDisplay() {
+        const p = products[currentIndex];
+        document.getElementById('product-title').innerText = p.name;
+        document.getElementById('best-for').innerText = p.use;
+        document.getElementById('description').innerText = p.desc;
+        document.getElementById('order-link').href = p.link;
+        document.getElementById('product-image').src = `iem/images/${currentIndex + 1}.jpg`;
+        document.getElementById('specs-list').innerHTML = p.specs.map(s => `<li>• ${s}</li>`).join('');
+    }
+    function changeProduct() {
+        currentIndex = (currentIndex + 1) % products.length;
+        updateDisplay();
+    }
+    updateDisplay();
+</script>
 </body>
 </html>
