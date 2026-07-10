@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .platinum-border { border: 2px solid #a8a9ad; }
+    </style>
+</head>
+<body class="bg-black text-white p-12">
+    <div class="max-w-5xl mx-auto">
+        <a href="javascript:history.back()" class="text-gray-400 hover:text-white">← Back</a>
+        <h1 class="text-4xl font-bold my-8 text-center text-white">SPECIFICATION COMPARISON</h1>
+        <div id="compareTable" class="grid grid-cols-1 md:grid-cols-2 gap-10"></div>
+    </div>
+
+    <script>
+        const data = JSON.parse(localStorage.getItem('compareData'));
+        const container = document.getElementById('compareTable');
+        
+        data.forEach(item => {
+            const specsHTML = item.specs.split('|').map(s => `<li class="py-3 border-b border-white/10">${s}</li>`).join('');
+            container.innerHTML += `
+                <div class="bg-zinc-900 p-8 rounded-2xl platinum-border">
+                    <img src="${item.img}" class="w-full h-64 object-cover rounded-xl mb-6" alt="${item.name}">
+                    <h2 class="text-3xl font-bold mb-6 border-b border-gray-500 pb-4">${item.name}</h2>
+                    <ul class="text-gray-300">${specsHTML}</ul>
+                </div>`;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP TEN | Premium Audio</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-gold: #D4AF37;
+            --text-main: #FFFFFF;
+            --text-muted: #A0A0A0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding-top: 80px; 
+            padding-bottom: 120px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo { font-weight: bold; font-size: 1.1rem; color: var(--accent-gold); text-decoration: none; justify-self: start; }
+        .page-title { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
+        .back-btn { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; justify-self: end; }
+        .back-btn:hover { color: var(--text-main); }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        .card { 
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            margin-bottom: 50px;
+            border-radius: 20px;
+        }
+
+        .header-section { display: flex; gap: 30px; align-items: center; margin-bottom: 30px; }
+        .img-wrapper { flex: 0 0 200px; }
+        .product-img { width: 200px; height: 200px; object-fit: cover; border-radius: 12px; }
+        .title-group { flex: 1; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+        
+        h2 { font-size: 1.8rem; color: var(--accent-gold); }
+        
+        .btn-group { display: flex; gap: 10px; }
+        .action-btn { 
+            padding: 10px 20px; background: transparent; border: 1px solid var(--accent-gold); 
+            color: var(--accent-gold); text-decoration: none; text-transform: uppercase; 
+            font-size: 0.75rem; letter-spacing: 2px; border-radius: 4px; cursor: pointer; transition: 0.3s;
+        }
+        .action-btn:hover { background: var(--accent-gold); color: #000; }
+        .action-btn.selected { background: var(--accent-gold); color: #000; }
+
+        h3 { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; margin-bottom: 8px; }
+        p { color: #ccc; font-size: 0.95rem; line-height: 1.6; }
+
+        /* Compare Tray & Modal */
+        #compare-tray { position: fixed; bottom: 0; width: 100%; background: #111; padding: 15px; display: none; text-align: center; border-top: 1px solid var(--accent-gold); z-index: 2000; }
+        #modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; padding: 40px; overflow-y: auto; z-index: 3000; }
+        .comp-table { width: 100%; color: white; border-collapse: collapse; margin-top: 20px; }
+        .comp-table th, .comp-table td { border: 1px solid var(--border-color); padding: 15px; vertical-align: top; }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .header-section { flex-direction: column; text-align: center; }
+            .img-wrapper { flex: 0 0 auto; }
+            .product-img { width: 100%; max-width: 200px; }
+            .title-group { align-items: center; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .action-btn { width: 100%; }
+            #modal { padding: 20px 10px; }
+            .comp-table { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="top-bar">
+    <a href="../../../../../index.html" class="logo">TOP TEN</a>
+    <span class="page-title">ABOUT THE PRODUCTS</span>
+    <a href="../calm.html" class="back-btn">Back</a>
+</header>
+
+<div class="container" id="product-list"></div>
+
+<div id="compare-tray">
+    <span id="tray-text" style="margin-right: 20px; color: #fff;">Selected: 0/2</span>
+    <button class="action-btn" onclick="openModal()">Compare Selected</button>
+    <button class="action-btn" onclick="clearSelection()">Clear</button>
+</div>
+
+<div id="modal">
+    <button class="action-btn" onclick="document.getElementById('modal').style.display='none'">Close Comparison</button>
+    <div id="modal-content"></div>
+</div>
+
+<script>
+    const data = [
+        { name: "Marshall Emberton II", img: "images/1.jpg", link: "https://link.amazon/B0fvWNhu3", about: "The Marshall Emberton II is a compact portable speaker that delivers the loud and vibrant sound you’d expect from Marshall. It features True Stereophonic, a unique form of multi-directional sound from Marshall, providing a 360° listening experience.", specs: "Bluetooth 5.1, IP67 dust and water-resistance, 30+ hours of portable playtime, USB-C charging.", pc: "Pros: Iconic design, excellent battery life, 360 sound. Cons: No app EQ, no aux input.", buy: "Perfect for those who want classic rock aesthetics with modern portability." },
+        { name: "JBL Go 4", img: "images/2.jpg", link: "https://link.amazon/B0d1i4IQV", about: "The JBL Go 4 is an ultra-portable speaker designed for those on the move. It features a rugged, fabric-covered design with extra rubber reinforcements for durability. Despite its tiny size, it delivers a surprisingly cohesive and engaging sound with robust bass tones. It is ideal for outdoor use, being fully dustproof and waterproof. The speaker includes a 'Playtime Boost' feature to extend battery life in a pinch. It supports Auracast for stereo pairing, allowing you to connect multiple JBL speakers. The design is intentionally compact to fit in your palm or pocket. It provides a balanced audio experience, avoiding the muddled sound often found in budget speakers. This model is an excellent entry-level option for anyone wanting reliable, portable audio.", specs: "Bluetooth 5.3, IP67 rating, Up to 7 hours battery (plus 2 hours via Playtime Boost), 4.2W power, USB-C charging, Weight: 190g, Dimensions: 7 x 9.4 x 4.2cm, Auracast compatible, Multipoint connection.", pc: "Pros: Engaging sound quality, rugged build, ultra-portable. Cons: Limited bass due to size, battery life is shorter than larger competitors, potential sync delays in stereo mode.", buy: "Buy it if you need an affordable, virtually indestructible speaker that clips into a bag and sounds great for its size." },
+        { name: "Sony SRS-XB100", img: "images/3.jpg", link: "https://link.amazon/B02QC8SYK", about: "The Sony SRS-XB100 is a compact, lightweight speaker built for simplicity and daily portability. It features a cylindrical design that includes a passive radiator for surprisingly deep bass. It is fully protected against dust and water with an IP67 rating, making it perfect for hiking or shower use. The speaker supports Google Fast Pair for quick connection to Android devices. It is straightforward to operate, as it avoids complex software requirements. You can pair two of these units together for a wider stereo soundstage. The inclusion of a sturdy strap makes it easy to attach to backpacks or hooks. While not designed to fill large rooms, it offers sufficient volume for intimate settings. It is a durable, 'no-nonsense' option that simply works well.", specs: "Bluetooth 5.3 (SBC, AAC), IP67 rating, 16-hour battery life, USB-C charging, Weight: 274g, Dimensions: 76mm x 95mm, Integrated microphone, Google Fast Pair support.", pc: "Pros: Excellent battery life, very portable, simple to use. Cons: Not very loud, basic companion app, slow charging.", buy: "It is the ideal companion for solo travelers or hikers who prioritize long battery life and durability over raw volume." },
+        { name: "JBL Flip 6", img: "images/4.jpg", link: "https://link.amazon/B0gLoEhlU", about: "The JBL Flip 6 is a powerhouse in the portable speaker market, known for its iconic tubular design and loud, clear audio. It uses a dedicated tweeter and woofer setup to provide a balanced frequency response across various music genres. The speaker is built tough with an IP67 rating, making it completely dustproof and waterproof for outdoor adventures. It features PartyBoost, which lets you link it with other compatible JBL speakers for a synchronized experience. The exterior is made from high-quality materials that feel solid and long-lasting. It is versatile enough to be positioned vertically or horizontally depending on your space. The JBL Portable app allows you to customize the EQ settings to match your listening preferences. It is a reliable, high-performing speaker that maintains the signature JBL sound.", specs: "20W woofer + 10W tweeter, Bluetooth 5.1, IP67 rating, 12-hour battery life, 2.5-hour charge time, Weight: 550g, Dimensions: 178 x 68 x 72mm, USB-C charging protection.", pc: "Pros: Loud, clear sound, durable design, customizable EQ. Cons: No aux input, mono playback when used alone.", buy: "Choose the Flip 6 for a balanced, high-fidelity sound in a rugged package that can handle parties, beach trips, and daily use." },
+        { name: "JBL Clip 5", img: "images/5.jpg", link: "https://link.amazon/B00wetg59", about: "The JBL Clip 5 is specifically designed for maximum portability and convenience with its integrated, redesigned carabiner. It is incredibly easy to attach to backpacks, tents, or showerheads, making it a versatile travel companion. The speaker delivers surprisingly punchy and loud audio for its compact footprint. It is fully waterproof and dustproof, ensuring it can survive drops or submersion. While it leans heavily into bass, you can adjust the sound profile using the JBL app. It supports multipoint pairing, allowing you to switch between two devices easily. Its durable build quality means it can withstand rough handling on the trail. Though it lacks a built-in microphone, it is a focused device dedicated to music playback. It is a top-tier choice for active users who need sound on the go.", specs: "IP67 waterproof/dustproof, Bluetooth 5.3, ~8-12 hour battery life, 87 dB volume, Multipoint pairing, Weight: 0.27kg, Dimensions: 3.5\" L x 2.0\" W x 5.5\" H, No aux input.", pc: "Pros: Extremely portable, integrated clip, durable. Cons: Shorter-than-claimed battery life, bass can sound muddled at high volumes.", buy: "Perfect for hikers, campers, and people who need a speaker that can be literally 'clipped' anywhere for hands-free audio." },
+        { name: "Tribit StormBox 2", img: "images/6.jpg", link: "https://link.amazon/B0dUuGeFB", about: "The Tribit StormBox 2 is a budget-friendly portable speaker that delivers impressive sound and massive battery life. It features two full-range drivers that provide a rich, loud audio experience when the 'XBass' mode is enabled. The design is rugged and features IPX7 waterproofing, protecting it from accidental spills or rain. One of its standout features is the 24-hour battery life, ensuring it lasts through long camping trips or weekends. It supports stereo pairing with a second unit for a more immersive soundstage. The Tribit app gives users control over a nine-band EQ to fine-tune the audio profile. While it lacks high-end features like Wi-Fi or advanced codecs, it offers great value for its price. The build is solid and drop-resistant, making it a reliable everyday speaker.", specs: "34W total power, Bluetooth 5.3, IPX7 waterproof, 24-hour battery life, USB-C charging, 3.5mm input, Weight: 698g, Dimensions: 180 x 69 x 69mm.", pc: "Pros: Incredible battery life, customizable EQ, great sound for the price. Cons: Design is fairly generic, lacks Wi-Fi or hi-res codecs.", buy: "If you want a long-lasting, loud speaker for outdoor use without breaking the bank, this is a fantastic value option." },
+        { name: "Bose New SoundLink Micro", img: "images/7.jpg", link: "https://link.amazon/B08xi9who", about: "The Bose SoundLink Micro is a compact, high-quality speaker designed specifically for an active, travel-focused lifestyle. It features a durable, rubberized exterior that is rated IPX7 for water resistance, making it safe from rain and puddles. Its unique shape allows it to be attached to bike handles, backpacks, or chairs with ease. Despite its small size, it produces a clear, loud sound that punches well above its weight class. It is widely considered one of the best portable travel speakers due to its balance of size, weight, and audio clarity. The controls are tactile and easy to use, including a dedicated button for voice assistants. It is designed to be 'inconspicuous' but high-performing, fitting perfectly into minimalist travel kits. It remains a go-to choice for those who value the Bose brand's reputation for sound quality.", specs: "IPX7 waterproof, Bluetooth range up to 30ft, integrated strap, rechargeable battery, built-in microphone, USB charging, weight approx 290g.", pc: "Pros: Versatile mounting, excellent sound for size, durable. Cons: App is limited, lacks auto-connect toggle customization.", buy: "Buy it if you want a premium, highly portable travel speaker that fits anywhere and sounds significantly better than cheaper alternatives." },
+        { name: "JBL Go 3", img: "images/8.jpg", link: "https://link.amazon/B0bz26yFq", about: "The JBL Go 3 is a legacy compact favorite known for its stylish, rugged, and ultra-portable design. It features a fabric finish and rubberized grips, making it highly durable and easy to hold. The speaker is fully dustproof and waterproof, allowing for worry-free use at the pool or beach. It delivers a crisp, balanced sound profile that is impressively loud for such a tiny frame. While it lacks deep sub-bass, it handles mid-range and vocals very clearly. The controls are straightforward and tactile, though it lacks features like a built-in microphone or track skipping. It is an affordable entry point into the JBL ecosystem. The battery life is modest but sufficient for short, casual outings. It is a reliable, 'grab-and-go' speaker that excels in simplicity.", specs: "4.2W power, IP67 rating, Bluetooth 5.1, ~5-hour battery life, USB-C charging, Weight: 209g.", pc: "Pros: Very affordable, stylish, fully waterproof. Cons: Short battery life, lacks speakerphone and track navigation.", buy: "A great choice if you need a tiny, inexpensive, and reliable speaker for quick trips or as a gift." },
+        { name: "Tribit XSound Plus 2", img: "images/9.jpg", link: "https://link.amazon/B03BHFvrX", about: "The Tribit XSound Plus 2 is a portable speaker that focuses on high volume and long-lasting playtime. It features a 30W output that provides clear, crisp audio with a dedicated 'XBass' mode for extra punch. With a 24-hour battery life, it is designed for all-day listening sessions at parties or camping. The speaker is IPX7 waterproof, ensuring it can handle wet environments safely. It supports stereo pairing, allowing you to link two speakers for a more room-filling, stereo experience. The top buttons provide easy access to playback controls and preset sound modes like 'Audiobook'. Its build is solid and minimalist, fitting well into any outdoor setup. The included strap makes it easy to carry, though it is slightly heavier than some smaller competitors. It is a versatile choice for anyone needing big sound on a budget.", specs: "30W max power, Bluetooth 5.3, IPX7 waterproof, 24-hour battery life, weight: 580g, stereo pairing mode, USB-C charging.", pc: "Pros: Long battery, loud output, useful sound presets. Cons: A bit bulky/heavy compared to smaller models.", buy: "It's the perfect mid-sized speaker for those who want long battery life and the ability to link speakers for a party." },
+        { name: "JBL Charge 5", img: "images/10.jpg", link: "https://link.amazon/B06erxa4G", about: "The JBL Charge 5 is a versatile, mid-sized speaker that balances high-quality sound with functional features like a power bank. It features a durable, dustproof, and waterproof design, making it a staple for outdoor gatherings. The soundstage is wide, spacious, and well-balanced, delivering the 'JBL sound' that many listeners prefer. Its primary party trick is the ability to charge your phone or other devices using its built-in USB port. With a 20-hour battery life, it provides plenty of music for a full day and night. The build quality is exceptional, with rubberized underbody and durable materials that withstand rough treatment. It comes in a variety of colors to match your personal style. It is highly regarded as one of the best-value portable speakers under $200.", specs: "20-hour battery, Bluetooth 5.1, IP67 dust/waterproof, Weight: 0.96kg, Power bank functionality, USB-A charging output.", pc: "Pros: Clear, detailed sound, reliable power bank, very durable. Cons: Heavier than smaller units, lacks aux input.", buy: "Buy this if you want a reliable speaker that doubles as a phone charger for long days at the beach or park." }
+    ];
+
+    let selected = [];
+
+    function toggleSelect(index) {
+        const product = data[index];
+        const btn = document.getElementById(`btn-${index}`);
+        if(selected.includes(product)) {
+            selected = selected.filter(p => p !== product);
+            btn.classList.remove('selected');
+            btn.innerText = "Compare";
+        } else if(selected.length < 2) {
+            selected.push(product);
+            btn.classList.add('selected');
+            btn.innerText = "Selected";
+        }
+        document.getElementById('tray-text').innerText = `Selected: ${selected.length}/2`;
+        document.getElementById('compare-tray').style.display = selected.length > 0 ? 'block' : 'none';
+    }
+
+    function openModal() {
+        if(selected.length < 2) return alert("Please select 2 products to compare.");
+        let html = `<div style="overflow-x:auto;"><table class="comp-table"><tr><th>Feature</th><th>${selected[0].name}</th><th>${selected[1].name}</th></tr>
+            <tr><td>About</td><td>${selected[0].about}</td><td>${selected[1].about}</td></tr>
+            <tr><td>Specifications</td><td>${selected[0].specs}</td><td>${selected[1].specs}</td></tr>
+            <tr><td>Pros & Cons</td><td>${selected[0].pc}</td><td>${selected[1].pc}</td></tr>
+            <tr><td>Why Buy</td><td>${selected[0].buy}</td><td>${selected[1].buy}</td></tr></table></div>`;
+        document.getElementById('modal-content').innerHTML = html;
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    function clearSelection() {
+        selected = [];
+        document.querySelectorAll('.action-btn.selected').forEach(b => { b.classList.remove('selected'); b.innerText = "Compare"; });
+        document.getElementById('compare-tray').style.display = 'none';
+    }
+
+    const list = document.getElementById('product-list');
+    data.forEach((p, i) => {
+        list.innerHTML += `
+            <div class="card">
+                <div class="header-section">
+                    <div class="img-wrapper"><img src="${p.img}" alt="${p.name}" class="product-img"></div>
+                    <div class="title-group">
+                        <h2>${i + 1}. ${p.name}</h2>
+                        <div class="btn-group">
+                            <a href="${p.link}" class="action-btn" target="_blank">Buy on Amazon</a>
+                            <button class="action-btn" id="btn-${i}" onclick="toggleSelect(${i})">Compare</button>
+                        </div>
+                    </div>
+                </div>
+                <h3>About the Product</h3><p>${p.about}</p>
+                <h3>Specifications</h3><p>${p.specs}</p>
+                <h3>Pros & Cons</h3><p>${p.pc}</p>
+                <h3>Why Buy</h3><p>${p.buy}</p>
+            </div>
+        `;
+    });
+</script>
+
+</body>
+</html>

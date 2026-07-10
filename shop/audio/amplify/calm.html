@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP TEN | CALM</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
+
+        :root {
+            --bg-color: #0a0a0a;
+            --accent-color: #c4a496;
+            --silver: #c0c0c0;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            font-family: var(--font-sans);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header { 
+            padding: 30px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .header-nav { display: flex; gap: 20px; align-items: center; }
+
+        main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 450px 450px;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            padding: 40px;
+        }
+
+        @media (max-width: 950px) {
+            main { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+            .details-side { order: 2; margin: 0 auto; width: 100%; max-width: 400px; }
+            .product-side { order: 1; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.active { opacity: 1; transform: translateY(0); }
+
+        .details-side { max-width: 450px; }
+        .details-side h1 { font-family: var(--font-serif); font-size: 3.5rem; margin-bottom: 20px; }
+        .details-side p { font-size: 1.2rem; line-height: 1.6; color: #fff; margin-bottom: 25px; }
+
+        .product-side { display: flex; flex-direction: column; align-items: center; }
+
+        #display-card {
+            width: 400px; height: 400px; border-radius: 50%;
+            border: 2px solid var(--accent-color); cursor: pointer;
+            overflow: hidden; transition: all 0.4s ease;
+            box-shadow: 0 0 15px rgba(196, 164, 150, 0.2);
+        }
+
+        #display-card:hover { box-shadow: 0 0 30px rgba(196, 164, 150, 0.6); transform: scale(1.02); }
+        #display-card img { width: 100%; height: 100%; object-fit: cover; }
+
+        .product-name { 
+            margin-top: 30px; font-size: 1.8rem; letter-spacing: 6px; 
+            font-family: var(--font-serif); text-transform: uppercase;
+            text-align: center; width: 400px;
+        }
+
+        .btn-purchase {
+            margin-top: 20px; padding: 14px 45px; background: transparent;
+            border: 1px solid var(--accent-color); color: var(--accent-color);
+            text-transform: uppercase; font-size: 0.9rem; letter-spacing: 3px;
+            cursor: pointer; text-decoration: none; transition: 0.3s;
+        }
+
+        .btn-purchase:hover { background: var(--accent-color); color: #000; }
+
+        /* Glowing Read Button */
+        .btn-read {
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid var(--silver);
+            color: var(--silver);
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 5px var(--silver), inset 0 0 5px var(--silver); }
+            50% { box-shadow: 0 0 15px var(--silver), inset 0 0 10px var(--silver); }
+            100% { box-shadow: 0 0 5px var(--silver), inset 0 0 5px var(--silver); }
+        }
+
+        .btn-read:hover { background: var(--silver); color: #000; animation: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html" style="text-decoration:none; color:var(--accent-color); font-weight:bold;">TOP TEN</a>
+        <div style="font-family:var(--font-serif); font-size:2rem;">CALM</div>
+        <div class="header-nav">
+            <a href="calm/log1.html" class="btn-read">READ</a>
+            <a href="../amplify.html" style="color:var(--accent-color); text-decoration:none;">BACK</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="details-side fade-in" id="text-container">
+            <h1 id="prod-title">Marshall Emberton II</h1>
+            <p id="prod-desc">A heavy-hitting portable speaker delivering the absolute signature rock audio experience, packed into a classic vintage aesthetic.</p>
+            <div id="prod-specs" style="font-size:1rem; border-top:1px solid #333; padding-top:15px;">
+                <strong>Specs:</strong> True Stereophonic 360° Sound | IP67 Dust and Waterproof | 30+ Hours Battery Life
+            </div>
+        </div>
+        <div class="product-side">
+            <div id="display-card" onclick="nextCard()">
+                <img id="card-img" src="calm/images/1.jpg" alt="Marshall Emberton II">
+            </div>
+            <div class="product-name" id="prod-name">Marshall Emberton II</div>
+            <a id="purchase-link" href="https://link.amazon/B0fvWNhu3" class="btn-purchase" target="_blank">buy on amazon</a>
+        </div>
+    </main>
+
+    <script>
+        const data = [
+            { name: "Marshall Emberton II", desc: "A heavy-hitting portable speaker delivering the absolute signature rock audio experience, packed into a classic vintage aesthetic.", specs: "True Stereophonic 360° Sound | IP67 Dust and Waterproof | 30+ Hours Battery Life", img: "calm/images/1.jpg", link: "https://link.amazon/B0fvWNhu3" },
+            { name: "JBL Go 4", desc: "Ultra-compact and punchy block speaker offering surprisingly big JBL Pro Sound audio and rugged outdoor utility.", specs: "JBL Pro Sound | IP67 Waterproof | Up to 7 Hours Playtime + PlaytimeBoost", img: "calm/images/2.jpg", link: "https://link.amazon/B0d1i4IQV" },
+            { name: "Sony SRS-XB100", desc: "A travel-ready wireless speaker meticulously engineered to spread crisp, expansive sound uniformly in all directions.", specs: "Sound Diffusion Processor | IP67 Waterproof | Up to 16 Hours Battery Life", img: "calm/images/3.jpg", link: "https://link.amazon/B02QC8SYK" },
+            { name: "JBL Flip 6", desc: "Powerful 2-way speaker architecture delivers exceptional clarity with booming bass depth in a sleek, portable cylinder framework.", specs: "2-Way Speaker System | IP67 Water/Dust Proof | 12 Hours Continuous Playtime", img: "calm/images/4.jpg", link: "https://link.amazon/B0gLoEhlU" },
+            { name: "JBL Clip 5", desc: "The quintessential ultra-portable companion featuring a completely redesigned ultra-wide integrated carabiner clip.", specs: "Upgraded Carabiner Hook | IP67 Weatherproof | 12 Hours Battery Endurance", img: "calm/images/5.jpg", link: "https://link.amazon/B00wetg59" },
+            { name: "Tribit StormBox 2", desc: "Immersive omnidirectional sound layout designed to deliver rich high-fidelity acoustics effortlessly throughout any social space.", specs: "360° Surround Audio | XBass Technology Boost | IPX7 Fully Waterproofing", img: "calm/images/6.jpg", link: "https://link.amazon/B0dUuGeFB" },
+            { name: "Bose SoundLink", desc: "Defies its small size with incredibly rich audio performance and a resilient tear-resistant silicone utility strap.", specs: "Crisp Bose Acoustic Engine | Tear-Resistant Strap | IP67 Waterproof Rating", img: "calm/images/7.jpg", link: "https://link.amazon/B08xi9who" },
+            { name: "JBL Go 3", desc: "Edgy, modern street-style apparel styling mixed with prominent, robust acoustics for the casual urban commuter.", specs: "Bold Fabric Style Layout | IP67 Waterproofing | 5 Hours Untethered Playtime", img: "calm/images/8.jpg", link: "https://link.amazon/B0bz26yFq" },
+            { name: "Tribit XSound Plus 2", desc: "Premium grade portable audio core tuned for crystal clear vocal tracks and deep, heavy acoustic dynamic range personalization.", specs: "30W Powerful Sound Matrix | Custom EQ Application | 24-Hour Deep Playback", img: "calm/images/9.jpg", link: "https://link.amazon/B03BHFvrX" },
+            { name: "JBL Charge 5", desc: "Equipped with an optimized long-excursion driver to blast massive studio audio alongside a built-in powerbank mechanism.", specs: "Massive JBL Pro Sound | Built-In Device Powerbank | 20 Hours Extensively Rugged", img: "calm/images/10.jpg", link: "https://link.amazon/B06erxa4G" },
+        ];
+
+        let current = 0;
+        const container = document.getElementById('text-container');
+
+        function nextCard() {
+            container.classList.remove('active');
+            current = (current + 1) % data.length;
+            
+            setTimeout(() => {
+                const item = data[current];
+                document.getElementById('prod-title').textContent = item.name;
+                document.getElementById('prod-desc').textContent = item.desc;
+                document.getElementById('prod-specs').innerHTML = `<strong>Specs:</strong> ${item.specs}`;
+                document.getElementById('card-img').src = item.img;
+                document.getElementById('card-img').alt = item.name;
+                document.getElementById('prod-name').textContent = item.name;
+                document.getElementById('purchase-link').href = item.link;
+                container.classList.add('active');
+            }, 300);
+        }
+
+        window.onload = () => container.classList.add('active');
+    </script>
+</body>
+</html>

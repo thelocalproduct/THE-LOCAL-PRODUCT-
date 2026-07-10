@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE AUDIO PEOPLE | TOP TEN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #050505;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding-bottom: 2rem;
+        }
+        
+        .premium-font { font-family: 'Playfair Display', serif; }
+        
+        .platinum-card {
+            border: 1px solid rgba(229, 228, 226, 0.3);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            height: 250px;
+            display: block;
+        }
+
+        .platinum-card:hover {
+            box-shadow: 0 0 20px rgba(229, 228, 226, 0.5);
+            border-color: rgba(229, 228, 226, 1);
+            transform: translateY(-10px);
+        }
+
+        .card-label {
+            background: rgba(0,0,0,0.7);
+            border-top: 1px solid rgba(229, 228, 226, 0.3);
+            backdrop-filter: blur(4px);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="w-full flex justify-between items-center p-8">
+        <a href="../../../index.html" class="premium-font text-2xl tracking-[0.2em] text-white hover:text-gray-300 transition">
+            TOP TEN
+        </a>
+        <button onclick="history.back()" class="text-xs uppercase tracking-[0.2em] border border-white/20 px-6 py-2 hover:bg-white hover:text-black transition duration-300">
+            Back
+        </button>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="text-center mt-4 mb-12">
+        <h1 class="text-4xl md:text-6xl premium-font tracking-[0.2em] uppercase text-white mb-4">
+            THE AUDIO PEOPLE
+        </h1>
+        <p class="text-gray-400 italic text-sm md:text-base tracking-widest font-light">
+            "Purity in every note. Precision in every design."
+        </p>
+    </header>
+
+    <!-- Product Grid -->
+    <main class="w-full max-w-6xl px-6 grid grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Card 1: In Ear -->
+        <a href="listen/inear.html" class="platinum-card">
+            <img src="listen/images/audio1.jpg" class="w-full h-full object-cover" alt="In Ear">
+            <div class="card-label absolute bottom-0 w-full p-4 text-center">
+                <h3 class="premium-font text-xs tracking-[0.2em] uppercase">In Ear</h3>
+            </div>
+        </a>
+
+        <!-- Card 2: Over Head -->
+        <a href="listen/overhead.html" class="platinum-card">
+            <img src="listen/images/audio2.jpg" class="w-full h-full object-cover" alt="Over Head">
+            <div class="card-label absolute bottom-0 w-full p-4 text-center">
+                <h3 class="premium-font text-xs tracking-[0.2em] uppercase">Over Head</h3>
+            </div>
+        </a>
+
+        <!-- Card 3: T W S -->
+        <a href="listen/tws.html" class="platinum-card">
+            <img src="listen/images/audio3.jpg" class="w-full h-full object-cover" alt="T W S">
+            <div class="card-label absolute bottom-0 w-full p-4 text-center">
+                <h3 class="premium-font text-xs tracking-[0.2em] uppercase">T W S</h3>
+            </div>
+        </a>
+
+        <!-- Card 4: I E M -->
+        <a href="listen/iem.html" class="platinum-card">
+            <img src="listen/images/audio4.jpg" class="w-full h-full object-cover" alt="I E M">
+            <div class="card-label absolute bottom-0 w-full p-4 text-center">
+                <h3 class="premium-font text-xs tracking-[0.2em] uppercase">I E M</h3>
+            </div>
+        </a>
+
+    </main>
+
+</body>
+</html>

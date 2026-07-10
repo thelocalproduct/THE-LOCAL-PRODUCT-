@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP TEN | LOUD</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
+
+        :root {
+            --bg-color: #0a0a0a;
+            --accent-color: #c4a496;
+            --silver: #c0c0c0;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            font-family: var(--font-sans);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header { 
+            padding: 30px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .header-nav { display: flex; gap: 20px; align-items: center; }
+
+        main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 450px 450px;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            padding: 40px;
+        }
+
+        @media (max-width: 950px) {
+            main { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+            .details-side { order: 2; margin: 0 auto; width: 100%; max-width: 400px; }
+            .product-side { order: 1; }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.active { opacity: 1; transform: translateY(0); }
+
+        .details-side { max-width: 450px; }
+        .details-side h1 { font-family: var(--font-serif); font-size: 3.5rem; margin-bottom: 20px; }
+        .details-side p { font-size: 1.2rem; line-height: 1.6; color: #fff; margin-bottom: 25px; }
+
+        .product-side { display: flex; flex-direction: column; align-items: center; }
+
+        #display-card {
+            width: 400px; height: 400px; border-radius: 50%;
+            border: 2px solid var(--accent-color); cursor: pointer;
+            overflow: hidden; transition: all 0.4s ease;
+            box-shadow: 0 0 15px rgba(196, 164, 150, 0.2);
+        }
+
+        #display-card:hover { box-shadow: 0 0 30px rgba(196, 164, 150, 0.6); transform: scale(1.02); }
+        #display-card img { width: 100%; height: 100%; object-fit: cover; }
+
+        .product-name { 
+            margin-top: 30px; font-size: 1.8rem; letter-spacing: 6px; 
+            font-family: var(--font-serif); text-transform: uppercase;
+            text-align: center; width: 400px;
+        }
+
+        .btn-purchase {
+            margin-top: 20px; padding: 14px 45px; background: transparent;
+            border: 1px solid var(--accent-color); color: var(--accent-color);
+            text-transform: uppercase; font-size: 0.9rem; letter-spacing: 3px;
+            cursor: pointer; text-decoration: none; transition: 0.3s;
+        }
+
+        .btn-purchase:hover { background: var(--accent-color); color: #000; }
+
+        .btn-read {
+            padding: 8px 20px;
+            background: transparent;
+            border: 1px solid var(--silver);
+            color: var(--silver);
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: 0.3s;
+            animation: pulse-glow 2s infinite;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 5px var(--silver), inset 0 0 5px var(--silver); }
+            50% { box-shadow: 0 0 15px var(--silver), inset 0 0 10px var(--silver); }
+            100% { box-shadow: 0 0 5px var(--silver), inset 0 0 5px var(--silver); }
+        }
+
+        .btn-read:hover { background: var(--silver); color: #000; animation: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="../../../../index.html" style="text-decoration:none; color:var(--accent-color); font-weight:bold;">TOP TEN</a>
+        <div style="font-family:var(--font-serif); font-size:2rem;">LOUD</div>
+        <div class="header-nav">
+            <a href="loud/log2.html" class="btn-read">READ</a>
+            <a href="../amplify.html" style="color:var(--accent-color); text-decoration:none;">BACK</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="details-side fade-in" id="text-container">
+            <h1 id="prod-title">JBL PartyBox Encore Essential</h1>
+            <p id="prod-desc">An all-in-one portable party speaker featuring powerful JBL Original Pro Sound, a deep bass boost, and integrated dynamic light shows.</p>
+            <div id="prod-specs" style="font-size:1rem; border-top:1px solid #333; padding-top:15px;">
+                <strong>Specs:</strong> 100W Output Power | IPX4 Splash Proof | 10 Hours Battery Life
+            </div>
+        </div>
+        <div class="product-side">
+            <div id="display-card" onclick="nextCard()">
+                <img id="card-img" src="loud/images/1.jpg" alt="JBL PartyBox Encore Essential">
+            </div>
+            <div class="product-name" id="prod-name">JBL PartyBox Encore Essential</div>
+            <a id="purchase-link" href="https://link.amazon/B03plNrIH" class="btn-purchase" target="_blank">buy on amazon</a>
+        </div>
+    </main>
+
+    <script>
+        const data = [
+            { name: "JBL PartyBox Encore Essential", desc: "An all-in-one portable party speaker featuring powerful JBL Original Pro Sound, a deep bass boost, and integrated dynamic light shows.", specs: "100W Output Power | IPX4 Splash Proof | 10 Hours Battery Life", img: "loud/images/1.jpg", link: "https://link.amazon/B03plNrIH" },
+            { name: "Sony ULT Field 3", desc: "Engineered for pure power, the ULT button boosts your bass for club-like intensity in a portable, adventure-ready design.", specs: "ULT Bass Boost | IP67 Water/Dust Proof | 24 Hours Battery Life", img: "loud/images/2.jpg", link: "https://link.amazon/B03plNrIH" },
+            { name: "JBL Charge 6", desc: "The legendary portable speaker, now with AI Sound Boost and a sturdier build, continues to deliver massive studio-quality audio.", specs: "AI Sound Boost | Built-in Powerbank | 28 Hours Playtime", img: "loud/images/3.jpg", link: "https://link.amazon/B03plNrIH" },
+            { name: "Soundcore Boom 2", desc: "A 2.1 stereo powerhouse with a dedicated subwoofer that delivers crisp highs and earth-shaking bass for any outdoor setting.", specs: "50W Subwoofer + Dual Tweeters | IPX7 Waterproof | 24 Hours Playtime", img: "loud/images/4.jpg", link: "https://link.amazon/B0783adI6" },
+            { name: "Marshall Emberton III", desc: "Experience Marshall's signature multi-directional sound in a rugged, iconic vintage design that fits perfectly in your hand.", specs: "True Stereophonic Sound | IP67 Weatherproof | 32+ Hours Battery Life", img: "loud/images/5.jpg", link: "https://link.amazon/B0ebGcz4c" },
+            { name: "Bose SoundLink Flex (2nd Gen)", desc: "High-fidelity audio meets incredible durability; PositionIQ technology automatically optimizes sound regardless of orientation.", specs: "PositionIQ Technology | IP67 Waterproof | 12 Hours Battery Life", img: "loud/images/6.jpg", link: "https://link.amazon/B0g9sgCQb" },
+            { name: "Harman Kardon Luna II", desc: "Understated elegance meets high-performance audio with an angled dual-driver design for rich, immersive dynamics.", specs: "40W RMS Audio | Ambient Lighting | 12 Hours Battery Life", img: "loud/images/7.jpg", link: "https://link.amazon/B0chPh45Y" },
+            { name: "Ultimate Ears Epicboom", desc: "Engineered for epic 360-degree sound with an adaptive EQ that ensures perfect audio balance in every environment.", specs: "360° Immersive Sound | IP67 Water/Drop Proof | 17 Hours Playtime", img: "loud/images/8.jpg", link: "https://link.amazon/B0blqxFp0" },
+            { name: "boAt Stone 900", desc: "A high-wattage party machine offering balanced audio output and dynamic RGB lighting for an enhanced visual and sonic experience.", specs: "80W Signature Sound | Dynamic RGB Lights | 15 Hours Battery Life", img: "loud/images/9.jpg", link: "https://link.amazon/B090xEwX5" },
+            { name: "Zebronics Sound Feast 450", desc: "Compact yet punchy, this triple-driver speaker delivers 50W of sound with dual passive radiators for enhanced bass depth.", specs: "50W RMS Output | RGB Lighting Modes | TWS Connectivity", img: "loud/images/10.jpg", link: "https://link.amazon/B07JGa1q2" }
+        ];
+
+        let current = 0;
+        const container = document.getElementById('text-container');
+
+        function nextCard() {
+            container.classList.remove('active');
+            current = (current + 1) % data.length;
+            
+            setTimeout(() => {
+                const item = data[current];
+                document.getElementById('prod-title').textContent = item.name;
+                document.getElementById('prod-desc').textContent = item.desc;
+                document.getElementById('prod-specs').innerHTML = `<strong>Specs:</strong> ${item.specs}`;
+                document.getElementById('card-img').src = item.img;
+                document.getElementById('card-img').alt = item.name;
+                document.getElementById('prod-name').textContent = item.name;
+                document.getElementById('purchase-link').href = item.link;
+                container.classList.add('active');
+            }, 300);
+        }
+
+        window.onload = () => container.classList.add('active');
+    </script>
+</body>
+</html>

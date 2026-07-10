@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATEGORY | TOP TEN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background: radial-gradient(circle at center, #3e4446 0%, #202324 40%, #0a0a0a 100%); color: #ffffff; min-height: 100vh; margin: 0; display: flex; flex-direction: column; }
+        h1 { font-family: 'Playfair Display', serif; }
+        
+        .metal-gradient { background: linear-gradient(135deg, #a8a9ad 0%, #e8e8e8 50%, #717478 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-border { border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+
+        /* Silver/Platinum Metallic Border Effect */
+        .card-item { 
+            background: rgba(255, 255, 255, 0.03); 
+            border: 2px solid #a8a9ad; 
+            cursor: pointer; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+        
+        .card-item:hover { border-color: #e8e8e8; transform: translateY(-10px); }
+        
+        /* Selection Glow: Platinum/Silver Shine */
+        .card-item.selected { 
+            border-color: #ffffff; 
+            box-shadow: 0 0 20px rgba(232, 232, 232, 0.6), inset 0 0 10px rgba(168, 169, 173, 0.3);
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .gold-text { color: #D4AF37; }
+        .gold-bg { background: linear-gradient(135deg, #D4AF37 0%, #F8F9FA 100%); }
+    </style>
+</head>
+<body>
+
+    <nav class="w-full p-8 nav-border flex justify-between items-center">
+        <a href="../index.html" class="flex items-center"><h1 class="metal-gradient text-3xl font-bold tracking-widest">TOP TEN</h1></a>
+        <div class="flex gap-4 items-center">
+            <button id="compareBtn" onclick="toggleSelectionMode()" class="text-gray-300 border border-gray-500 px-4 py-2 rounded-lg hover:text-white uppercase text-sm tracking-widest transition">COMPARE</button>
+            <a href="tablet.html" class="text-gray-400 border border-white/10 px-4 py-2 rounded-lg hover:text-white uppercase text-sm tracking-widest">← Back</a>
+        </div>
+    </nav>
+
+    <div id="notifyCard" class="hidden fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-black border border-gray-400 p-8 rounded-2xl shadow-[0_0_30px_rgba(255,255,255,0.2)] text-center w-80">
+        <h2 class="text-xl font-bold text-white mb-6 tracking-widest uppercase">Choose Any Two</h2>
+        <button id="enterBtn" onclick="goToCompare()" class="hidden w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-gray-200 transition">ENTER</button>
+        <button onclick="toggleSelectionMode()" class="mt-4 text-gray-500 hover:text-white text-sm uppercase">Cancel</button>
+    </div>
+
+    <main class="flex-grow p-8 md:p-12">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6" id="grid">
+            <div class="card-item p-4 rounded-xl" onclick="toggleSelect(this)" data-name="Item 01" data-specs="Display: 10 inch | RAM: 8GB | Battery: 5000mAh"><div class="h-40 bg-zinc-800 rounded-lg mb-4 flex items-center justify-center text-gray-500">IMG</div><h3 class="text-lg font-semibold">Item 01</h3></div>
+            <div class="card-item p-4 rounded-xl" onclick="toggleSelect(this)" data-name="Item 02" data-specs="Display: 11 inch | RAM: 16GB | Battery: 6000mAh"><div class="h-40 bg-zinc-800 rounded-lg mb-4 flex items-center justify-center text-gray-500">IMG</div><h3 class="text-lg font-semibold">Item 02</h3></div>
+            <div class="card-item p-4 rounded-xl" onclick="toggleSelect(this)" data-name="Item 03" data-specs="Display: 12 inch | RAM: 8GB | Battery: 7000mAh"><div class="h-40 bg-zinc-800 rounded-lg mb-4 flex items-center justify-center text-gray-500">IMG</div><h3 class="text-lg font-semibold">Item 03</h3></div>
+            <div class="card-item p-4 rounded-xl" onclick="toggleSelect(this)" data-name="Item 04" data-specs="Display: 10.5 inch | RAM: 12GB | Battery: 5500mAh"><div class="h-40 bg-zinc-800 rounded-lg mb-4 flex items-center justify-center text-gray-500">IMG</div><h3 class="text-lg font-semibold">Item 04</h3></div>
+            <div class="card-item p-4 rounded-xl" onclick="toggleSelect(this)" data-name="Item 05" data-specs="Display: 9.7 inch | RAM: 8GB | Battery: 4500mAh"><div class="h-40 bg-zinc-800 rounded-lg mb-4 flex items-center justify-center text-gray-500">IMG</div><h3 class="text-lg font-semibold">Item 05</h3></div>
+            <div class="card-item p-4 rounded-xl" onclick="toggleSelect(this)" data-name="Item 06" data-specs="Display: 11.5 inch | RAM: 16GB | Battery: 6500mAh"><div class="h-40 bg-zinc-800 rounded-lg mb-4 flex items-center justify-center text-gray-500">IMG</div><h3 class="text-lg font-semibold">Item 06</h3></div>
+            <div class="card-item p-4 rounded-xl" onclick="toggleSelect(this)" data-name="Item 07" data-specs="Display: 10 inch | RAM: 8GB | Battery: 5200mAh"><div class="h-40 bg-zinc-800 rounded-lg mb-4 flex items-center justify-center text-gray-500">IMG</div><h3 class="text-lg font-semibold">Item 07</h3></div>
+            <div class="card-item p-4 rounded-xl" onclick="toggleSelect(this)" data-name="Item 08" data-specs="Display: 12.9 inch | RAM: 16GB | Battery: 8000mAh"><div class="h-40 bg-zinc-800 rounded-lg mb-4 flex items-center justify-center text-gray-500">IMG</div><h3 class="text-lg font-semibold">Item 08</h3></div>
+            <div class="card-item p-4 rounded-xl" onclick="toggleSelect(this)" data-name="Item 09" data-specs="Display: 8.3 inch | RAM: 8GB | Battery: 4000mAh"><div class="h-40 bg-zinc-800 rounded-lg mb-4 flex items-center justify-center text-gray-500">IMG</div><h3 class="text-lg font-semibold">Item 09</h3></div>
+            <div class="card-item p-4 rounded-xl" onclick="toggleSelect(this)" data-name="Item 10" data-specs="Display: 10.9 inch | RAM: 12GB | Battery: 5800mAh"><div class="h-40 bg-zinc-800 rounded-lg mb-4 flex items-center justify-center text-gray-500">IMG</div><h3 class="text-lg font-semibold">Item 10</h3></div>
+        </div>
+    </main>
+
+    <script>
+        let isSelectionMode = false;
+        let selected = [];
+
+        function toggleSelectionMode() {
+            isSelectionMode = !isSelectionMode;
+            document.getElementById('notifyCard').classList.toggle('hidden', !isSelectionMode);
+            if (!isSelectionMode) {
+                selected.forEach(c => c.classList.remove('selected'));
+                selected = [];
+                document.getElementById('enterBtn').classList.add('hidden');
+            }
+        }
+
+        function toggleSelect(card) {
+            if (!isSelectionMode) return;
+            if (card.classList.contains('selected')) {
+                card.classList.remove('selected');
+                selected = selected.filter(item => item !== card);
+            } else if (selected.length < 2) {
+                card.classList.add('selected');
+                selected.push(card);
+            }
+            document.getElementById('enterBtn').classList.toggle('hidden', selected.length !== 2);
+        }
+
+        function goToCompare() {
+            const data = selected.map(card => ({ name: card.dataset.name, specs: card.dataset.specs }));
+            localStorage.setItem('compareData', JSON.stringify(data));
+            window.location.href = 'compare.html';
+        }
+    </script>
+</body>
+</html>

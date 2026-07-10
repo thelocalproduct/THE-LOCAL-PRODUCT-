@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CATEGORY | TOP TEN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: radial-gradient(circle at center, #3e4446 0%, #202324 40%, #0a0a0a 100%);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        h1, h2 { font-family: 'Playfair Display', serif; }
+        
+        .metal-gradient {
+            background: linear-gradient(135deg, #a8a9ad 0%, #e8e8e8 50%, #717478 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-border { border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+
+        .glowing-card {
+            position: relative;
+            width: 100%;
+            border-radius: 1rem;
+            transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .glowing-card:hover {
+            transform: translateY(-15px) scale(1.02);
+        }
+
+        .border-container {
+            position: relative;
+            padding: 3px;
+            border-radius: 1.1rem;
+            background: linear-gradient(45deg, #e78989, #e9d5c5, #e5e5df, #a5e894, #a0a7a5, #c4c7d2, #d2cada, #cbc5ca, #f7f3f3);
+            background-size: 400%;
+            animation: rgb-rotate 20s linear infinite;
+        }
+
+        @keyframes rgb-rotate {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        .card-inner {
+            background: #0a0a0a;
+            border-radius: 1rem;
+            overflow: hidden;
+            padding-top: 56.25%;
+            position: relative;
+        }
+
+        .card-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="w-full p-6 md:p-8 nav-border flex justify-between items-center">
+        <a href="../index.html" class="flex items-center">
+            <h1 class="metal-gradient text-3xl font-bold tracking-widest">TOP TEN</h1>
+        </a>
+        <a href="../shop.html" class="text-gray-400 hover:text-white transition uppercase text-sm tracking-widest border border-white/10 px-4 py-2 rounded-lg hover:border-white/30">
+            ← Back
+        </a>
+    </nav>
+
+    <main class="flex-grow flex flex-col items-center justify-center p-6 md:p-12 text-center">
+        
+        <h2 class="text-4xl md:text-5xl font-bold mb-12 metal-gradient tracking-tight">EXPLORE PREMIER SECTIONS</h2>
+        
+        <div class="flex flex-col md:flex-row items-center justify-center gap-10 w-full max-w-6xl">
+            
+            <a href="tablet/ios.html" class="glowing-card w-full md:w-1/2">
+                <div class="border-container">
+                    <div class="card-inner">
+                        <img src="tablet/images/ios.jpg" alt="iOS" class="card-img">
+                    </div>
+                </div>
+            </a>
+            
+            <a href="tablet/android.html" class="glowing-card w-full md:w-1/2">
+                <div class="border-container">
+                    <div class="card-inner">
+                        <img src="tablet/images/android.jpg" alt="Android" class="card-img">
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer class="w-full text-center p-8 text-gray-600 text-xs tracking-widest uppercase">
+        © 2026 Top Ten. All rights reserved.
+    </footer>
+
+</body>
+</html>

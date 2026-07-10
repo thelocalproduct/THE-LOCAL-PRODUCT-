@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP TEN | THE AUDIO PEOPLE</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
+
+        :root {
+            --bg-color: #0a0a0a;
+            --accent-color: #c4a496; /* The rose-gold/bronze tone */
+            --border-color: rgba(196, 164, 150, 0.4);
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--accent-color);
+            font-family: var(--font-sans);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Bar */
+        header {
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo { 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: opacity 0.3s;
+        }
+        .logo:hover { opacity: 0.7; }
+
+        .title { 
+            font-family: var(--font-serif); 
+            font-size: 2.5rem; 
+            color: var(--accent-color); 
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        
+        nav a {
+            color: var(--accent-color);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover { opacity: 0.7; }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .quote {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-size: 2rem;
+            color: var(--accent-color);
+            text-align: center;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        /* Cards */
+        .card {
+            width: 450px;
+            aspect-ratio: 16 / 9;
+            background: #111;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.5s ease;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 25px var(--border-color);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover img { opacity: 0.8; }
+
+        .card h2 {
+            z-index: 2;
+            font-size: 2rem;
+            letter-spacing: 6px;
+            color: var(--accent-color);
+            font-family: var(--font-serif);
+            text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            pointer-events: none;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 768px) {
+            header { padding: 20px; flex-direction: column; gap: 15px; }
+            .title { font-size: 1.8rem; }
+            .quote { font-size: 1.4rem; padding: 0 20px; }
+            .card-container { flex-direction: column; gap: 20px; width: 90%; }
+            .card { width: 100%; aspect-ratio: 16 / 10; }
+            .card h2 { font-size: 1.5rem; }
+            body { height: auto; padding-bottom: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="../../../../index.html" class="logo">TOP TEN</a>
+        <div class="title">THE AUDIO PEOPLE</div>
+        <nav>
+            <a href="../audio.html">Back</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="quote">"Music is the silence between the notes."</div>
+
+        <div class="card-container">
+            <a href="amplify/calm.html" class="card">
+                <img src="amplify/images/calm.jpg" alt="CALM">
+                <h2>CALM</h2>
+            </a>
+
+            <a href="amplify/loud.html" class="card">
+                <img src="amplify/images/loud.jpg" alt="LOUD">
+                <h2>LOUD</h2>
+            </a>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP TEN | The Best Only</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('images/indexbg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(0.3) saturate(0.8);
+        }
+
+        h1, h2 { font-family: 'Playfair Display', serif; }
+        
+        .text-gold-gradient {
+            background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .footer-premium {
+            background-color: rgba(18, 16, 13, 0.8);
+            border: 1px solid #2d261e;
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+        }
+
+        @media (max-width: 1024px) {
+            .footer-divider { border-right: none; border-bottom: 1px solid #332d26; }
+        }
+
+        .shop-btn {
+            transition: all 0.3s ease;
+        }
+        .shop-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(191, 149, 63, 0.6);
+            border-color: #fcf6ba;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="bg-container"></div>
+
+    <header class="w-full max-w-7xl flex justify-start items-center mb-10">
+        <div class="text-left">
+            <h1 class="text-gold-gradient text-3xl font-bold tracking-widest">TOP10</h1>
+            <p class="text-[10px] tracking-[0.3em] uppercase text-gray-400">The Best Only</p>
+        </div>
+    </header>
+
+    <main class="flex flex-col items-center justify-center text-center w-full max-w-5xl flex-grow">
+        <p class="text-[#d4af37] uppercase tracking-[0.3em] text-sm mb-4">Top 10 Products</p>
+        
+        <h2 class="text-gold-gradient text-5xl md:text-8xl font-bold mb-6 leading-tight">Only the Best.<br>Nothing Else.</h2>
+        
+        <p class="text-gray-400 max-w-md mb-8 text-lg px-4">Discover the Top 10 highest-rated products carefully selected from thousands of options.</p>
+        
+        <a href="shop.html" class="mb-8">
+            <button class="shop-btn bg-black/50 border border-[#bf953f] px-10 py-4 rounded-full font-bold flex items-center gap-3 text-lg">
+                <span class="text-gold-gradient">SHOP NOW →</span>
+            </button>
+        </a>
+    </main>
+
+    <footer class="w-full max-w-6xl footer-premium p-6 mt-12 mb-4 mx-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="flex items-center gap-4 px-2 lg:border-r border-[#332d26]">
+                <div class="text-3xl text-[#d4af37]">👑</div>
+                <div class="text-left">
+                    <h4 class="font-bold text-gold-gradient text-sm">Best in Category</h4>
+                    <p class="text-xs text-gray-400">Only top-performing products.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 px-2 lg:border-r border-[#332d26]">
+                <div class="text-3xl text-[#d4af37]">🛡️</div>
+                <div class="text-left">
+                    <h4 class="font-bold text-gold-gradient text-sm">Expert Selected</h4>
+                    <p class="text-xs text-gray-400">Handpicked by experts.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 px-2 lg:border-r border-[#332d26]">
+                <div class="text-3xl text-[#d4af37]">💎</div>
+                <div class="text-left">
+                    <h4 class="font-bold text-gold-gradient text-sm">Premium Quality</h4>
+                    <p class="text-xs text-gray-400">Exceptional quality.</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4 px-2">
+                <div class="text-3xl text-[#d4af37]">🔄</div>
+                <div class="text-left">
+                    <h4 class="font-bold text-gold-gradient text-sm">Updated Monthly</h4>
+                    <p class="text-xs text-gray-400">Refreshed every month.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

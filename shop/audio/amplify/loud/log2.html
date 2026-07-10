@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP TEN | Premium Audio</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-gold: #D4AF37;
+            --text-main: #FFFFFF;
+            --text-muted: #A0A0A0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding-top: 80px; 
+            padding-bottom: 120px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo { font-weight: bold; font-size: 1.1rem; color: var(--accent-gold); text-decoration: none; justify-self: start; }
+        .page-title { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
+        .back-btn { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; justify-self: end; }
+        .back-btn:hover { color: var(--text-main); }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        .card { 
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            margin-bottom: 50px;
+            border-radius: 20px;
+        }
+
+        .header-section { display: flex; gap: 30px; align-items: center; margin-bottom: 30px; }
+        .img-wrapper { flex: 0 0 200px; }
+        .product-img { width: 200px; height: 200px; object-fit: cover; border-radius: 12px; }
+        .title-group { flex: 1; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+        
+        h2 { font-size: 1.8rem; color: var(--accent-gold); }
+        
+        .btn-group { display: flex; gap: 10px; }
+        .action-btn { 
+            padding: 10px 20px; background: transparent; border: 1px solid var(--accent-gold); 
+            color: var(--accent-gold); text-decoration: none; text-transform: uppercase; 
+            font-size: 0.75rem; letter-spacing: 2px; border-radius: 4px; cursor: pointer; transition: 0.3s;
+        }
+        .action-btn:hover { background: var(--accent-gold); color: #000; }
+        .action-btn.selected { background: var(--accent-gold); color: #000; }
+
+        h3 { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 20px; margin-bottom: 8px; }
+        p { color: #ccc; font-size: 0.95rem; line-height: 1.6; }
+
+        /* Compare Tray & Modal */
+        #compare-tray { position: fixed; bottom: 0; width: 100%; background: #111; padding: 15px; display: none; text-align: center; border-top: 1px solid var(--accent-gold); z-index: 2000; }
+        #modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); display: none; padding: 40px; overflow-y: auto; z-index: 3000; }
+        .comp-table { width: 100%; color: white; border-collapse: collapse; margin-top: 20px; }
+        .comp-table th, .comp-table td { border: 1px solid var(--border-color); padding: 15px; vertical-align: top; }
+
+        /* Responsive Mobile */
+        @media (max-width: 768px) {
+            .header-section { flex-direction: column; text-align: center; }
+            .img-wrapper { flex: 0 0 auto; }
+            .product-img { width: 100%; max-width: 200px; }
+            .title-group { align-items: center; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .action-btn { width: 100%; }
+            #modal { padding: 20px 10px; }
+            .comp-table { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="top-bar">
+    <a href="../../../../../index.html" class="logo">TOP TEN</a>
+    <span class="page-title">ABOUT THE PRODUCTS</span>
+    <a href="../calm.html" class="back-btn">Back</a>
+</header>
+
+<div class="container" id="product-list"></div>
+
+<div id="compare-tray">
+    <span id="tray-text" style="margin-right: 20px; color: #fff;">Selected: 0/2</span>
+    <button class="action-btn" onclick="openModal()">Compare Selected</button>
+    <button class="action-btn" onclick="clearSelection()">Clear</button>
+</div>
+
+<div id="modal">
+    <button class="action-btn" onclick="document.getElementById('modal').style.display='none'">Close Comparison</button>
+    <div id="modal-content"></div>
+</div>
+
+<script>
+    const data = [
+        { 
+            name: "JBL PartyBox Encore Essential", 
+            img: "images/1.jpg", 
+            link: "https://link.amazon/B03plNrIH", 
+            about: "The JBL PartyBox Encore Essential is designed for people who want a powerful party speaker without carrying an oversized system. Despite its compact design, it delivers impressive JBL Original Pro Sound with deep bass and room-filling volume. The built-in dynamic light show syncs with your music, creating a vibrant atmosphere for parties, birthdays, and outdoor gatherings. Its IPX4 splash-resistant rating makes it suitable for poolside events and light rain. With up to 6 hours of battery life, it easily lasts through most parties and can also be plugged into AC power for uninterrupted playback. The speaker features Bluetooth connectivity for seamless wireless streaming from smartphones, tablets, and laptops. A microphone input allows users to enjoy karaoke sessions or make announcements during events. The rugged build quality ensures durability while remaining portable enough to carry with one hand. Bass Boost technology enhances low frequencies without significantly distorting vocals or instruments. Users consistently praise its loudness, clarity, and ease of use. The JBL PartyBox app allows control over lighting effects and audio settings, adding convenience. Whether used indoors or outdoors, the Encore Essential provides energetic sound with excellent bass impact. It is one of the best compact party speakers available in its price category.", 
+            specs: "Audio Output: 100W RMS, Drivers: 1 Woofer + 2 Tweeters, Battery Life: Up to 6 Hours, Charging: AC Power, Bluetooth: 5.1, Water Resistance: IPX4, Weight: 5.9 kg, Microphone Input: Yes, App Support: JBL PartyBox App, Lighting: Dynamic RGB Light Show", 
+            pc: "Pros: Powerful bass with JBL Original Pro Sound, Excellent party lighting effects, Loud enough for medium-sized gatherings, Karaoke microphone support, Durable construction. Cons: Battery life could be longer, Heavy compared to portable Bluetooth speakers, No USB-C charging, Limited stereo pairing options.", 
+            buy: "Buy the JBL PartyBox Encore Essential if you want a true party speaker with deep bass, colorful lighting, and premium JBL sound in a portable package. It is ideal for home parties, outdoor celebrations, and karaoke nights." 
+        },
+        { 
+            name: "Sony ULT Field 3", 
+            img: "images/2.jpg", 
+            link: "https://link.amazon/B03plNrIH", 
+            about: "The Sony ULT Field 3 is a premium portable Bluetooth speaker engineered for music lovers who prioritize powerful bass without sacrificing clarity. Sony's dedicated ULT button instantly boosts low-frequency performance, making EDM, hip-hop, and pop tracks sound more energetic. Despite its compact body, the speaker delivers balanced audio with detailed vocals and crisp highs. Built with an IP67 rating, it is resistant to water, dust, and accidental drops, making it an excellent companion for travel and outdoor adventures. Its battery lasts up to 24 hours under normal listening conditions, allowing users to enjoy music all day without frequent charging. Bluetooth Fast Pair ensures quick connections with Android devices, while multipoint connectivity allows simultaneous pairing with two devices. The integrated microphone supports hands-free calling with clear voice quality. Sony's Sound Connect app offers EQ customization and firmware updates. The durable fabric finish gives the speaker a premium appearance while improving grip during transport. It also supports stereo pairing with another compatible Sony speaker for wider sound. Reviewers consistently praise its excellent battery life, durability, and bass performance. Overall, the ULT Field 3 combines portability, premium sound, and rugged reliability.", 
+            specs: "Audio Output: High-Power Stereo, Battery Life: Up to 24 Hours, Bluetooth: 5.3, Water Resistance: IP67, Dustproof: Yes, Multipoint Connection: Yes, Fast Pair: Yes, Charging: USB-C, App Support: Sony Sound Connect, Weight: Approx. 1.2 kg", 
+            pc: "Pros: Outstanding battery life, Strong bass boost feature, Premium build quality, Waterproof and dustproof, Excellent Bluetooth stability. Cons: Premium pricing, Bass mode consumes more battery, No built-in lighting effects, Larger than ultra-compact speakers.", 
+            buy: "Choose the Sony ULT Field 3 if you need premium sound, exceptional battery life, and a durable design for both indoor listening and outdoor adventures." 
+        },
+        { 
+            name: "JBL Charge 6", 
+            img: "images/3.jpg", 
+            link: "https://link.amazon/B03plNrIH", 
+            about: "The JBL Charge 6 continues JBL's popular Charge series by delivering bigger sound, improved battery life, and enhanced durability. It features JBL Pro Sound with AI Sound Boost technology, producing rich bass, detailed mids, and crisp highs even at high volumes. One of its standout features is the built-in power bank, allowing users to charge smartphones and other devices while listening to music. With up to 28 hours of playback, it easily lasts through weekend trips, camping adventures, or long outdoor events. The IP68 waterproof and dustproof rating ensures reliable performance in rain, beaches, and rugged environments. Bluetooth 5.4 provides faster pairing and stable wireless performance. Auracast support allows connection with compatible JBL speakers for synchronized audio. The redesigned handle strap improves portability without increasing size significantly. USB-C fast charging reduces downtime, making it more convenient for regular use. The rugged exterior protects against accidental drops and rough handling. Reviewers consistently highlight its powerful bass, long battery life, and premium build quality. Whether indoors or outdoors, the Charge 6 offers an excellent balance of portability, durability, and sound performance. It remains one of the strongest all-round portable Bluetooth speakers available.", 
+            specs: "Battery Life: Up to 28 Hours, Bluetooth: 5.4, Waterproof: IP68, Dustproof: Yes, Charging: USB-C Fast Charging, Power Bank: Yes, AI Sound Boost: Yes, Stereo Pairing: Auracast, Weight: Approx. 1 kg, App Support: JBL Portable App", 
+            pc: "Pros: Excellent battery life, Powerful and balanced sound, Built-in power bank, Rugged waterproof design, Premium build quality. Cons: Premium price, Slightly heavier than compact speakers, No built-in microphone for calls, Limited wired connectivity.", 
+            buy: "The JBL Charge 6 is an excellent choice for users who want one speaker that excels in sound quality, portability, battery life, and durability. It is ideal for camping, beach trips, travel, and everyday music listening." 
+        },
+        { 
+            name: "Soundcore Boom 2", 
+            img: "images/4.jpg", 
+            link: "https://link.amazon/B0783adI6", 
+            about: "The Soundcore Boom 2 by Anker is one of the best-value portable Bluetooth speakers available, combining impressive power, deep bass, and long battery life at a competitive price. With up to 80W maximum output (BassUp™ enabled), it easily fills large indoor rooms and outdoor spaces with energetic sound. The dual woofers and tweeters produce a balanced audio profile, delivering punchy bass, clear vocals, and crisp highs. Soundcore's BassUp™ 2.0 technology intelligently enhances low frequencies without overwhelming the rest of the mix. The IPX7 waterproof rating makes it ideal for pool parties, beach outings, and camping trips. Its floating design ensures the speaker remains buoyant if dropped into water. The built-in 24-hour battery supports all-day playback, while the integrated power bank lets users charge smartphones on the go. Bluetooth 5.3 provides a stable wireless connection, and the Soundcore app offers customizable EQ settings for different music genres. The rugged exterior withstands rough outdoor use, making it a dependable travel companion. PartyCast 2.0 allows multiple compatible Soundcore speakers to connect for a wider soundstage. Reviewers consistently praise its exceptional bass, durability, and outstanding value for money. Overall, the Boom 2 is a fantastic choice for users seeking premium performance without paying flagship prices.", 
+            specs: "Maximum Output: Up to 80W, Battery Life: Up to 24 Hours, Bluetooth: 5.3, Water Resistance: IPX7, Floating Design: Yes, Charging: USB-C, Power Bank: Yes, Multi-Speaker Pairing: PartyCast 2.0, App Support: Soundcore App, Weight: Approx. 1.66 kg", 
+            pc: "Pros: Powerful bass with BassUp™ technology, Excellent battery life, Floating waterproof design, Fully customizable EQ, Outstanding value for money. Cons: Slightly bulky for travel, Bass can overpower mids at maximum boost, Plastic finish attracts fingerprints, No built-in voice assistant.", 
+            buy: "If you want maximum performance for your money, the Soundcore Boom 2 is one of the strongest options. It offers powerful sound, excellent battery life, waterproof durability, and useful customization features at an affordable price." 
+        },
+        { 
+            name: "Marshall Emberton III", 
+            img: "images/5.jpg", 
+            link: "https://link.amazon/B0ebGcz4c", 
+            about: "The Marshall Emberton III continues Marshall's tradition of combining iconic vintage styling with premium modern audio technology. Designed for everyday portability, this compact speaker produces surprisingly large sound through True Stereophonic 360° audio, ensuring consistent performance from every angle. Its balanced tuning delivers warm bass, natural vocals, and detailed treble, making it suitable for nearly every music genre. Built with an IP67 rating, the Emberton III easily handles rain, dust, and outdoor adventures. One of its biggest improvements is the impressive battery life of over 30 hours, allowing several days of casual listening on a single charge. Fast USB-C charging quickly restores battery power when needed. The rugged silicone exterior protects against accidental bumps while maintaining Marshall's signature guitar amplifier aesthetic. Bluetooth 5.3 provides reliable wireless connectivity with multipoint pairing support. The Marshall Bluetooth app allows firmware updates and EQ customization for different listening preferences. Despite its compact size, the speaker maintains impressive clarity even at higher volumes without noticeable distortion. Users consistently praise its premium design, durable construction, and refined sound quality. For those who appreciate both style and performance, the Emberton III stands out as one of the most attractive portable speakers on the market.", 
+            specs: "Audio Technology: True Stereophonic, Battery Life: 30+ Hours, Bluetooth: 5.3, Water & Dust Resistance: IP67, Charging: USB-C Fast Charge, App Support: Marshall Bluetooth App, Multipoint Pairing: Yes, Controls: Multi-Directional Knob, Weight: Approx. 670 g, Build: Silicone & Metal", 
+            pc: "Pros: Elegant premium design, Excellent battery life, Rich balanced sound, Durable IP67 construction, Compact and travel-friendly. Cons: Premium pricing, No built-in microphone, Bass is less aggressive than party speakers, Limited wired connectivity.", 
+            buy: "Choose the Marshall Emberton III if you want a stylish portable speaker with premium craftsmanship, long battery life, and balanced sound suitable for everyday listening." 
+        },
+        { 
+            name: "Bose SoundLink Flex (2nd Gen)", 
+            img: "images/6.jpg", 
+            link: "https://link.amazon/B0g9sgCQb", 
+            about: "The Bose SoundLink Flex (2nd Gen) is a premium portable Bluetooth speaker designed for users who value clear, natural sound in a compact and rugged package. Bose has enhanced its PositionIQ™ technology, which automatically adjusts audio based on the speaker's orientation, ensuring consistent sound whether it's standing upright, lying flat, or hanging from its utility loop. The speaker produces clean vocals, detailed instruments, and surprisingly deep bass considering its compact size. Its IP67 waterproof and dustproof rating makes it perfect for hiking, camping, beach trips, and everyday outdoor use. The durable silicone exterior resists scratches and impacts while remaining lightweight enough to carry effortlessly. With up to 12 hours of battery life, it comfortably handles a full day of music playback. Bluetooth 5.3 provides fast and stable wireless connections, while the Bose app allows firmware updates and additional controls. Stereo pairing with another compatible Bose speaker creates a wider and more immersive soundstage. Users consistently praise its crystal-clear sound, premium build quality, and reliable performance. Although it focuses more on sound accuracy than booming bass, it delivers a refined listening experience that reflects Bose's long-standing reputation. The SoundLink Flex (2nd Gen) is an excellent option for users seeking premium audio quality in a compact form factor.", 
+            specs: "Audio Technology: PositionIQ™, Battery Life: Up to 12 Hours, Bluetooth: 5.3, Water & Dust Resistance: IP67, Charging: USB-C, Stereo Pairing: Yes, App Support: Bose App, Built-in Microphone: Yes, Weight: Approx. 590 g, Build: Silicone & Steel Grille", 
+            pc: "Pros: Outstanding sound clarity, Compact premium design, Rugged IP67 protection, PositionIQ automatically optimizes audio, Lightweight and portable. Cons: More expensive than many competitors, Battery life is average, Bass is not as powerful as larger speakers, Limited EQ adjustments.", 
+            buy: "Buy the Bose SoundLink Flex (2nd Gen) if you prioritize premium sound quality, portability, and rugged durability. It's an excellent everyday speaker for both indoor listening and outdoor adventures." 
+        },
+       { 
+            name: "Harman Kardon Luna II", 
+            img: "images/7.jpg", 
+            link: "https://link.amazon/B0chPh45Y", 
+            about: "The Harman Kardon Luna II is a premium portable Bluetooth speaker that blends elegant design with refined audio performance. Built with Harman Kardon's signature acoustic engineering, it delivers a rich, balanced sound profile featuring deep bass, detailed mids, and sparkling highs. Unlike bass-heavy party speakers, the Luna II focuses on accuracy and musicality, making it ideal for jazz, classical, pop, acoustic, and vocal-heavy tracks. The compact aluminum frame and premium fabric finish give it a sophisticated appearance that complements modern home interiors. With an IP67 rating, it is resistant to water and dust, making it suitable for both indoor and outdoor use. Bluetooth 5.3 ensures stable wireless connectivity and efficient power consumption. The speaker offers up to 12 hours of battery life, enough for an entire day of casual listening. Users can pair two Luna II speakers for a wider stereo soundstage, creating a more immersive listening experience. Its intuitive controls and USB-C charging add to its convenience. Reviewers consistently praise the Luna II for its premium build quality, elegant aesthetics, and natural sound signature. It is particularly favored by listeners who prioritize audio fidelity over excessive bass. Overall, the Harman Kardon Luna II is an excellent choice for users seeking luxury styling and high-quality sound in a portable speaker.", 
+            specs: "Audio Output: Premium Stereo, Battery Life: Up to 12 Hours, Bluetooth: 5.3, Water & Dust Resistance: IP67, Charging: USB-C, Stereo Pairing: Yes, Build Material: Aluminum & Fabric, Frequency Response: Optimized Full Range, Weight: Approx. 710 g, App Support: Yes", 
+            pc: "Pros: Elegant premium design, Rich and balanced sound, Excellent build quality, Waterproof and dustproof, Easy stereo pairing. Cons: Premium pricing, Battery life could be longer, Not designed for heavy bass lovers, Limited smart features.", 
+            buy: "Choose the Harman Kardon Luna II if you value elegant design, premium materials, and accurate sound reproduction for home use, travel, or outdoor relaxation." 
+        },
+        { 
+            name: "Ultimate Ears (UE) EPICBOOM", 
+            img: "images/8.jpg", 
+            link: "https://link.amazon/B0blqxFp0", 
+            about: "The Ultimate Ears EPICBOOM is a high-performance portable Bluetooth speaker designed for users who need powerful sound in large indoor and outdoor environments. Featuring Ultimate Ears' signature 360-degree audio technology, it delivers immersive sound that reaches every corner of the listening area. The adaptive EQ automatically adjusts the sound profile depending on the environment, ensuring consistent performance whether indoors or outdoors. Deep bass, crisp vocals, and clear treble combine to create an energetic and balanced listening experience. With an impressive battery life of up to 17 hours, the EPICBOOM easily powers long parties, camping trips, and beach outings. Its IP67 rating guarantees resistance to water, dust, and accidental drops, while the floating design adds extra protection around pools and lakes. Bluetooth connectivity is reliable, and the BOOM app provides EQ customization, firmware updates, and PartyUp support for connecting multiple Ultimate Ears speakers. The rugged exterior is built to withstand harsh outdoor conditions while remaining comfortable to carry. Reviewers consistently praise the EPICBOOM's loudness, durability, and wide sound dispersion. It is regarded as one of the best outdoor portable speakers in its category. Overall, the EPICBOOM combines premium sound, rugged durability, and advanced features into one versatile package.", 
+            specs: "Audio Technology: 360° Sound, Battery Life: Up to 17 Hours, Bluetooth: 5.3, Water & Dust Resistance: IP67, Floating Design: Yes, Charging: USB-C, Adaptive EQ: Yes, Multi-Speaker Pairing: PartyUp, App Support: UE BOOM App, Weight: Approx. 2 kg", 
+            pc: "Pros: Powerful 360° sound, Excellent outdoor performance, Rugged waterproof build, Adaptive EQ technology, Loud volume with minimal distortion. Cons: Large and relatively heavy, Premium price, Bass may be excessive for some genres, No built-in voice assistant.", 
+            buy: "Buy the UE EPICBOOM if you want a rugged speaker capable of producing loud, immersive sound for large gatherings and outdoor adventures." 
+        },
+        { 
+            name: "boAt Stone 900", 
+            img: "images/9.jpg", 
+            link: "https://link.amazon/B090xEwX5", 
+            about: "The boAt Stone 900 is a budget-friendly portable Bluetooth speaker that delivers impressive sound quality for its price. Designed for everyday users, it features dual drivers and passive bass radiators that produce punchy bass, clear vocals, and enjoyable overall audio performance. With an IPX6 water-resistant rating, it can withstand splashes and light rain, making it suitable for outdoor use. The speaker offers up to 12 hours of battery life, ensuring uninterrupted entertainment during travel or casual gatherings. Bluetooth 5.3 provides reliable wireless connectivity, while AUX and USB playback options offer additional flexibility. Its compact design makes it easy to carry in backpacks or travel bags. Built-in TWS pairing enables users to connect two Stone 900 speakers for stereo sound. The durable exterior withstands daily wear and tear, while intuitive onboard controls simplify operation. Users frequently praise its strong bass, affordable price, and attractive design. Although it lacks premium features found in higher-end speakers, it delivers excellent value for money. For users looking for a reliable Bluetooth speaker without spending a fortune, the boAt Stone 900 is a practical choice.", 
+            specs: "Battery Life: Up to 12 Hours, Bluetooth: 5.3, Water Resistance: IPX6, Drivers: Dual Dynamic Drivers, Charging: USB-C, TWS Pairing: Yes, AUX Input: Yes, USB Playback: Yes, Weight: Approx. 900 g, Build: Rugged Plastic", 
+            pc: "Pros: Excellent value for money, Strong bass performance, Durable construction, Multiple playback options, Easy portability. Cons: Audio lacks premium refinement, No companion app, Limited EQ customization, Not fully waterproof.", 
+            buy: "The boAt Stone 900 is ideal for buyers who want a feature-rich portable speaker with good sound quality and durability without exceeding their budget." 
+        },
+        { 
+            name: "Zebronics Sound Feast 450", 
+            img: "images/10.jpg", 
+            link: "https://link.amazon/B07JGa1q2", 
+            about: "The Zebronics Sound Feast 450 is an affordable portable Bluetooth speaker designed for users seeking versatile features at an entry-level price. Equipped with dual speakers and passive bass radiators, it delivers loud sound with satisfying bass for everyday music listening. The compact cylindrical design makes it easy to carry during travel, picnics, or casual outdoor activities. With an IPX5 water-resistant rating, it can handle light splashes and outdoor conditions. Bluetooth connectivity provides smooth wireless streaming, while USB, microSD card, AUX input, and FM radio offer multiple playback options rarely found in this price segment. The built-in microphone supports hands-free calling, adding convenience for everyday use. Battery life of up to 10 hours is sufficient for daily listening sessions and short trips. TWS pairing allows users to connect two Sound Feast 450 speakers for enhanced stereo performance. Users often praise its impressive feature set, loud volume, and excellent affordability. Although its sound quality cannot compete with premium brands, it performs exceptionally well considering its budget-friendly pricing. The durable build and simple controls make it an excellent first Bluetooth speaker for many users. Overall, the Sound Feast 450 offers remarkable value by combining useful features, portability, and enjoyable sound.", 
+            specs: "Battery Life: Up to 10 Hours, Bluetooth: 5.0, Water Resistance: IPX5, Charging: USB-C, TWS Pairing: Yes, USB Playback: Yes, microSD Support: Yes, AUX Input: Yes, FM Radio: Yes, Built-in Microphone: Yes", 
+            pc: "Pros: Very affordable, Multiple playback options, Loud sound output, Easy to carry, Good battery life for its class. Cons: Average sound refinement, Bass lacks depth compared to premium models, Plastic construction, No companion mobile app.", 
+            buy: "Choose the Zebronics Sound Feast 450 if you need an affordable, feature-packed Bluetooth speaker for casual listening, travel, or home use without spending a premium amount." 
+        }
+    ];
+
+    let selected = [];
+
+    function toggleSelect(index) {
+        const product = data[index];
+        const btn = document.getElementById(`btn-${index}`);
+        if(selected.includes(product)) {
+            selected = selected.filter(p => p !== product);
+            btn.classList.remove('selected');
+            btn.innerText = "Compare";
+        } else if(selected.length < 2) {
+            selected.push(product);
+            btn.classList.add('selected');
+            btn.innerText = "Selected";
+        }
+        document.getElementById('tray-text').innerText = `Selected: ${selected.length}/2`;
+        document.getElementById('compare-tray').style.display = selected.length > 0 ? 'block' : 'none';
+    }
+
+    function openModal() {
+        if(selected.length < 2) return alert("Please select 2 products to compare.");
+        let html = `<div style="overflow-x:auto;"><table class="comp-table"><tr><th>Feature</th><th>${selected[0].name}</th><th>${selected[1].name}</th></tr>
+            <tr><td>About</td><td>${selected[0].about}</td><td>${selected[1].about}</td></tr>
+            <tr><td>Specifications</td><td>${selected[0].specs}</td><td>${selected[1].specs}</td></tr>
+            <tr><td>Pros & Cons</td><td>${selected[0].pc}</td><td>${selected[1].pc}</td></tr>
+            <tr><td>Why Buy</td><td>${selected[0].buy}</td><td>${selected[1].buy}</td></tr></table></div>`;
+        document.getElementById('modal-content').innerHTML = html;
+        document.getElementById('modal').style.display = 'block';
+    }
+
+    function clearSelection() {
+        selected = [];
+        document.querySelectorAll('.action-btn.selected').forEach(b => { b.classList.remove('selected'); b.innerText = "Compare"; });
+        document.getElementById('compare-tray').style.display = 'none';
+    }
+
+    const list = document.getElementById('product-list');
+    data.forEach((p, i) => {
+        list.innerHTML += `
+            <div class="card">
+                <div class="header-section">
+                    <div class="img-wrapper"><img src="${p.img}" alt="${p.name}" class="product-img"></div>
+                    <div class="title-group">
+                        <h2>${i + 1}. ${p.name}</h2>
+                        <div class="btn-group">
+                            <a href="${p.link}" class="action-btn" target="_blank">Buy on Amazon</a>
+                            <button class="action-btn" id="btn-${i}" onclick="toggleSelect(${i})">Compare</button>
+                        </div>
+                    </div>
+                </div>
+                <h3>About the Product</h3><p>${p.about}</p>
+                <h3>Specifications</h3><p>${p.specs}</p>
+                <h3>Pros & Cons</h3><p>${p.pc}</p>
+                <h3>Why Buy</h3><p>${p.buy}</p>
+            </div>
+        `;
+    });
+</script>
+
+</body>
+</html>
