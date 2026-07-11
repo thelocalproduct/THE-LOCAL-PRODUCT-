@@ -2,138 +2,105 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TOP X - Discover</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOP X | Home</title>
     <style>
-        body {
+        /* Reset and Base Styles */
+        * {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            background-color: #222222;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            background-color: #000000; /* Reverted to Pure Black */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Main Content Wrapper */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            text-align: center;
+        }
+
+        /* Logo */
+        .logo-container {
+            position: absolute;
+            top: 40px;
+            left: 40px;
         }
 
         .logo {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            color: #d1d1d1;
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .nav-container {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-        }
-
-        .about-btn {
-            color: #a0a0a0;
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
             text-decoration: none;
-            font-size: 12px;
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            padding: 8px 20px;
-            border: 1px solid #4a4a4a;
-            border-radius: 20px;
-            transition: all 0.3s ease;
             text-transform: uppercase;
         }
 
-        .about-btn:hover {
-            color: #ffffff;
-            border-color: #ffffff;
+        /* Gift Image */
+        .gift-container img {
+            max-width: 350px;
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .card {
-            width: 640px;
-            aspect-ratio: 16 / 9;
-            background-color: #555555;
-            border-radius: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: inset 10px 10px 20px #444444, 
-                        inset -10px -10px 20px #666666;
-            border: 1px solid #4a4a4a;
-        }
-
-        .card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(227, 213, 202, 0.15), 
-                        inset 10px 10px 20px #444444, 
-                        inset -10px -10px 20px #666666;
-        }
-
-        h1 {
-            color: #ffffff;
-            font-size: 2.5rem;
-            font-weight: 300;
-            letter-spacing: 4px;
-            margin: 0 0 30px 0;
-            text-transform: uppercase;
-        }
-
-        /* Light Gold Titanium Styling */
-        p {
-            color: #E3D5CA;
-            font-family: 'Georgia', serif;
-            font-style: italic;
-            font-size: 1.25rem;
-            font-weight: 400;
-            text-align: center;
-            line-height: 1.6;
-            margin: 0 40px 40px 40px;
-            letter-spacing: 0.8px;
-            /* Subtle metallic glow */
-            text-shadow: 0 0 10px rgba(227, 213, 202, 0.3);
-            opacity: 0.95;
-        }
-
+        /* Capsule/Pill Shaped Button */
         .explore-btn {
-            padding: 15px 45px;
-            background: linear-gradient(145deg, #333333, #2a2a2a);
-            border: 1px solid #1a1a1a;
-            border-radius: 50px;
-            color: #E3D5CA;
-            font-weight: 400;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            background-color: #000000;
+            color: #ffffff;
             text-decoration: none;
-            cursor: pointer;
-            transition: transform 0.2s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            padding: 18px 60px;
+            border: 1px solid #ffffff;
+            border-radius: 9999px; /* This creates the capsule shape */
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            display: inline-block;
         }
 
         .explore-btn:hover {
-            transform: scale(1.05);
-            border-color: #E3D5CA;
+            background-color: #ffffff;
+            color: #000000;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-container { top: 25px; left: 25px; }
+            .logo { font-size: 1.2rem; }
+            .gift-container img { max-width: 280px; }
+            .explore-btn { padding: 15px 45px; font-size: 0.8rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="logo">TOP X</div>
-
-    <div class="nav-container">
-        <a href="#" class="about-btn">ABOUT</a>
+    <div class="logo-container">
+        <a href="#" class="logo">TOP X</a>
     </div>
 
-    <div class="card">
-        <h1>DISCOVER</h1>
-        <p>
-            Excellence is not a destination,<br>
-            but the very ground upon which we stand,<br>
-            ensuring that every selection meets a standard beyond reproach.
-        </p>
+    <main class="main-content">
+        <div class="gift-container">
+            <img src="../1.gif" alt="Premium Gift Presentation">
+        </div>
+
         <a href="shop.html" class="explore-btn">EXPLORE</a>
-    </div>
+    </main>
 
 </body>
 </html>
