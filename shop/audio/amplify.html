@@ -138,12 +138,30 @@
 
         /* Mobile Optimization */
         @media (max-width: 768px) {
-            header { padding: 20px; flex-direction: column; gap: 15px; }
-            .title { font-size: 1.8rem; }
-            .quote { font-size: 1.4rem; padding: 0 20px; }
-            .card-container { flex-direction: column; gap: 20px; width: 90%; }
-            .card { width: 100%; aspect-ratio: 16 / 10; }
-            .card h2 { font-size: 1.5rem; }
+            header { 
+                padding: 20px; 
+                flex-direction: row; 
+                justify-content: space-between; 
+            }
+            .title { font-size: 1.1rem; letter-spacing: 1px; } 
+            .logo { font-size: 0.7rem; }
+            nav a { font-size: 0.7rem; }
+            
+            main { gap: 30px; padding: 20px; }
+            .quote { font-size: 1.2rem; padding: 0 10px; line-height: 1.4; }
+            
+            .card-container { 
+                flex-direction: column; 
+                gap: 20px; 
+                width: 100%; 
+                max-width: 350px; 
+            }
+            .card { 
+                width: 100%; 
+                aspect-ratio: 1 / 1; /* Forced square for mobile */
+            }
+            .card h2 { font-size: 1.5rem; letter-spacing: 4px; }
+            
             body { height: auto; padding-bottom: 40px; }
         }
     </style>
