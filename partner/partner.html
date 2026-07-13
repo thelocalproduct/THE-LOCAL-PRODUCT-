@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Partners | Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #000; margin: 0; display: flex; }
+        
+        /* Sidebar Styling */
+        .sidebar { 
+            width: 350px; height: 100vh; position: fixed; left: 0; top: 0; 
+            background: #0a0a0a; color: #ffffff; padding: 40px; 
+            display: flex; flex-direction: column; z-index: 10;
+        }
+        
+        .main-content { margin-left: 350px; width: calc(100% - 350px); padding: 40px; background-color: #ffffff; }
+        
+        h1 { font-family: 'Playfair Display', serif; }
+        .text-neon-green { color: #ccff00; }
+        
+        .back-btn { 
+            display: inline-block; border: 1px solid #333; color: #fff; padding: 8px 20px; 
+            font-size: 12px; letter-spacing: 0.2em; margin-bottom: 40px; transition: 0.3s; 
+        }
+        .back-btn:hover { background: #fff; color: #000; border-color: #fff; }
+        
+        .description { font-size: 0.85rem; color: #888; line-height: 1.6; margin-top: 20px; border-top: 1px solid #333; padding-top: 20px; }
+        
+        .partner-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+        
+        .partner-item { 
+            background-color: #ffffff; height: 100px; display: flex; 
+            align-items: center; justify-content: center; padding: 10px; transition: transform 0.3s; 
+        }
+        .partner-item:hover { transform: translateY(-5px); }
+        
+        .logo-img { max-width: 80%; max-height: 80%; object-fit: contain; opacity: 0.8; transition: 0.4s; }
+        .partner-item:hover .logo-img { opacity: 1; transform: scale(1.05); }
+
+        /* Mobile Optimization: Top Bar */
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { 
+                width: 100%; height: auto; position: relative; 
+                padding: 20px; text-align: center; align-items: center;
+            }
+            .sidebar .w-16 { margin: 10px auto; } /* Center the line */
+            .main-content { margin-left: 0; width: 100%; padding: 20px; }
+            .partner-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+            .description { max-width: 500px; margin: 20px auto; }
+        }
+        
+        @media (max-width: 480px) {
+            .partner-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <aside class="sidebar">
+        <a href="../index.html" class="back-btn">← Back</a>
+        <h1 class="text-4xl font-bold mb-4">OUR<br><span class="text-neon-green">PARTNERS</span></h1>
+        <div class="w-16 h-1 bg-neon-green mb-4"></div>
+        <div class="description">
+            We collaborate with a global network of industry pioneers. This curated selection represents our commitment to innovation and quality.
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <div class="partner-grid">
+            <!-- Items -->
+            <div class="partner-item"><img src="images/adidas.jpg" alt="Adidas" class="logo-img"></div>
+            <div class="partner-item"><img src="images/agoda.jpg" alt="Agoda" class="logo-img"></div>
+            <div class="partner-item"><img src="images/airasia.jpg" alt="AirAsia" class="logo-img"></div>
+            <div class="partner-item"><img src="images/airtel.jpg" alt="Airtel" class="logo-img"></div>
+            <div class="partner-item"><img src="images/dell.jpg" alt="dell" class="logo-img"></div>
+            <div class="partner-item"><img src="images/acer.jpg" alt="acer" class="logo-img"></div>
+            <div class="partner-item"><img src="images/hp.jpg" alt="hp" class="logo-img"></div>
+            <div class="partner-item"><img src="images/lenovo.jpg" alt="lenovo" class="logo-img"></div>
+            <div class="partner-item"><img src="images/ajio.jpg" alt="Ajio" class="logo-img"></div>
+            <div class="partner-item"><img src="images/boat.jpg" alt="boat" class="logo-img"></div>
+            <div class="partner-item"><img src="images/aliexpress.jpg" alt="AliExpress" class="logo-img"></div>
+            <div class="partner-item"><img src="images/amazon.jpg" alt="Amazon" class="logo-img"></div>
+            <div class="partner-item"><img src="images/realme.jpg" alt="RealMe" class="logo-img"></div>
+            <div class="partner-item"><img src="images/reliance.jpg" alt="Reliance" class="logo-img"></div>
+            <div class="partner-item"><img src="images/samsung.jpg" alt="Samsung" class="logo-img"></div>
+            <div class="partner-item"><img src="images/shopclues.jpg" alt="Shopclues" class="logo-img"></div>
+            <div class="partner-item"><img src="images/angara.jpg" alt="Angara" class="logo-img"></div>
+            <div class="partner-item"><img src="images/axis.jpg" alt="Axis Bank" class="logo-img"></div>
+            <div class="partner-item"><img src="images/babyoye.jpg" alt="BabyOye" class="logo-img"></div>
+            <div class="partner-item"><img src="images/beretta.jpg" alt="Beretta" class="logo-img"></div>
+            <div class="partner-item"><img src="images/blissclub.jpg" alt="Bliss Club" class="logo-img"></div>
+            <div class="partner-item"><img src="images/bluehost.jpg" alt="Bluehost" class="logo-img"></div>
+            <div class="partner-item"><img src="images/cashify.jpg" alt="Cashify" class="logo-img"></div>
+            <div class="partner-item"><img src="images/chumbak.jpg" alt="Chumbak" class="logo-img"></div>
+            <div class="partner-item"><img src="images/cleartrip.jpg" alt="Cleartrip" class="logo-img"></div>
+            <div class="partner-item"><img src="images/croma.jpg" alt="Croma" class="logo-img"></div>
+            <div class="partner-item"><img src="images/dominos.jpg" alt="Dominos" class="logo-img"></div>
+            <div class="partner-item"><img src="images/ebay.jpg" alt="eBay" class="logo-img"></div>
+            <div class="partner-item"><img src="images/fabindia.jpg" alt="FabIndia" class="logo-img"></div>
+            <div class="partner-item"><img src="images/firstcry.jpg" alt="Firstcry" class="logo-img"></div>
+            <div class="partner-item"><img src="images/flipkart.jpg" alt="Flipkart" class="logo-img"></div>
+            <div class="partner-item"><img src="images/flixbus.jpg" alt="Flixbus" class="logo-img"></div>
+            <div class="partner-item"><img src="images/freecharge.jpg" alt="Freecharge" class="logo-img"></div>
+            <div class="partner-item"><img src="images/godaddy.jpg" alt="GoDaddy" class="logo-img"></div>
+            <div class="partner-item"><img src="images/goodness.jpg" alt="Goodness Lover" class="logo-img"></div>
+            <div class="partner-item"><img src="images/hichkie.jpg" alt="Hichkie" class="logo-img"></div>
+            <div class="partner-item"><img src="images/hostinger.jpg" alt="Hostinger" class="logo-img"></div>
+            <div class="partner-item"><img src="images/idfc.jpg" alt="IDFC" class="logo-img"></div>
+            <div class="partner-item"><img src="images/igp.jpg" alt="IGP" class="logo-img"></div>
+            <div class="partner-item"><img src="images/innisfree.jpg" alt="Innisfree" class="logo-img"></div>
+            <div class="partner-item"><img src="images/ixl.jpg" alt="IXL" class="logo-img"></div>
+            <div class="partner-item"><img src="images/jabong.jpg" alt="Jabong" class="logo-img"></div>
+            <div class="partner-item"><img src="images/konsimo.jpg" alt="Konsimo" class="logo-img"></div>
+            <div class="partner-item"><img src="images/lux.jpg" alt="Lux Sports" class="logo-img"></div>
+            <div class="partner-item"><img src="images/mamaearth.jpg" alt="Mamaearth" class="logo-img"></div>
+            <div class="partner-item"><img src="images/makemytrip.jpg" alt="MakeMyTrip" class="logo-img"></div>
+            <div class="partner-item"><img src="images/myntra.jpg" alt="Myntra" class="logo-img"></div>
+            <div class="partner-item"><img src="images/nobis.jpg" alt="Nobis" class="logo-img"></div>
+            <div class="partner-item"><img src="images/nykaa.jpg" alt="Nykaa" class="logo-img"></div>
+            <div class="partner-item"><img src="images/oppo.jpg" alt="Oppo" class="logo-img"></div>
+            <div class="partner-item"><img src="images/pepperfry.jpg" alt="Pepperfry" class="logo-img"></div>
+            <div class="partner-item"><img src="images/plum.jpg" alt="Plum" class="logo-img"></div>
+            <div class="partner-item"><img src="images/skininspired.jpg" alt="Skininspired" class="logo-img"></div>
+            <div class="partner-item"><img src="images/snapdeal.jpg" alt="Snapdeal" class="logo-img"></div>
+            <div class="partner-item"><img src="images/socialcatfish.jpg" alt="Social Catfish" class="logo-img"></div>
+            <div class="partner-item"><img src="images/tatacliq.jpg" alt="Tata Cliq" class="logo-img"></div>
+            <div class="partner-item"><img src="images/udacity.jpg" alt="Udacity" class="logo-img"></div>
+            <div class="partner-item"><img src="images/udemy.jpg" alt="Udemy" class="logo-img"></div>
+            <div class="partner-item"><img src="images/zendrop.jpg" alt="Zendrop" class="logo-img"></div>
+        </div>
+    </main>
+</body>
+</html>
