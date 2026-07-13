@@ -17,7 +17,6 @@
             padding-top: 100px; 
         }
 
-        /* Sticky Header */
         .top-bar { 
             display: flex; 
             align-items: center; 
@@ -52,13 +51,16 @@
         .visual-section:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(135, 134, 129, 0.5); }
         .product-img { width: 320px; height: 320px; object-fit: cover; border: 4px solid #e5e4e2; border-radius: 50%; transition: all 0.4s ease; box-shadow: 0 0 15px #e5e4e2; }
         
-        .order-btn { background: #2b2b2b; color: #ffffff; padding: 15px 35px; border-radius: 50px; font-weight: 600; text-decoration: none; border: 1px solid #444; }
+        /* Buy area styles */
+        .buy-area { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+        .check-text { font-size: 0.8rem; color: #aaa; margin-bottom: 5px; }
+        .btn-row { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; }
+        .order-btn { background: #2b2b2b; color: #ffffff; padding: 10px 15px; border-radius: 20px; font-size: 0.7rem; text-decoration: none; border: 1px solid #444; }
 
-        /* Mobile Optimization */
         @media (max-width: 768px) {
             .top-bar { padding: 20px; }
             .main-content { flex-direction: column; text-align: center; }
-            .visual-container { order: -1; margin-bottom: 30px; } /* Image on top */
+            .visual-container { order: -1; margin-bottom: 30px; }
             .text-section { width: 100%; }
             .title-box { justify-content: center; min-height: 80px; }
             h1 { font-size: 2.5rem; }
@@ -68,7 +70,7 @@
 <body>
 
 <header class="top-bar">
-    <a href="../../../../index.html" class="logo">TOP TEN</a>
+    <a href="../../../../index.html" class="logo">TECH TEN</a>
     <div class="main-title">IN EAR MONITORS</div>
     <div class="nav-group">
         <a href="iem/iemlog.html" class="nav-btn">READ</a>
@@ -79,7 +81,7 @@
 <main class="container main-content">
     <section class="text-section">
         <div class="title-box">
-            <h1 id="product-title">SIMGOT SuperMix 4</h1>
+            <h1 id="product-title"></h1>
         </div>
         <p id="best-for"></p>
         <p id="description"></p>
@@ -87,9 +89,19 @@
     </section>
     <section class="visual-container">
         <div class="visual-section" onclick="changeProduct()">
-            <img id="product-image" src="iem/images/1.jpg" alt="Product" class="product-img">
+            <img id="product-image" src="" alt="Product" class="product-img">
         </div>
-        <a id="order-link" href="#" target="_blank" class="order-btn">BUY ON AMAZON</a>
+        
+        <div id="buy-section" class="buy-area">
+            <div class="check-text">CHECK THE PRICE</div>
+            <div class="btn-row">
+                <a id="link-amazon" href="#" target="_blank" class="order-btn">AMAZON</a>
+                <a id="link-flipkart" href="#" target="_blank" class="order-btn">FLIPKART</a>
+                <a id="link-reliance" href="#" target="_blank" class="order-btn">RELIANCE</a>
+                <a id="link-croma" href="#" target="_blank" class="order-btn">CROMA</a>
+                <a id="link-official" href="#" target="_blank" class="order-btn">OFFICIAL</a>
+            </div>
+        </div>
     </section>
 </main>
 
@@ -104,24 +116,36 @@
         { name: "AFUL Performer 7", use: "Best for: Audiophiles & studio use", desc: "A flagship hybrid IEM engineered for exceptional resolution, imaging, and tonal accuracy. Built for serious high-end performance.", specs: ["Driver: 1 DD+6 BA Hybrid", "Freq: 5Hz–35kHz", "Imp: 11Ω", "Sens: 109dB", "Cable: 2-pin"], link: "https://link.amazon/B02zpwpWF" },
         { name: "7HZ x Crinacle: Diablo", use: "Best for: Rock, EDM, metal", desc: "A premium planar magnetic IEM delivering deep bass, fast transients, and excellent detail retrieval for energetic, high-resolution audio.", specs: ["Driver: 14.5mm Planar Magnetic", "Freq: 5Hz–40kHz", "Imp: 16Ω", "Sens: 94dB", "Cable: 2-pin"], link: "https://link.amazon/B09EKPDYY" },
         { name: "Letshuoer S12 Ultra", use: "Best for: Technical listening", desc: "A high-performance planar magnetic IEM offering remarkable speed, clarity, and instrument separation. Ideal for critical listening.", specs: ["Driver: 14.8mm Planar Magnetic", "Freq: 20Hz–40kHz", "Imp: 16Ω", "Sens: 102dB", "Cable: 2-pin"], link: "https://link.amazon/B03On4WUV" },
-        { name: "KZ ZS10 Pro 2", use: "Best for: Bass lovers & gaming", desc: "An upgraded hybrid IEM with powerful bass, detailed highs, and customizable tuning options. A popular choice for exciting sound.", specs: ["Driver: 1 DD+4 BA Hybrid", "Freq: 20Hz–40kHz", "Imp: 26Ω", "Sens: 108dB", "Cable: 0.75mm 2-pin"], link: "https://link.amazon/B03nzH3fF" }
+        { name: "KZ ZS10 Pro 2", use: "Best for: Bass lovers & gaming", desc: "An upgraded hybrid IEM with powerful bass, detailed highs, and customizable tuning options. A popular choice for exciting sound.", specs: ["Driver: 1 DD+4 BA Hybrid", "Freq: 20Hz–40kHz", "Imp: 266Ω", "Sens: 108dB", "Cable: 0.75mm 2-pin"], link: "https://link.amazon/B03nzH3fF" }
     ];
+    
     let currentIndex = 0;
+    
     function updateDisplay() {
         const p = products[currentIndex];
         document.getElementById('product-title').innerText = p.name;
         document.getElementById('best-for').innerText = p.use;
         document.getElementById('description').innerText = p.desc;
-        document.getElementById('order-link').href = p.link;
         document.getElementById('product-image').src = `iem/images/${currentIndex + 1}.jpg`;
         document.getElementById('specs-list').innerHTML = p.specs.map(s => `<li>• ${s}</li>`).join('');
+        
+        // Amazon is always there, update its link
+        document.getElementById('link-amazon').href = p.link;
+        
+        // Other buttons are hidden unless you decide to add links for them
+        // Just keeping them display:none for now as requested
+        document.getElementById('link-flipkart').style.display = 'none';
+        document.getElementById('link-reliance').style.display = 'none';
+        document.getElementById('link-croma').style.display = 'none';
+        document.getElementById('link-official').style.display = 'none';
     }
+    
     function changeProduct() {
         currentIndex = (currentIndex + 1) % products.length;
         updateDisplay();
     }
+    
     updateDisplay();
 </script>
-
 </body>
 </html>

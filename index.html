@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TOP TEN | The Best Only</title>
+    <title>TECH TEN | The Best Only</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
@@ -12,7 +12,6 @@
         .bg-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: url('images/indexbg.jpg'); background-size: cover; background-position: center; filter: brightness(0.3) saturate(0.8); }
         h1, h2 { font-family: 'Playfair Display', serif; }
         
-        /* Platinum Gold Gradient */
         .text-gold-gradient { 
             background: linear-gradient(135deg, #d4af37 0%, #f7ef8a 50%, #e5e4e2 100%); 
             -webkit-background-clip: text; 
@@ -28,14 +27,19 @@
 
     <div class="bg-container"></div>
 
-    <!-- Header with Logo and Navigation -->
-    <header class="w-full max-w-7xl flex justify-between items-center mb-10">
-        <div class="text-left">
-            <h1 class="text-gold-gradient text-3xl font-bold tracking-widest">TOP10</h1>
-            <p class="text-[10px] tracking-[0.3em] uppercase text-gray-400">The Best Only</p>
+    <!-- Header -->
+    <header class="w-full max-w-7xl flex justify-between items-center mb-10 px-4 md:px-0">
+        <!-- PERFECTLY ALIGNED LOGO CONTAINER -->
+        <div class="flex flex-col items-start">
+            <h1 class="text-gold-gradient text-3xl font-bold tracking-widest leading-none">
+                TECH TEN
+            </h1>
+            <!-- pl-[3px] aligns the T of THE with the T of TECH -->
+            <p class="text-[7px] tracking-[0.45em] uppercase text-gray-400 leading-none mt-[6px] pl-[3px]">
+                The Best Only
+            </p>
         </div>
         
-        <!-- Premium Navigation Button -->
         <a href="partner/partner.html">
             <button class="shop-btn bg-black/40 px-6 py-2 rounded-full font-medium text-sm tracking-widest uppercase">
                 <span class="text-gold-gradient">our Partners</span>
@@ -43,10 +47,10 @@
         </a>
     </header>
 
+    <!-- Main Content -->
     <main class="flex flex-col items-center justify-center text-center w-full max-w-5xl flex-grow">
         <h2 class="text-gold-gradient text-5xl md:text-8xl font-bold mb-6 leading-tight">Only the Best<br>Nothing Else</h2>
         
-        <!-- Premium Quote -->
         <p class="max-w-lg mb-10 text-sm md:text-base font-light tracking-[0.2em] uppercase leading-relaxed opacity-90">
             <span class="text-gold-gradient block mb-2">Curated precision.</span>
             <span class="text-gray-300 block">Distilling the noise into the finest.</span>
@@ -61,6 +65,7 @@
 
     <footer class="w-full max-w-6xl footer-premium p-4 md:p-6 mt-12 mb-4">
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-2">
+            <!-- Footer Items -->
             <div class="flex flex-col items-center justify-center text-center gap-1">
                 <div class="text-2xl text-[#d4af37]">☆</div>
                 <h4 class="font-bold text-gold-gradient text-[10px] md:text-xs uppercase tracking-widest">Best in Class</h4>
