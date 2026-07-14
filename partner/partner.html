@@ -10,14 +10,14 @@
         
         body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #000; margin: 0; display: flex; }
         
-        /* Sidebar Styling */
+        /* Sidebar - KEPT ORIGINAL */
         .sidebar { 
             width: 350px; height: 100vh; position: fixed; left: 0; top: 0; 
             background: #0a0a0a; color: #ffffff; padding: 40px; 
             display: flex; flex-direction: column; z-index: 10;
         }
         
-        .main-content { margin-left: 350px; width: calc(100% - 350px); padding: 40px; background-color: #ffffff; }
+        .main-content { margin-left: 350px; width: calc(100% - 350px); padding: 80px; }
         
         h1 { font-family: 'Playfair Display', serif; }
         .text-neon-green { color: #ccff00; }
@@ -30,32 +30,24 @@
         
         .description { font-size: 0.85rem; color: #888; line-height: 1.6; margin-top: 20px; border-top: 1px solid #333; padding-top: 20px; }
         
-        .partner-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
-        
-        .partner-item { 
-            background-color: #ffffff; height: 100px; display: flex; 
-            align-items: center; justify-content: center; padding: 10px; transition: transform 0.3s; 
-        }
-        .partner-item:hover { transform: translateY(-5px); }
-        
-        .logo-img { max-width: 80%; max-height: 80%; object-fit: contain; opacity: 0.8; transition: 0.4s; }
-        .partner-item:hover .logo-img { opacity: 1; transform: scale(1.05); }
+        /* Updated Partner Styles */
+        .partner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px 40px; }
+        .partner-item { cursor: pointer; transition: 0.3s; font-size: 1.8rem; }
+        .partner-item:hover { color: #ccff00; transform: scale(1.05); }
 
-        /* Mobile Optimization: Top Bar */
+        /* Typography Mapping for Brands */
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bodoni+Moda:opsz,wght@6..96,900&family=Montserrat:wght@900&family=Oswald:wght@700&family=Space+Grotesk:wght@700&display=swap');
+        .style-athletic { font-family: 'Anton', sans-serif; text-transform: uppercase; }
+        .style-tech { font-family: 'Space Grotesk', sans-serif; letter-spacing: -1px; }
+        .style-heritage { font-family: 'Bodoni Moda', serif; font-style: italic; }
+        .style-modern { font-family: 'Montserrat', sans-serif; font-weight: 900; }
+        .style-bold { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+
         @media (max-width: 768px) {
             body { flex-direction: column; }
-            .sidebar { 
-                width: 100%; height: auto; position: relative; 
-                padding: 20px; text-align: center; align-items: center;
-            }
-            .sidebar .w-16 { margin: 10px auto; } /* Center the line */
-            .main-content { margin-left: 0; width: 100%; padding: 20px; }
-            .partner-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; }
-            .description { max-width: 500px; margin: 20px auto; }
-        }
-        
-        @media (max-width: 480px) {
-            .partner-grid { grid-template-columns: repeat(2, 1fr); }
+            .sidebar { width: 100%; height: auto; position: relative; padding: 20px; text-align: center; align-items: center; }
+            .main-content { margin-left: 0; width: 100%; padding: 40px 20px; }
+            .partner-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
         }
     </style>
 </head>
@@ -63,83 +55,82 @@
 
     <aside class="sidebar">
         <a href="../index.html" class="back-btn">← Back</a>
-        <h1 class="text-4xl font-bold mb-4">OUR<br><span class="text-neon-green">PARTNERS</span></h1>
+        <h1 class="text-4xl font-bold mb-4">RECOMMENDED<br><span class="text-neon-green">STORES</span></h1>
         <div class="w-16 h-1 bg-neon-green mb-4"></div>
         <div class="description">
-            We collaborate with a global network of industry pioneers. This curated selection represents our commitment to innovation and quality.
+           We carefully review products and track prices across trusted Brands to help you discover the best options, all in one place.
         </div>
     </aside>
 
     <main class="main-content">
         <div class="partner-grid">
-            <!-- Items -->
-            <div class="partner-item"><img src="images/adidas.jpg" alt="Adidas" class="logo-img"></div>
-            <div class="partner-item"><img src="images/reebok.jpg" alt="Reebok" class="logo-img"></div>
-            <div class="partner-item"><img src="images/deccathlon.jpg" alt="deccathlon" class="logo-img"></div>
-            <div class="partner-item"><img src="images/hdfc.jpg" alt="HDFC" class="logo-img"></div>
-            <div class="partner-item"><img src="images/nike.jpg" alt="nike" class="logo-img"></div>
-            <div class="partner-item"><img src="images/titan.jpg" alt="Titan" class="logo-img"></div>
-            <div class="partner-item"><img src="images/fastrack.jpg" alt="Fastrack" class="logo-img"></div>
-            <div class="partner-item"><img src="images/levis.jpg" alt="Levi's" class="logo-img"></div>
-            <div class="partner-item"><img src="images/whirlpool.jpg" alt="whirlpool" class="logo-img"></div>
-            <div class="partner-item"><img src="images/agoda.jpg" alt="Agoda" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Flipkart.jpg" alt="Flipkart" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Airtel.jpg" alt="Airtel" class="logo-img"></div>
-            <div class="partner-item"><img src="images/AirAsia.jpg" alt="AirAsia" class="logo-img"></div>
-            <div class="partner-item"><img src="images/dell.jpg" alt="dell" class="logo-img"></div>
-            <div class="partner-item"><img src="images/acer.jpg" alt="acer" class="logo-img"></div>
-            <div class="partner-item"><img src="images/hp.jpg" alt="hp" class="logo-img"></div>
-            <div class="partner-item"><img src="images/lenovo.jpg" alt="lenovo" class="logo-img"></div>
-            <div class="partner-item"><img src="images/ajio.jpg" alt="Ajio" class="logo-img"></div>
-            <div class="partner-item"><img src="images/boat.jpg" alt="boat" class="logo-img"></div>
-            <div class="partner-item"><img src="images/AliExpress.jpg" alt="AliExpress" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Amazon.jpg" alt="Amazon" class="logo-img"></div>
-            <div class="partner-item"><img src="images/RealMe.jpg" alt="RealMe" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Reliance.jpg" alt="Reliance" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Samsung.jpg" alt="Samsung" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Shopclues.jpg" alt="Shopclues" class="logo-img"></div>
-            <div class="partner-item"><img src="images/angara.jpg" alt="Angara" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Axis.jpg" alt="Axis Bank" class="logo-img"></div>
-            <div class="partner-item"><img src="images/BabyOye.jpg" alt="BabyOye" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Beretta.jpg" alt="Beretta" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Blissclub.jpg" alt="Bliss Club" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Bluehost.jpg" alt="Bluehost" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Cashify.jpg" alt="Cashify" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Chumbak.jpg" alt="Chumbak" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Cleartrip.jpg" alt="Cleartrip" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Croma.jpg" alt="Croma" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Dominos.jpg" alt="Dominos" class="logo-img"></div>
-            <div class="partner-item"><img src="images/eBay.jpg" alt="eBay" class="logo-img"></div>
-            <div class="partner-item"><img src="images/FabIndia.jpg" alt="FabIndia" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Firstcry.jpg" alt="Firstcry" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Flixbus.jpg" alt="Flixbus" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Freecharge.jpg" alt="Freecharge" class="logo-img"></div>
-            <div class="partner-item"><img src="images/goDaddy.jpg" alt="GoDaddy" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Goodness.jpg" alt="Goodness Lover" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Hichkie.jpg" alt="Hichkie" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Hostinger.jpg" alt="Hostinger" class="logo-img"></div>
-            <div class="partner-item"><img src="images/IDFC.jpg" alt="IDFC" class="logo-img"></div>
-            <div class="partner-item"><img src="images/IGP.jpg" alt="IGP" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Innisfree.jpg" alt="Innisfree" class="logo-img"></div>
-            <div class="partner-item"><img src="images/IXL.jpg" alt="IXL" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Jabong.jpg" alt="Jabong" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Konsimo.jpg" alt="Konsimo" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Lux.jpg" alt="Lux Sports" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Mamaearth.jpg" alt="Mamaearth" class="logo-img"></div>
-            <div class="partner-item"><img src="images/MakeMyTrip.jpg" alt="MakeMyTrip" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Myntra.jpg" alt="Myntra" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Nobis.jpg" alt="Nobis" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Nykaa.jpg" alt="Nykaa" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Oppo.jpg" alt="Oppo" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Pepperfry.jpg" alt="Pepperfry" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Plum.jpg" alt="Plum" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Skininspired.jpg" alt="Skininspired" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Snapdeal.jpg" alt="Snapdeal" class="logo-img"></div>
-            <div class="partner-item"><img src="images/SocialCatfish.jpg" alt="Social Catfish" class="logo-img"></div>
-            <div class="partner-item"><img src="images/TataCliq.jpg" alt="Tata Cliq" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Udacity.jpg" alt="Udacity" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Udemy.jpg" alt="Udemy" class="logo-img"></div>
-            <div class="partner-item"><img src="images/Zendrop.jpg" alt="Zendrop" class="logo-img"></div>
+            <div class="partner-item style-athletic">Adidas</div>
+            <div class="partner-item style-athletic">Reebok</div>
+            <div class="partner-item style-athletic">Decathlon</div>
+            <div class="partner-item style-bold">HDFC</div>
+            <div class="partner-item style-athletic">Nike</div>
+            <div class="partner-item style-heritage">Titan</div>
+            <div class="partner-item style-heritage">Fastrack</div>
+            <div class="partner-item style-heritage">Levi's</div>
+            <div class="partner-item style-tech">Whirlpool</div>
+            <div class="partner-item style-modern">Agoda</div>
+            <div class="partner-item style-modern">Flipkart</div>
+            <div class="partner-item style-bold">Airtel</div>
+            <div class="partner-item style-modern">AirAsia</div>
+            <div class="partner-item style-tech">Dell</div>
+            <div class="partner-item style-tech">Acer</div>
+            <div class="partner-item style-tech">HP</div>
+            <div class="partner-item style-tech">Lenovo</div>
+            <div class="partner-item style-modern">Ajio</div>
+            <div class="partner-item style-tech">boAt</div>
+            <div class="partner-item style-modern">AliExpress</div>
+            <div class="partner-item style-modern">Amazon</div>
+            <div class="partner-item style-tech">RealMe</div>
+            <div class="partner-item style-modern">Reliance</div>
+            <div class="partner-item style-tech">Samsung</div>
+            <div class="partner-item style-modern">Shopclues</div>
+            <div class="partner-item style-heritage">Angara</div>
+            <div class="partner-item style-bold">Axis Bank</div>
+            <div class="partner-item style-heritage">BabyOye</div>
+            <div class="partner-item style-athletic">Beretta</div>
+            <div class="partner-item style-heritage">Bliss Club</div>
+            <div class="partner-item style-tech">Bluehost</div>
+            <div class="partner-item style-tech">Cashify</div>
+            <div class="partner-item style-heritage">Chumbak</div>
+            <div class="partner-item style-modern">Cleartrip</div>
+            <div class="partner-item style-tech">Croma</div>
+            <div class="partner-item style-bold">Dominos</div>
+            <div class="partner-item style-modern">eBay</div>
+            <div class="partner-item style-heritage">FabIndia</div>
+            <div class="partner-item style-heritage">Firstcry</div>
+            <div class="partner-item style-modern">Flixbus</div>
+            <div class="partner-item style-bold">Freecharge</div>
+            <div class="partner-item style-tech">goDaddy</div>
+            <div class="partner-item style-heritage">Goodness Lover</div>
+            <div class="partner-item style-modern">Hichkie</div>
+            <div class="partner-item style-tech">Hostinger</div>
+            <div class="partner-item style-bold">IDFC</div>
+            <div class="partner-item style-heritage">IGP</div>
+            <div class="partner-item style-heritage">Innisfree</div>
+            <div class="partner-item style-tech">IXL</div>
+            <div class="partner-item style-modern">Jabong</div>
+            <div class="partner-item style-heritage">Konsimo</div>
+            <div class="partner-item style-athletic">Lux Sports</div>
+            <div class="partner-item style-heritage">Mamaearth</div>
+            <div class="partner-item style-modern">MakeMyTrip</div>
+            <div class="partner-item style-modern">Myntra</div>
+            <div class="partner-item style-modern">Nobis</div>
+            <div class="partner-item style-heritage">Nykaa</div>
+            <div class="partner-item style-tech">Oppo</div>
+            <div class="partner-item style-heritage">Pepperfry</div>
+            <div class="partner-item style-heritage">Plum</div>
+            <div class="partner-item style-heritage">SkinInspired</div>
+            <div class="partner-item style-modern">Snapdeal</div>
+            <div class="partner-item style-tech">Social Catfish</div>
+            <div class="partner-item style-modern">Tata Cliq</div>
+            <div class="partner-item style-tech">Udacity</div>
+            <div class="partner-item style-tech">Udemy</div>
+            <div class="partner-item style-tech">Zendrop</div>
         </div>
     </main>
 </body>

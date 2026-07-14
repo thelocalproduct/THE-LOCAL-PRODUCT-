@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEAL OF THE DAY | TECH TEN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; color: #ffffff; margin: 0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; background-color: #0a0a0a; }
+        
+        .text-platinum { color: #e5e4e2; }
+        .premium-title { letter-spacing: 0.2em; text-shadow: 0 0 15px rgba(229, 228, 226, 0.3); }
+        
+        .deal-card { 
+            background: rgba(25, 25, 25, 0.8); 
+            border: 2px solid #e5e4e2;
+            transition: all 0.4s ease; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .deal-card:hover { border-color: #ffffff; transform: translateY(-10px); box-shadow: 0 10px 30px rgba(229, 228, 226, 0.1); }
+        
+        .img-container { width: 100%; height: 280px; overflow: hidden; border-radius: 16px; margin-bottom: 20px; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .buy-btn { 
+            border: 2px solid #e5e4e2; 
+            color: #e5e4e2; 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .buy-btn:hover { 
+            background-color: #e5e4e2; 
+            color: #000; 
+            transform: scale(1.05); 
+            box-shadow: 0 0 15px rgba(229, 228, 226, 0.5);
+        }
+    </style>
+</head>
+<body class="p-4 md:p-12">
+
+    <!-- Navigation Header -->
+    <header class="w-full max-w-6xl flex justify-between items-center mb-16">
+        <a href="index.html" class="text-sm uppercase tracking-widest text-gray-400 hover:text-white transition">Home</a>
+        <h1 class="text-platinum text-3xl font-bold uppercase premium-title">Deal of the Day</h1>
+        <a href="javascript:history.back()" class="text-sm uppercase tracking-widest text-gray-400 hover:text-white transition">Back</a>
+    </header>
+
+    <!-- Deals Grid -->
+    <main class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-10">
+        
+        <!-- Deal 1: boAt Stone 900 (Remove 'hidden' if you want it to be optional) -->
+        <div class="deal-card p-8 rounded-3xl">
+            <div class="img-container"><img src="deals/images/1.jpg" alt="boAt Stone 900"></div>
+            <h3 class="text-2xl font-bold mb-2">boAt Stone 900</h3>
+            <p class="text-gray-400 text-sm mb-2 italic">80W Signature Sound Portable Speaker</p>
+            <p class="text-gray-300 text-sm mb-6 flex-grow leading-relaxed">
+                Experience 80W of thunderous sound. Features TWS for 2X power, dynamic RGB LED lights, and 15 hours of playtime. IPX5 water resistant.
+            </p>
+            <a href="https://www.amazon.in/Signature-Playtime-Resistant-Assistant-Bluetooth/dp/B0H26HF7FW?linkCode=ll2&tag=bestprice690e-21&linkId=c0536b5feef547a37059bbb9850e896a&ref_=as_li_ss_tl" 
+               target="_blank" class="buy-btn w-full py-4 rounded-xl text-center font-bold uppercase tracking-widest text-sm">Buy on Amazon</a>
+        </div>
+
+        <!-- Deal 2: HIDDEN (Remove 'hidden' to show) -->
+        <div class="deal-card p-8 rounded-3xl hidden">
+            <div class="img-container"><img src="deals/images/2.jpg" alt="Deal 2"></div>
+            <h3 class="text-2xl font-bold mb-2">Product Name</h3>
+            <p class="text-gray-400 text-sm mb-6">Description goes here.</p>
+            <a href="#" target="_blank" class="buy-btn w-full py-4 rounded-xl text-center font-bold uppercase tracking-widest text-sm">Buy on Flipkart</a>
+        </div>
+
+        <!-- Deal 3: HIDDEN (Remove 'hidden' to show) -->
+        <div class="deal-card p-8 rounded-3xl hidden">
+            <div class="img-container"><img src="deals/images/3.jpg" alt="Deal 3"></div>
+            <h3 class="text-2xl font-bold mb-2">Product Name</h3>
+            <p class="text-gray-400 text-sm mb-6">Description goes here.</p>
+            <a href="#" target="_blank" class="buy-btn w-full py-4 rounded-xl text-center font-bold uppercase tracking-widest text-sm">Buy on Myntra</a>
+        </div>
+
+        <!-- Deal 4: HIDDEN (Remove 'hidden' to show) -->
+        <div class="deal-card p-8 rounded-3xl hidden">
+            <div class="img-container"><img src="deals/images/4.jpg" alt="Deal 4"></div>
+            <h3 class="text-2xl font-bold mb-2">Product Name</h3>
+            <p class="text-gray-400 text-sm mb-6">Description goes here.</p>
+            <a href="#" target="_blank" class="buy-btn w-full py-4 rounded-xl text-center font-bold uppercase tracking-widest text-sm">Buy on Reliance</a>
+        </div>
+
+    </main>
+
+</body>
+</html>
