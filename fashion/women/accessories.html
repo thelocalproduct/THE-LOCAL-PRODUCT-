@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE LOCAL PRODUCT | Collections</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            width: 100vw;
+            background-color: #ffffff;
+        }
+        
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        .nav-link { 
+            font-size: 0.70rem; 
+            letter-spacing: 0.2em; 
+            text-transform: uppercase; 
+            color: #4a4a4a;
+            transition: color 0.3s; 
+        }
+        .nav-link:hover { color: #000000; }
+        
+        #sidebar { 
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="w-full px-6 pt-8 pb-8 flex justify-between items-center bg-white border-b border-gray-200 z-50 relative">
+        <button id="menu-btn" class="focus:outline-none flex flex-col justify-between w-8 h-6">
+            <span class="block w-full h-1 bg-black"></span>
+            <span class="block w-full h-1 bg-black"></span>
+            <span class="block w-full h-1 bg-black"></span>
+        </button>
+        
+        <div class="text-center">
+            <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black" style="font-family: 'Playfair Display', serif;">WOMEN'S ACCESSORIES</h1>
+        </div>
+        
+        <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed top-[97px] left-0 h-full w-64 bg-[#1a1a1c] text-white z-40 transform -translate-x-full shadow-2xl">
+        <div class="p-10">
+            <ul class="text-[14px] uppercase tracking-[0.2em] space-y-10">
+                <li class="group cursor-pointer">
+                    <span class="text-gray-400">Kids</span>
+                    <ul class="pl-6 mt-4 text-[11px] text-gray-500 space-y-3">
+                        <li><a href="../kids/clothes.html" class="hover:text-white transition-colors duration-200">Clothing</a></li>
+                        <li><a href="../kids/accessories.html" class="hover:text-white transition-colors duration-200">Accessories</a></li>
+                    </ul>
+                </li>
+                <li class="group cursor-pointer">
+                    <span class="text-gray-400">Women</span>
+                    <ul class="pl-6 mt-4 text-[11px] text-gray-500 space-y-3">
+                        <li><a href="clothes.html" class="hover:text-white transition-colors duration-200">Clothing</a></li>
+                        <li><a href="accessories.html" class="hover:text-white transition-colors duration-200">Accessories</a></li>
+                    </ul>
+                </li>
+                <li class="group cursor-pointer">
+                    <span class="text-gray-400">Men</span>
+                    <ul class="pl-6 mt-4 text-[11px] text-gray-500 space-y-3">
+                        <li><a href="../men/clothes.html" class="hover:text-white transition-colors duration-200">Clothing</a></li>
+                        <li><a href="../men/accessories.html" class="hover:text-white transition-colors duration-200">Accessories</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+     <!-- Hero Section -->
+    <section class="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center fade-in-anim" 
+             style="background-image: url('accessories/background.jpg');"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative text-center text-white p-6 fade-in-anim">
+            <h2 class="text-4xl md:text-6xl font-serif italic">"Style: A silent confession of who you are."</h2>
+        </div>
+    </section>
+
+     <!-- Main Content -->
+    <main class="w-full bg-[#1a1a1c] min-h-screen p-8 md:p-16">
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <!-- Cards injected here -->
+        </div>
+    </main>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const grid = document.getElementById('product-grid');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        const productNames = [
+            "NAME_1", "NAME_2", "NAME_3", "NAME_4", "NAME_5", "NAME_6", "NAME_7", "NAME_8", "NAME_9", "NAME_10",
+            "NAME_11", "NAME_12", "NAME_13", "NAME_14", "NAME_15", "NAME_16", "NAME_17", "NAME_18", "NAME_19", "NAME_20",
+            "NAME_21", "NAME_22", "NAME_23", "NAME_24", "NAME_25", "NAME_26", "NAME_27", "NAME_28", "NAME_29", "NAME_30",
+            "NAME_31", "NAME_32", "NAME_33", "NAME_34", "NAME_35", "NAME_36", "NAME_37", "NAME_38", "NAME_39", "NAME_40",
+            "NAME_41", "NAME_42", "NAME_43", "NAME_44", "NAME_45", "NAME_46", "NAME_47", "NAME_48", "NAME_49", "NAME_50"
+        ];
+
+        const affiliateLinks = [
+            "LINK_1", "LINK_2", "LINK_3", "LINK_4", "LINK_5", "LINK_6", "LINK_7", "LINK_8", "LINK_9", "LINK_10",
+            "LINK_11", "LINK_12", "LINK_13", "LINK_14", "LINK_15", "LINK_16", "LINK_17", "LINK_18", "LINK_19", "LINK_20",
+            "LINK_21", "LINK_22", "LINK_23", "LINK_24", "LINK_25", "LINK_26", "LINK_27", "LINK_28", "LINK_29", "LINK_30",
+            "LINK_31", "LINK_32", "LINK_33", "LINK_34", "LINK_35", "LINK_36", "LINK_37", "LINK_38", "LINK_39", "LINK_40",
+            "LINK_41", "LINK_42", "LINK_43", "LINK_44", "LINK_45", "LINK_46", "LINK_47", "LINK_48", "LINK_49", "LINK_50"
+        ];
+
+        for (let i = 1; i <= 50; i++) {
+            const card = document.createElement('div');
+            card.className = 'group flex flex-col h-full border-2 border-slate-300 p-2';
+            card.innerHTML = `
+                <div class="aspect-[3/4] bg-gray-800 overflow-hidden mb-4">
+                    <img src="clothes/images/${i}.jpg" 
+                         alt="Product ${i}" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="flex-grow mb-4">
+                    <h3 class="text-white text-lg font-light text-center">${productNames[i-1]}</h3>
+                </div>
+                <a href="${affiliateLinks[i-1]}" 
+                   target="_blank"
+                   class="block w-full py-3 text-center border border-white text-white text-[10px] uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300">
+                   Purchase
+                </a>
+            `;
+            grid.appendChild(card);
+        }
+    </script>
+</body>
+</html>
