@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE LOCAL PRODUCT | Collections</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            width: 100vw;
+            background-color: #ffffff;
+        }
+        
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        .nav-link { 
+            font-size: 0.70rem; 
+            letter-spacing: 0.2em; 
+            text-transform: uppercase; 
+            color: #4a4a4a;
+            transition: color 0.3s; 
+        }
+        .nav-link:hover { color: #000000; }
+        
+        #sidebar { 
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+<header class="fixed top-0 left-0 w-full px-6 pt-8 pb-8 flex justify-between items-center bg-white border-b border-gray-200 z-50">
+    <button id="menu-btn" class="focus:outline-none flex flex-col justify-between w-8 h-6">
+        <span class="block w-full h-1 bg-black"></span>
+        <span class="block w-full h-1 bg-black"></span>
+        <span class="block w-full h-1 bg-black"></span>
+    </button>
+    
+    <div class="text-center">
+        <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+    </div>
+    
+    <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
+</header>
+        
+        
+        
+        <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
+    </header>
+
+    <div id="sidebar" class="fixed top-[86px] left-0 h-full w-64 bg-[#1a1a1c] text-white z-40 transform -translate-x-full shadow-2xl overflow-y-auto">
+    <div class="p-10">
+        <ul class="space-y-8">
+
+            <!-- MENSWEAR -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>MENSWEAR</span>
+                    <span>+</span>
+                </button>
+                 <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="stylish.html" class="hover:text-white transition">BE STYLISH</a></li>
+                    <li><a href="casual.html" class="hover:text-white transition">BE CASUAL</a></li>
+                    <li><a href="formal.html" class="hover:text-white transition">BE FORMAL</a></li>
+                    <li><a href="bottomwear.html" class="hover:text-white transition">BOTTOMWEAR</a></li>
+                    <li><a href="active.html" class="hover:text-white transition">BE ACTIVE</a></li>
+                </ul>
+            </li>
+
+            <!-- WOMENSWEAR -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>WOMENSWEAR</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../womenswear/stylish.html" class="hover:text-white transition">BE STYLISH</a></li>
+                    <li><a href="../womenswear/casual.html" class="hover:text-white transition">BE CASUAL</a></li>
+                    <li><a href="../womenswear/elegant.html" class="hover:text-white transition">BE ELEGANT</a></li>
+                    <li><a href="../womenswear/bottomwear.html" class="hover:text-white transition">BOTTOMWEAR</a></li>
+                    <li><a href="../womenswear/active.html" class="hover:text-white transition">BE ACTIVE</a></li>
+                </ul>
+            </li>
+
+            <!-- FOOTWEAR -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>FOOTWEAR</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../footwear/casual.html" class="hover:text-white transition">BE CASUAL</a></li>
+                    <li><a href="../footwear/formal.html" class="hover:text-white transition">BE FORMAL</a></li>
+                    <li><a href="../footwear/active.html" class="hover:text-white transition">BE ACTIVE</a></li>
+                    <li><a href="../footwear/slippers.html" class="hover:text-white transition">SLIPPERS</a></li>
+                    <li><a href="../footwear/sandals.html" class="hover:text-white transition">SANDALS</a></li>
+                </ul>
+            </li>
+
+            <!-- ESSENTIALS -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>ESSENTIALS</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../essentials/carry.html" class="hover:text-white transition">CARRY</a></li>
+                    <li><a href="../essentials/timepieces.html" class="hover:text-white transition">TIMEPIECES</a></li>
+                    <li><a href="../essentials/musthaves.html" class="hover:text-white transition">MUST HAVES</a></li>
+                </ul>
+            </li>
+
+            <!-- FRAGRANCES -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>FRAGRANCES</span>
+                    <span>+</span>
+                </button>
+                 <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../fragrances/him.html" class="hover:text-white transition">FOR HIM</a></li>
+                    <li><a href="../fragrances/her.html" class="hover:text-white transition">FOR HER</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll(".accordion").forEach(button => {
+    button.addEventListener("click", () => {
+        const submenu = button.nextElementSibling;
+        const icon = button.querySelector("span:last-child");
+
+        // Close all other submenus
+        document.querySelectorAll(".submenu").forEach(menu => {
+            if (menu !== submenu) {
+                menu.classList.add("hidden");
+                menu.previousElementSibling.querySelector("span:last-child").textContent = "+";
+            }
+        });
+
+        // Toggle current submenu
+        submenu.classList.toggle("hidden");
+        icon.textContent = submenu.classList.contains("hidden") ? "+" : "−";
+    });
+});
+</script>
+
+     <!-- Hero Section -->
+    <section class="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center fade-in-anim" 
+             style="background-image: url('accessories/background.jpg');"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div class="relative text-center text-white p-6 fade-in-anim">
+            <h2 class="text-4xl md:text-6xl font-serif italic">"Style: A silent confession of who you are."</h2>
+        </div>
+    </section>
+
+     <!-- Main Content -->
+    <main class="w-full bg-[#1a1a1c] min-h-screen p-8 md:p-16">
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <!-- Cards injected here -->
+        </div>
+    </main>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const grid = document.getElementById('product-grid');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // ADD OR EDIT YOUR PRODUCTS BELOW
+        const products = [
+            { name: "Louis Philippe Men T-Shirt", link: "https://www.amazon.in/Navy-Graphic-Print-Crew-T-Shirt/dp/B0FQ7PQCR3?_encoding=UTF8&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=b99e4a203a492fb3bd29e7a385c3d96f&ref_=as_li_ss_tl", image: "1.jpg" },
+            { name: "Jack & Jones T-Shirt & Pant Loungewear Set - Beige", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F902190303-t-shirt-pant-loungewear-set-beige", image: "35.jpg" },
+            { name: "Rare Rabbit Men Black Floral Casual Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Frare-rabbit-men-black-floral-casual-shirt%2Fp%2F19845483", image: "60.jpg" },
+            { name: "Tommy Hilfiger", link: "https://www.amazon.in/Logo-Regular-Cotton-Polo-T-Shirt/dp/B0GDZBT4M1?dib=eyJ2IjoiMSJ9.ZPSaY_ef3An0_XKTJJbR0amyUYBCqS-ElgUG3Mt4z_T4VeD_3P7mIfniAKRvbPmvUTAExxzh3LHRKZiPd7fvkQ30HyYJip8LodBZ8CtKDPbi8j-zqpnXI1n-7SJ4aJMwYvZDHf3ZfQVyOlAKO3ja1Qk2KnufZLk5Zvq1cJi-NUadG5ot5ErTUhqiz2K_7yX5zKrIrnCImxlktE2UBEYpV_AxsU3fx1_sGfwayL2sYv8Rwws57ZPd7NF8wWyriJjBEQM5qW-s0tv6NQX4098IW4IAbdzb7VmFw4H99yuY._G9ddhDoQM8dllzhpOqNZJ9pcB9XCIz6TSclkP4wE&dib_tag=se&pf_rd_i=745978103&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-19&qid=1784142579&refinements=p_85%3A10440599031%2Cp_123%3A232763%2Cp_n_pct-off-with-tax%3A2665402031&rnid=2665398031&rps=1&s=apparel&sr=1-115&xpid=AZP0s0Ac_XSed&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=1d581ec05e576b0674848bb349c6c983&ref_=as_li_ss_tl", image: "4.jpg" },
+            { name: "MyDesignation Mural Panel Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.mydesignation.com%2Fproducts%2Fmural-panel-shirt%3Fhref%3Dvizup_commerce", image: "46.jpg" },
+            { name: "GAP", link: "https://www.amazon.in/Mens-Textured-Sleeves-T-Shirt-Green/dp/B0GQ3P8CRB?dib=eyJ2IjoiMSJ9.8V5v9WILPWQz2IlXjpl-uk2oznNVv2_Q5L6ZSDNS5g_c7TCwNqCVgrr0uvqx6rKPL5evzNLqcSR5pWk1oUxVnABpEKKzu6ut5lrxC1gwrKNEK0XZaqEelQSKhLZbsBxWvrr_E_nd0qb4ugTA5589e5ocS4B_Bppd2bpKeo-szkyM8tnoSl82Oys_6CLjBNAWVX9MoEEBT_UWGp hwglcMmwya9vi0LIBANlWjmEJXymosr1tQNmNwa4EHbLt7LW59zOtSGRH-V6juE48vgzZ4wqmeq3neUjtos_8bvJQIOLFS02Biy4vc4DULoTs8_Nxv3__mVK6bT3A8&dib_tag=se&pf_rd_i=745978103&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-19&qid=1784143748&refinements=p_123%3A750818%2Cp_n_pct-off-with-tax%3A2665400031&rnid=1571271031&s=apparel&xpid=kpr_sclt6CaDP&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=a5b1ccef4ac06bb24969878a2a5c22a7&ref_=as_li_ss_tl", image: "10.jpg" },
+            { name: "MyDesignation Yin Yang T-Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.mydesignation.com%2Fproducts%2Fyin-yang", image: "43.jpg" },
+            { name: "MyDesignation Blue Linen Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.mydesignation.com%2Fproducts%2Fblue-linen", image: "45.jpg" },
+            { name: "Jack & Jones Black Knitted Cotton Polo", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F902215704-black-knitted-cotton-polo", image: "26.jpg" },
+            { name: "Jack & Jones T-Shirt & Pant Loungewear Set - Black", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F902190302-t-shirt-pant-loungewear-set-black", image: "36.jpg" },
+            { name: "GAP", link: "https://www.amazon.in/GAP-Printed-Standard-Sleeve-Sweatshirt/dp/B0G2RP46F4?dib=eyJ2IjoiMSJ9.cGHBdZcigOKyghbZlgTlLHsyUvA0Qb2peJJITO97QnJU9ImdpbJKbwWr4aPQKsO9cFjCGIERzaO0oDVocNQqPhObitrdMscogP-k95zIrWu4AjPDAyd4q29nw9vZVrDTLHIpfBWioAX8vHel0Z-H6KK33Pq1alRcCNCbSu5ziO0hBu59Mg15v89NrqGkxYNsR0_7zonTyLCwkPJsAJR3qkemulXSlQ665RnV-cB-BPgFLDoIAkqZRgzASc_N_f3IhkJLwE6usiZG3YvxG6Q8VO9vVmqwOYnemlGKvda2nWQ.Y3PaFMvP-bhdWBusUaTdwxmxQIDKJ3PQH4BK6xcpfkw&dib_tag=se&pf_rd_i=7459781031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-19&qid=1784142685&refinements=p_123%3A750818%2Cp_n_pct-off-with-tax%3A2665400031&rnid=1571271031&s=apparel&sr=1-47&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=0562f5cd3e31c7744c836a9b4f403ea5&ref_=as_li_ss_tl&psc=1", image: "6.jpg" },
+            { name: "Jack & Jones Logo Print Slim Fit O-Neck T-Shirt - Black", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F902273801-logo-print-slim-fit-o-neck-t-shirt-black", image: "25.jpg" },
+            { name: "MyDesignation Black Bandana Polo", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.mydesignation.com%2Fproducts%2Fblack-bandana-polo", image: "42.jpg" },
+            { name: "Men's RedLoop Striped Light Blue Slim Fit Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-redloop-striped-light-blue-slim-fit-shirt-a78040079", image: "19.jpg" },
+            { name: "Jack & Jones T-Shirt & Striped Pants Loungewear Set", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F902190204-t-shirt-striped-pants-loungewear-set%3Fvariant%3D51357266739483", image: "37.jpg" },
+            { name: "Silly Punter Supreme Leader T-Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fsillypunter.com%2Fproduct%2Fsupreme-leader-2%2F", image: "44.jpg" },
+            { name: "Men's Striped White Crew Neck T-Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-striped-white-crew-neck-t-shirt-0042o0000%3F_pos%3D2%26_sid%3Dbec69220a%26_ss%3Dr", image: "20.jpg" },
+            { name: "Men's Solid Slim Fit Jersey T-Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-solid-slim-fit-jersey-t-shirt-169601499%3F_pos%3D1%26_sid%3D1b2e099be%26_ss%3Dr", image: "21.jpg" },
+            { name: "MyDesignation Cosmic Visitors Warli Embroidery Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.mydesignation.com%2Fproducts%2Fcosmic-visitors-warli-emb", image: "47.jpg" },
+            { name: "BEAR HOUSE", link: "https://www.amazon.in/Bear-House-Relaxed-T-Shirt-TSH-LEVU-BK_Black/dp/B0DJ3B98VZ?crid=19599BMZ4XOLK&dib=eyJ2IjoiMSJ9.fKWkb29VY1kbClDlM8ppwvEDxVVZD-NQMpiSjavtyHnWewkAbYP1UINFSD2jo-NLYd4MVEBxs45_M6oyiSX-DSjU5dW-9TrE41j0wP_-Wj4TGRik-geug0mmCbxy0T0zl5y0TzI5yfx-ASiul-Z2S4yRvnI0qXLHYDNjE5vNZTz0vHpZOSoSpClomGhPetzNQWigZTmNx9Q4jRBR2qmdMHJnfQEEXX1867Cld9x8UO1Cb1dTaxAgVzvzAg1Kceww5AQsdcPu_k-HJH4e4G9zdXFKZin14CKhb7Hzxyql0ee.Biku2hfv n20jVvCos72l4YQYW9s_HTu7AzgeM2kTuwM&dib_tag=se&pf_rd_i=745978103&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=2ca1vbal9tl5wcbf&pf_rd_s=merchandised-search-14&merchandised-search-8&qid=1784143053&refinements=p_123%3A542333%2Cp_n_pct-off-with-tax%3A27060456031&rnid=1571271031&s=apparel&sprefix=2bhouse%22%2Caps%2C279&sr=1-10&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=4a84075ab2070f017496e49a63343b4f&ref_=as_li_ss_tl", image: "9.jpg" },
+            // Add more objects like: { name: "Name", link: "Link", image: "3.jpg" },
+        ];
+
+        products.forEach((product) => {
+            const card = document.createElement('div');
+            card.className = 'group flex flex-col h-full border-2 border-slate-300 p-2';
+            card.innerHTML = `
+                <div class="aspect-[3/4] bg-gray-800 overflow-hidden mb-4">
+                    <img src="casual/images/${product.image}" 
+                         alt="${product.name}" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="flex-grow mb-4">
+                    <h3 class="text-white text-lg font-light text-center">${product.name}</h3>
+                </div>
+                <a href="${product.link}" 
+                   target="_blank"
+                   class="block w-full py-3 text-center border border-white text-white text-[10px] uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300">
+                   Purchase
+                </a>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>

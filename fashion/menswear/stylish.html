@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE LOCAL PRODUCT | Collections</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; width: 100vw; background-color: #ffffff; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .nav-link { font-size: 0.70rem; letter-spacing: 0.2em; text-transform: uppercase; color: #4a4a4a; transition: color 0.3s; }
+        .nav-link:hover { color: #000000; }
+        #sidebar { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-anim { animation: fadeIn 1.5s ease-out forwards; }
+        .slide-up-anim { animation: slideUp 1s ease-out forwards; }
+    </style>
+</head>
+<body>
+
+   <!-- Header -->
+<header class="fixed top-0 left-0 w-full px-6 pt-8 pb-8 flex justify-between items-center bg-white border-b border-gray-200 z-50">
+    <button id="menu-btn" class="focus:outline-none flex flex-col justify-between w-8 h-6">
+        <span class="block w-full h-1 bg-black"></span>
+        <span class="block w-full h-1 bg-black"></span>
+        <span class="block w-full h-1 bg-black"></span>
+    </button>
+    
+    <div class="text-center">
+        <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+    </div>
+    
+    <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
+</header>
+       
+        <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
+    </header>
+
+    <div id="sidebar" class="fixed top-[86px] left-0 h-full w-64 bg-[#1a1a1c] text-white z-40 transform -translate-x-full shadow-2xl overflow-y-auto">
+    <div class="p-10">
+        <ul class="space-y-8">
+
+             <!-- MENSWEAR -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>MENSWEAR</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="stylish.html" class="hover:text-white transition">BE STYLISH</a></li>
+                    <li><a href="casual.html" class="hover:text-white transition">BE CASUAL</a></li>
+                    <li><a href="formal.html" class="hover:text-white transition">BE FORMAL</a></li>
+                    <li><a href="bottomwear.html" class="hover:text-white transition">BOTTOMWEAR</a></li>
+                    <li><a href="active.html" class="hover:text-white transition">BE ACTIVE</a></li>
+                </ul>
+            </li>
+
+            <!-- WOMENSWEAR -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>WOMENSWEAR</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../womenswear/stylish.html" class="hover:text-white transition">BE STYLISH</a></li>
+                    <li><a href="../womenswear/casual.html" class="hover:text-white transition">BE CASUAL</a></li>
+                    <li><a href="../womenswear/elegant.html" class="hover:text-white transition">BE ELEGANT</a></li>
+                    <li><a href="../womenswear/bottomwear.html" class="hover:text-white transition">BOTTOMWEAR</a></li>
+                    <li><a href="../womenswear/active.html" class="hover:text-white transition">BE ACTIVE</a></li>
+                </ul>
+            </li>
+
+            <!-- FOOTWEAR -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>FOOTWEAR</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../footwear/casual.html" class="hover:text-white transition">BE CASUAL</a></li>
+                    <li><a href="../footwear/formal.html" class="hover:text-white transition">BE FORMAL</a></li>
+                    <li><a href="../footwear/active.html" class="hover:text-white transition">BE ACTIVE</a></li>
+                    <li><a href="../footwear/slippers.html" class="hover:text-white transition">SLIPPERS</a></li>
+                    <li><a href="../footwear/sandals.html" class="hover:text-white transition">SANDALS</a></li>
+                </ul>
+            </li>
+
+            <!-- ESSENTIALS -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>ESSENTIALS</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../essentials/carry.html" class="hover:text-white transition">CARRY</a></li>
+                    <li><a href="../essentials/timepieces.html" class="hover:text-white transition">TIMEPIECES</a></li>
+                    <li><a href="../essentials/musthaves.html" class="hover:text-white transition">MUST HAVES</a></li>
+                </ul>
+            </li>
+
+            <!-- FRAGRANCES -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>FRAGRANCES</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../fragrances/him.html" class="hover:text-white transition">FOR HIM</a></li>
+                    <li><a href="../fragrances/her.html" class="hover:text-white transition">FOR HER</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</div>
+<script>
+document.querySelectorAll(".accordion").forEach(button => {
+    button.addEventListener("click", () => {
+        const submenu = button.nextElementSibling;
+        const icon = button.querySelector("span:last-child");
+
+        // Close all other submenus
+        document.querySelectorAll(".submenu").forEach(menu => {
+            if (menu !== submenu) {
+                menu.classList.add("hidden");
+                menu.previousElementSibling.querySelector("span:last-child").textContent = "+";
+            }
+        });
+
+        // Toggle current submenu
+        submenu.classList.toggle("hidden");
+        icon.textContent = submenu.classList.contains("hidden") ? "+" : "−";
+    });
+});
+</script>
+
+     <!-- Hero Section -->
+    <section class="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center fade-in-anim" 
+             style="background-image: url('stylish/background.jpg');"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <!-- Gradient Blend -->
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#1a1a1c] to-transparent"></div>
+        
+        <div class="relative text-center text-white p-6 fade-in-anim">
+            <h2 class="text-4xl md:text-6xl font-serif italic">"Style is your silent introduction."</h2>
+        </div>
+    </section>
+
+
+    <main class="w-full bg-[#1a1a1c] min-h-screen p-8 md:p-16">
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8"></div>
+    </main>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const grid = document.getElementById('product-grid');
+
+        menuBtn.addEventListener('click', () => sidebar.classList.toggle('-translate-x-full'));
+
+        // PRODUCT DATA: Edit here easily
+        const products = [
+            
+            { name: "Jack & Jones Split Neck Knit Oversized Polo - Beige", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F901828601-split-neck-knit-oversized-polo-beige", image: "33.jpg" },
+            { name: "Arrow Sports Maroon Horizontal Striped Regular Fit Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Farrow-sports-maroon-horizontal-striped-regular-fit-sweater%2Fp%2F22245437", image: "51.jpg" },
+            { name: "Under Armour Men's Team Knit Warmup Full Zip Jacket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Funder-armour-men-s-team-knit-warmup-full-zip-jacket%2Fp%2F20980444%3Fintcmp%3Dwidget%2Csimilar_products%26ppid%3D22303905", image: "65.jpg" },
+            { name: "Reebok Men Grey Jacket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Freebok-men-grey-jacket%2Fp%2F26288621", image: "64.jpg" },
+            { name: "Louis Philippe Men Green Textured Full Sleeves Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Flouis-philippe-men-green-textured-full-sleeves-sweater%2Fp%2F18479820", image: "55.jpg" },
+            { name: "GODFREY", link: "https://www.amazon.in/GODFREY-Sleeveless-Sweater-for-Men/dp/B0H6G81M69?pd_rd_w=LIH4C&content-id=amzn1.sym.1b3471d0-1af0-492d-b509-1cb16b8c887f&pf_rd_p=1b3471d0-1af0-492d-b509-1cb16b8c887f&pf_rd_r=9GWQPA8ZQKNF24YR36&pd_rd_wg=zCnLQ&pd_rd_r=f2aa7707-e469-46ec-8446-3027bb899319&pd_rd_i=B0H6G81M69&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=c79677375efc9ebf7c3563cf0780312&ref_=as_li_ss_tl", image: "2.jpg" },
+            { name: "Jack & Jones Quilted Striped Sweatshirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F902203601-quilted-striped-sweatshirt", image: "31.jpg" },
+            { name: "Tommy Hilfiger", link: "https://www.amazon.in/Tommy-Hilfiger-Mens-Color-Sweatshirt/dp/B0DFGWKQPF?dib=eyJ2IjoiMSJ9.AxVuMdwnmGlq0ITaCCFKdluVVr3MNdYPvE9KcDoGc8GX448gCa0b6Ixw4PdNuvXPkYjQWM4y_-mL248M2SwgQUD9aMZjn-3xrc_CtKplnQ4XR44YspK2a7kzcTqkoJoJtGm2Pq_hQYW5NdUW6WNXCG6RSDfpBc5dLPZfzp_ShZ_yteTWhv7IDtmbRAL9uwsH2qjLVCM9QQ9jG9910pjvWZItUe6UnUkuDVjvAkYHYs6AErlpXftN0Fww-osYDo67h4Rt4rYTCjozrMr2gzHEFe-AiTaa-ydifH8VVlF_CjQ.or06mgKr6ArG86TSFYl_mgtZaokSIthKTFhQtNR4YdY&dib_tag=se&pf_rd_i=7459781031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-19&qid=1784142376&refinements=p_85%3A10440599031%2Cp_123%3A232763%2Cp_n_pct-off-with-tax%3A2665402031&rnid=2665398031&rps=1&s=apparel&sr=1-32&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=c6d209899a87236ae9f93ae89e089942&ref_=as_li_ss_tl", image: "3.jpg" },
+            { name: "The Indian Garage Co. Men Regular Fit Embroidered High Neck Full Sleeves Jacket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fthe-indian-garage-co-men-regular-fit-embroidered-high-neck-full-sleeves-jacket%2Fp%2F23712138", image: "62.jpg" },
+            { name: "Van Heusen White Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fvan-heusen-white-shirt%2Fp%2F9797634", image: "61.jpg" },
+            { name: "The Souled Store Spider-Man Radioactive Men Oversized Full Sleeve T-Shirts", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fthe-souled-store-spider-man-radioactive-men-oversized-full-sleeve-t-shirts%2Fp%2F12832147", image: "59.jpg" },
+            { name: "Wrogn Navy Blue Acrylic Solid Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fwrogn-navy-blue-acrylic-solid-sweater%2Fp%2F26769241", image: "49.jpg" },
+            { name: "U.S. Polo Assn. Denim Co. White Men's Pure Cotton Muscle Fit T-Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fu-s-polo-assn-denim-co-white-mens-pure-cotton-muscle-fit-t-shirt%2Fp%2F21390340", image: "58.jpg" },
+            { name: "MyDesignation Badass Embroidered Varsity Jacket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.mydesignation.com%2Fproducts%2Fbadass-embroidered-varsity-jacket", image: "48.jpg" },
+            { name: "Rare Rabbit Toge Green Monogram Print Regular Fit Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Frare-rabbit-toge-green-monogram-print-regular-fit-sweater%2Fp%2F19655710", image: "53.jpg" },
+            { name: "Dennis Lingo Full Sleeve Mock Collar Solid Slim Fit Men Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fdennis-lingo-full-sleeve-mock-collar-solid-slim-fit-men-sweater%2Fp%2F17619540", image: "56.jpg" },
+            { name: "U.S. Polo Assn. White Cotton Regular Jacket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fu-s-polo-assn-white-cotton-regular-jacket%2Fp%2F24745123", image: "63.jpg" },
+            { name: "Arrow Sports Men Navy Blue Stripes Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Farrow-sports-men-navy-blue-stripes-sweater%2Fp%2F17694081", image: "52.jpg" },
+            { name: "Nobero Men Green Polyester Solid Jacket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fnobero-men-green-polyester-solid-jacket%2Fp%2F26575584", image: "57.jpg" },
+            { name: "Calvin Klein Men Black Grey Abstract Relaxed Fit Acrylic Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fcalvin-klein-men-black-grey-abstract-relaxed-fit-acrylic-sweater%2Fp%2F27937414", image: "50.jpg" },
+            { name: "GAP", link: "https://www.amazon.in/GAP-Graphic-Printed-Regular-Sweatshirt/dp/B0GJZXT8R9?dib=eyJ2IjoiMSJ9.cGHBdZcigOKyghbZlgTILHsyUvA0Qb2peJJITO97QnJU9ImdpbJKbwWr4aPQKsO9cFjCGIERzaO0oDVocNQqPhObitrdMscogP-k9zIrWu4AjPDAyd4q29nw9vZVrDTLHIpfBWioAX8vHel0Z-H6KK33Pq1alRcCNCbSu5ziO0hBu59Mg15v89NrqGkxYNsR0_7zonTyLCwkPJsAJR3qkemulXSIQ665RnV-cB-BPgFLDolAkqZRGzAsc_N_f3lhkJLwE6usiZG3YvxG6Q8VO9vVmqwOYnemlGKvda2nWQ.Y3PaFMvP-bhdWBusUaTdwxmxQIDKJ3PQH4BK6xcpfkw&dib_tag=se&pf_rd_i=745978103&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-19&qid=1784142685&refinements=p_123%3A750818%2Cp_n_pct-off-with-tax%3A2665400031&rnid=1571271031&s=apparel&sr=1-14&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=5f2270e131ee35c95ae73bf9f6f3accd&ref_=as_li_ss_tl", image: "5.jpg" },
+            { name: "MyDesignation Plaid Imperial Green shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.mydesignation.com%2Fproducts%2Fplaid-imperial-green", image: "41.jpg" },
+            { name: "MyDesignation Striped Jet Black shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.mydesignation.com%2Fproducts%2Fstriped-jet-black", image: "40.jpg" },
+            { name: "Jack & Jones Vetiver Polo", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F901339801-vetiver", image: "34.jpg" },
+            { name: "PUMA", link: "https://www.amazon.in/teamRISE-Sideline-Jacket-Peacoat-White-65732606/dp/B08NPLB54Y?dib=eyJ2IjoiMSJ9.jsxQOANE492TY0-N3DJjwXVBJ65Gp9iL7grWBdlg03g8N7iRDoUgMf6Vbn0DfpQYSubQoy7lxldcmZOtU82B1I1W4I-HZQHQRCbba1ZH9K7KBECcM8RZBAMn1RKWi_4ksn_3ylfRmrJJWrzmZcMbc9AgPjBp7ySfHdjIXCdx88MAqelSMaZWfOVJuyhync224rig3EPL5fr30kPfbO9xLi7KCAzO3BaiW_GqklXqxATPPqFmdLZeaZa708SHKvuFCfumXIZ1Xe00GW-FDQupT7-FsweX1WYDAiH_qbmCrks.wdl9He-XV_thr0f3cUHA1YCDarSA8Bj0JCxSTBn7veEk&dib_tag=se&pf_rd_i=1968024031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-20&pf_rd_t=30901&qid=1784142977&refinements=p_85%3A10440599031%2Cp_n_pct-off-with-tax%3A2665400031%2Cp_36%3A60000-%2Cp_123%3A256097&rnid=91049095031&rps=1&s=apparel&sr=1-6&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=813d47e7add1fc4cf49b1f39fc258d&ref_=as_li_ss_tl", image: "7.jpg" },
+            { name: "PUMA", link: "https://www.amazon.in/Puma-SWEAT-JACKET-Black-63061601/dp/B0DT6Z5KJV?dib=eyJ2IjoiMSJ9.GYMLVIdSql1ogqMD6QsjXMkfJaTrwrPLMvUXOqM0GhwsXqgGkEmk5rxbU_9khw8Rrld-zRv2VX1-wttE650N8caHRdsLeIWKr82nelj7TZ3788--3SUscVabqBdskteC8EjEypmOpHLKRI3ZW7IBK4lCvcnFH5k_o54dhpitzKzD4wwhc-srcu4DPUCP_dk1MclbR-hJVLuAAW95JpxzQhCDxVvc1onI0N6Dj-TmSxt6Gw2I1GNHI3UTxFzyvTXJW3RW83a2NslwLOV19QGOKAutz8VdaJbgpVjXgr6YwU.EpJIB8g5EfpMlg69BKzpi4h1s_EnbSoTWOAJHCryaWI&dib_tag=se&keywords=puma%2B2bbmw&qid=1784143053&s=apparel&sr=1-5&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=620aa5a6e89bce68d999f379a9cb30a&ref_=as_li_ss_tl", image: "8.jpg" },
+            { name: "Men's Brand Logo Blue Crew Neck Sweatshirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-brand-logo-blue-crew-neck-sweatshirt-596380320%3F_pos%3D6%26_fid%3Ddc5cba30c%26_ss%3Dc%26variant%3D50398321279266", image: "12.jpg" },
+            { name: "Men's Brand Logo Red Collar Neck Sweatshirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-brand-logo-red-collar-neck-sweatshirt-002a90003%3F_pos%3D74%26_fid%3D79d432a9b%26_ss%3Dc", image: "13.jpg" },
+            { name: "Men's Brand Logo Black Collar Neck Sweatshirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-brand-logo-black-collar-neck-sweatshirt-002a90002%3Fpr_prod_strat%3De5_desc%26pr_rec_id%3D317994c5a%26pr_rec_pid%3D9933731594530%26pr_ref_pid%3D9933729366306%26pr_seq%3Duniform", image: "14.jpg" },
+            { name: "Jack & Jones Black T-Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F112128501-black", image: "30.jpg" },
+            { name: "Men's Solid Navy Crew Neck Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-solid-navy-crew-neck-sweater-000zf0022%3F_pos%3D19%26_fid%3Dee5873dbe%26_ss%3Dc%26variant%3D48952534434082", image: "16.jpg" },
+            { name: "Jack & Jones Brilliant White T-Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F141445802-brilliant-white", image: "29.jpg" },
+            { name: "Men's Solid Olive Bomber Jacket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-solid-olive-bomber-jacket-004jv0001%3F_pos%3D4%26_fid%3D560d91018%26_ss%3Dc%26variant%3D50398331535650", image: "17.jpg" },
+            { name: "Men's Solid Navy Spread Collar Jacket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-solid-navy-spread-collar-jacket-000da0000%3F_pos%3D45%26_fid%3Da0846780a%26_ss%3Dc%26variant%3D49230850392354", image: "18.jpg" },
+            { name: "Coofandy Popcon Half Sleeve Polycotton Shirt for Men (Pack of2)", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.coofandy.in%2Fproducts%2Fpopcon-half-sleeve-polycotton-shirt-for-men-pack-of-7%3Fvariant%3D44668140650658", image: "22.jpg" },
+            { name: "Eleven Oasis Men's Coastal Palm Horizon Short Sleeve Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.elevenoasis.com%2Fproducts%2Fmens-coastal-palm-horizon-short-sleeve-shirt%3Fpr_prod_strat%3Djac%26pr_rec_id%3D8f66138da%26pr_rec_pid%3D9172629127406%26pr_ref_pid%3D8051074826478%26pr_seq%3Duniform", image: "23.jpg" },
+            { name: "Eleven Oasis Men's Art Pattern Camp Collar Short Sleeve Shirt - Multicolor Geometric Starburst", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.elevenoasis.com%2Fproducts%2Fmens-art-pattern-camp-collar-short-sleeve-shirt-multicolor-geometric-starburst%3Fvariant%3D46448683417838", image: "24.jpg" },
+            { name: "Arrow Sports Men Black Colorblock Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Farrow-sports-men-black-colorblock-sweater%2Fp%2F23272256", image: "54.jpg" },
+        ];
+
+       products.forEach((product) => {
+            const card = document.createElement('div');
+            card.className = 'group flex flex-col h-full border-2 border-slate-300 p-2';
+            card.innerHTML = `
+                <div class="aspect-[3/4] bg-gray-800 overflow-hidden mb-4">
+                    <img src="stylish/images/${product.image}" 
+                         alt="${product.name}" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="flex-grow mb-4">
+                    <h3 class="text-white text-lg font-light text-center">${product.name}</h3>
+                </div>
+                <a href="${product.link}" 
+                   target="_blank"
+                   class="block w-full py-3 text-center border border-white text-white text-[10px] uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300">
+                   ckeck the price
+                </a>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>

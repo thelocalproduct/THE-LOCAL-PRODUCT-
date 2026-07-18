@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE LOCAL PRODUCT | Collections</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            width: 100vw;
+            background-color: #ffffff;
+        }
+        
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        .nav-link { 
+            font-size: 0.70rem; 
+            letter-spacing: 0.2em; 
+            text-transform: uppercase; 
+            color: #4a4a4a;
+            transition: color 0.3s; 
+        }
+        .nav-link:hover { color: #000000; }
+        
+        #sidebar { 
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+<header class="fixed top-0 left-0 w-full px-6 pt-8 pb-8 flex justify-between items-center bg-white border-b border-gray-200 z-50">
+    <button id="menu-btn" class="focus:outline-none flex flex-col justify-between w-8 h-6">
+        <span class="block w-full h-1 bg-black"></span>
+        <span class="block w-full h-1 bg-black"></span>
+        <span class="block w-full h-1 bg-black"></span>
+    </button>
+    
+    <div class="text-center">
+        <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+    </div>
+    
+    <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
+</header>
+        
+        
+        
+        <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
+    </header>
+
+    <div id="sidebar" class="fixed top-[86px] left-0 h-full w-64 bg-[#1a1a1c] text-white z-40 transform -translate-x-full shadow-2xl overflow-y-auto">
+    <div class="p-10">
+        <ul class="space-y-8">
+
+            <!-- MENSWEAR -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>MENSWEAR</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../menswear/stylish.html" class="hover:text-white transition">BE STYLISH</a></li>
+                    <li><a href="../menswear/casual.html" class="hover:text-white transition">BE CASUAL</a></li>
+                    <li><a href="../menswear/formal.html" class="hover:text-white transition">BE FORMAL</a></li>
+                    <li><a href="../menswear/bottomwear.html" class="hover:text-white transition">BOTTOMWEAR</a></li>
+                    <li><a href="../menswear/active.html" class="hover:text-white transition">BE ACTIVE</a></li>
+                </ul>
+            </li>
+
+            <!-- WOMENSWEAR -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>WOMENSWEAR</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="stylish.html" class="hover:text-white transition">BE STYLISH</a></li>
+                    <li><a href="casual.html" class="hover:text-white transition">BE CASUAL</a></li>
+                    <li><a href="elegant.html" class="hover:text-white transition">BE ELEGANT</a></li>
+                    <li><a href="bottomwear.html" class="hover:text-white transition">BOTTOMWEAR</a></li>
+                    <li><a href="active.html" class="hover:text-white transition">BE ACTIVE</a></li>
+                </ul>
+            </li>
+
+            <!-- FOOTWEAR -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>FOOTWEAR</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../footwear/casual.html" class="hover:text-white transition">BE CASUAL</a></li>
+                    <li><a href="../footwear/formal.html" class="hover:text-white transition">BE FORMAL</a></li>
+                    <li><a href="../footwear/active.html" class="hover:text-white transition">BE ACTIVE</a></li>
+                    <li><a href="../footwear/slippers.html" class="hover:text-white transition">SLIPPERS</a></li>
+                    <li><a href="../footwear/sandals.html" class="hover:text-white transition">SANDALS</a></li>
+                </ul>
+            </li>
+
+            <!-- ESSENTIALS -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>ESSENTIALS</span>
+                    <span>+</span>
+                </button>
+                <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../essentials/carry.html" class="hover:text-white transition">CARRY</a></li>
+                    <li><a href="../essentials/timepieces.html" class="hover:text-white transition">TIMEPIECES</a></li>
+                    <li><a href="../essentials/musthaves.html" class="hover:text-white transition">MUST HAVES</a></li>
+                </ul>
+            </li>
+
+            <!-- FRAGRANCES -->
+            <li>
+                <button class="accordion w-full flex justify-between items-center text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white transition duration-200">
+                    <span>FRAGRANCES</span>
+                    <span>+</span>
+                </button>
+                 <ul class="submenu hidden pl-6 mt-4 text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-3">
+                    <li><a href="../fragrances/him.html" class="hover:text-white transition">FOR HIM</a></li>
+                    <li><a href="../fragrances/her.html" class="hover:text-white transition">FOR HER</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+<script>
+document.querySelectorAll(".accordion").forEach(button => {
+    button.addEventListener("click", () => {
+        const submenu = button.nextElementSibling;
+        const icon = button.querySelector("span:last-child");
+
+        // Close all other submenus
+        document.querySelectorAll(".submenu").forEach(menu => {
+            if (menu !== submenu) {
+                menu.classList.add("hidden");
+                menu.previousElementSibling.querySelector("span:last-child").textContent = "+";
+            }
+        });
+
+        // Toggle current submenu
+        submenu.classList.toggle("hidden");
+        icon.textContent = submenu.classList.contains("hidden") ? "+" : "−";
+    });
+});
+</script>
+
+      <!-- Hero Section -->
+    <section class="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center fade-in-anim" 
+             style="background-image: url('bottomwear/background.jpg');"></div>
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <!-- Gradient Blend -->
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#1a1a1c] to-transparent"></div>
+        
+        <div class="relative text-center text-white p-6 fade-in-anim">
+            <h2 class="text-4xl md:text-6xl font-serif italic">"Style is your silent introduction."</h2>
+        </div>
+    </section>
+
+     <!-- Main Content -->
+    <main class="w-full bg-[#1a1a1c] min-h-screen p-8 md:p-16">
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <!-- Cards injected here -->
+        </div>
+    </main>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const grid = document.getElementById('product-grid');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // ADD OR EDIT YOUR PRODUCTS BELOW
+        const products = [
+            { name: "Blissclub Airmelt Flare Pants Lite", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fblissclub.com%2Fproducts%2Fairmelt-flare-pants-lite%3Fvariant%3D48624099229952", image: "9.jpg" },
+            { name: "Blissclub Yoga Flare Pants with Hidden Back Pocket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fblissclub.com%2Fproducts%2Fyoga-flare-pants-with-polyester-fabric-and-hidden-back-pocket", image: "10.jpg" },
+            { name: "Jockey Microfiber Fabric Skirt with Side Pockets", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.jockey.in%2Fproducts%2Fmicrofiber-fabric-skirt-with-side-pockets-black-wz29", image: "27.jpg" },
+            { name: "Bewakoof Women's  Oversized Joggers", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.bewakoof.com%2Fp%2Fwomens-pink-oversized-joggers", image: "18.jpg" },
+            { name: "Blissclub Ultimate Korean Pants", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fblissclub.com%2Fproducts%2Fhigh-waisted-wide-legged-pants-with-adjustable-drawstring-and-2-pockets%3Fvariant%3D44042272309504", image: "20.jpg" },
+            { name: "Adidas Essentials 2.0 Pants", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.adidas.co.in%2Fessentials-2.0-pants%2FIM4830.html", image: "26.jpg" },
+            { name: "Blissclub Cloud Box Pleated Korean Pant", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fblissclub.com%2Fproducts%2Fcloud-box-pleated-korean-pant%3Fvariant%3D48775885357312", image: "21.jpg" },
+            { name: "GRECIILOOKS Women's High Waist Poly Cotton Trousers", link: "https://www.amazon.in/GRECIILOOKS-Waist-Polycotton-Trousers-Women/dp/B0FH72WWZX?pf_rd_r=ZT2CSV20HGY4DRE4EQZQ&pf_rd_p=a78dcd8c-82e6-4e71-9757-2117e2a27ff2&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=463dcf4031ab5bf65cc86e56c0ec0bea&ref_=as_li_ss_tl", image: "1.jpg" },
+            { name: "Blissclub Ultimate Palazzo Pants", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fblissclub.com%2Fproducts%2Fultimate-palazzo-pants%3Fvariant%3D45336862720256", image: "8.jpg" },
+            
+            // Add more objects like: { name: "Name", link: "Link", image: "3.jpg" },
+        ];
+
+        products.forEach((product) => {
+            const card = document.createElement('div');
+            card.className = 'group flex flex-col h-full border-2 border-slate-300 p-2';
+            card.innerHTML = `
+                <div class="aspect-[3/4] bg-gray-800 overflow-hidden mb-4">
+                    <img src="bottomwear/images/${product.image}" 
+                         alt="${product.name}" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                </div>
+                <div class="flex-grow mb-4">
+                    <h3 class="text-white text-lg font-light text-center">${product.name}</h3>
+                </div>
+                <a href="${product.link}" 
+                   target="_blank"
+                   class="block w-full py-3 text-center border border-white text-white text-[10px] uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300">
+                   Purchase
+                </a>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>
