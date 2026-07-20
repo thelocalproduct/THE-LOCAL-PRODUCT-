@@ -169,18 +169,22 @@ document.querySelectorAll(".accordion").forEach(button => {
 
         // ADD OR EDIT YOUR PRODUCTS BELOW
         const products = [
-             { name: "Product Name #", link: "URL_HERE", image: "1.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "2.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            
-            // Add more objects like: { name: "Name", link: "Link", image: "3.jpg" },
+            { name: "Bugatti Black Premium Leather Derby Formal Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fbugattishoes.in%2Fproducts%2Fbugatti-black-premium-leather-derby-formal-shoes-311-a311u-4000-1000", image: "5.jpg" },
+            { name: "Bugatti Cognac Premium Leather Derby Formal Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fbugattishoes.in%2Fproducts%2Fbugatti-cognac-premium-leather-derby-formal-shoes-315-a9g11-3000-6300", image: "7.jpg" },
+            { name: "Bugatti Cognac Premium Leather Derby Formal Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fbugattishoes.in%2Fproducts%2Fbugatti-cognac-premium-leather-derby-formal-shoes-315-aqr01-3000-6300", image: "16.jpg" },
+            { name: "Bugatti Margo Black Leather Derby Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fbugattishoes.in%2Fproducts%2Fmargo-black-leather-derby-shoes", image: "3.jpg" },
+            { name: "Bugatti Bela Dark Grey Premium Leather Comfort Derby Formal Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fbugattishoes.in%2Fproducts%2Fbugatti-bela-dark-grey-premium-leather-comfort-derby-formal-shoes", image: "10.jpg" },
+            { name: "Bugatti Beige Premium Leather Derby Formal Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fbugattishoes.in%2Fproducts%2Fbugatti-beige-premium-leather-derby-formal-shoes-311-a9e08-1400-5200", image: "9.jpg" },
+            { name: "Louis Philippe Men's Black Oxford Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Flouis-philippe-mens-black-oxford-shoes%2Fp-mp000000021443248", image: "13.jpg" },
+            { name: "Bugatti Dark Grey Premium Leather Derby Formal Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fbugattishoes.in%2Fproducts%2Fbugatti-dark-grey-premium-leather-derby-formal-shoes-318-aip03-1100-1100", image: "2.jpg" },
+            { name: "Bugatti Taupe Premium Leather Derby Formal Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fbugattishoes.in%2Fproducts%2Fbugatti-taupe-premium-leather-derby-formal-shoes-311-ajy07-1400-1400", image: "15.jpg" },
+            { name: "U.S. Polo Assn. Men's Marco 2.0 Black Brogue Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fus-polo-assn-mens-marco-20-black-brogue-shoes%2Fp-mp000000030128075", image: "12.jpg" },
+            { name: "Bugatti Black Premium Leather Derby Formal Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fbugattishoes.in%2Fproducts%2Fbugatti-black-premium-leather-derby-formal-shoes-315-85810-4000-1000", image: "4.jpg" },
+            { name: "Bugatti Cognac Premium Leather Derby Formal Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fbugattishoes.in%2Fproducts%2Fbugatti-cognac-premium-leather-derby-formal-shoes-315-85810-3000-6300", image: "8.jpg" },
+            { name: "Hush Puppies Brandon Oxford", link: "https://www.amazon.in/Hush-Puppies-Brandon-Oxford-8346000/dp/B0CC2NZNDQ?th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=4d36479957878a2c19e72f20900ce856&ref_=as_li_ss_tl", image: "14.jpg" },
+            { name: "Bugatti Black Premium Leather Derby Formal Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fbugattishoes.in%2Fproducts%2Fbugatti-black-premium-leather-derby-formal-shoes-315-a9g11-4000-1000", image: "6.jpg" },
+            { name: "Arrow Men's Tan Oxford Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-mens-tan-oxford-shoes%2Fp-mp000000024798066", image: "11.jpg" },
+           
         ];
 
         products.forEach((product) => {
@@ -188,7 +192,7 @@ document.querySelectorAll(".accordion").forEach(button => {
             card.className = 'group flex flex-col h-full border-2 border-slate-300 p-2';
             card.innerHTML = `
                 <div class="aspect-[3/4] bg-gray-800 overflow-hidden mb-4">
-                    <img src="accessories/images/${product.image}" 
+                    <img src="formal/images/${product.image}" 
                          alt="${product.name}" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
