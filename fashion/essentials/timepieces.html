@@ -5,31 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE LOCAL PRODUCT | Collections</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+   <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
         
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            width: 100vw;
-            background-color: #ffffff;
-        }
-        
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; width: 100vw; background-color: #ffffff; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        
-        .nav-link { 
-            font-size: 0.70rem; 
-            letter-spacing: 0.2em; 
-            text-transform: uppercase; 
-            color: #4a4a4a;
-            transition: color 0.3s; 
-        }
+        .nav-link { font-size: 0.70rem; letter-spacing: 0.2em; text-transform: uppercase; color: #4a4a4a; transition: color 0.3s; }
         .nav-link:hover { color: #000000; }
-        
-        #sidebar { 
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
-        }
+        #sidebar { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-anim { animation: fadeIn 1.5s ease-out forwards; }
+        .slide-up-anim { animation: slideUp 1s ease-out forwards; }
     </style>
 </head>
 <body>
@@ -156,18 +144,19 @@ document.querySelectorAll(".accordion").forEach(button => {
      <!-- Hero Section -->
     <section class="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center fade-in-anim" 
-             style="background-image: url('accessories/background.jpg');"></div>
+             style="background-image: url('timepieces/background.jpg');"></div>
         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <!-- Gradient Blend -->
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#000000] to-transparent"></div>
+        
         <div class="relative text-center text-white p-6 fade-in-anim">
-            <h2 class="text-4xl md:text-6xl font-serif italic">"Style: A silent confession of who you are."</h2>
+            <h2 class="text-4xl md:text-6xl font-serif italic">"The watch on the wrist tells you more about a man than the car in his garage."</h2>
         </div>
     </section>
 
-     <!-- Main Content -->
-    <main class="w-full bg-[#1a1a1c] min-h-screen p-8 md:p-16">
-        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <!-- Cards injected here -->
-        </div>
+
+    <main class="w-full bg-[#000000] min-h-screen p-8 md:p-16">
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8"></div>
     </main>
 
     <script>
@@ -175,22 +164,24 @@ document.querySelectorAll(".accordion").forEach(button => {
         const sidebar = document.getElementById('sidebar');
         const grid = document.getElementById('product-grid');
 
-        menuBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('-translate-x-full');
-        });
+        menuBtn.addEventListener('click', () => sidebar.classList.toggle('-translate-x-full'));
 
         // ADD OR EDIT YOUR PRODUCTS BELOW
         const products = [
-             { name: "Product Name #", link: "URL_HERE", image: "1.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "2.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
+            { name: "Fastrack Overdrive Chronograph Micromotor Black Dial Black Stainless Steel Strap Watch for Guys", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.fastrack.in%2Fproduct%2Ffastrack-overdrive-chronograph-micromotor-black-dial-black-stainless-steel-strap-watch-for-guys-3331nm01.html%3Flang%3Den_IN%26plp%3Dtrue%26catID%3Doverdrive", image: "3.jpg" },
+            { name: "Kenneth Cole Quartz Analog Watch for Women with Black Dial Black Colour Leather Strap", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.titan.co.in%2Fproduct%2Fkenneth-cole-quartz-analog-watch-for-women-with-black-dial-black-colour-leather-strap-kcwla2219601ld.html%3Flang%3Den_IN%26plp%3Dtrue%26_gl%3D1*t1v31x*_up*MQ..%26gclid%3DCjwKCAjw1IHTBhAaEiwA4AYNFk-etjOjt1JJjRoL8xHHhCeqCgj-EGasJssYYuasim_x67UVN69-5RoCAMoQAvD_BwE", image: "8.jpg" },
+            { name: "Fastrack Thor Quartz Multifunction Watch for Guys with Red Dial Metal Strap", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.fastrack.in%2Fproduct%2Ffastrack-thor-quartz-multifunction-watch-for-guys-with-red-dial-metal-strap-3286km01.html%3Flang%3Den_IN", image: "2.jpg" },
+            { name: "Casio vintage f94wa-", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fcasio-f94wa8dg-d052-vintage-collection-digital-watch%2Fp-mp000000000697478", image: "13.jpg" },
+            { name: "Q Timex Black Rectangle Dial Ana-Digi Men's Watch", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fshop.timexindia.com%2Fcollections%2Foffers%2Fproducts%2Fq-timex-black-rectangle-dial-ana-digital-mens-watch-tw2y05900uj", image: "10.jpg" },
+            { name: "Timex UFC Strength Collection Men's Quartz Analog-Digital Watch", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fshop.timexindia.com%2Fcollections%2Foffers%2Fproducts%2Ftimex-ufc-strength-collection-premium-quality-men-s-quartz-analog-digital-dial-coloured-watch-round-dial-with-50-mm-case-width-tw5m534000d", image: "11.jpg" },
+            { name: "Fastrack VYB Halo Quartz Analog Grey Dial Watch for Girls with Rose Gold Metal Strap", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.fastrack.in%2Fproduct%2Ffastrack-vyb-halo-quartz-analog-grey-dial-watch-for-girls-with-rose-gold-metal-strap-fv60035wm01w.html%3Flang%3Den_IN", image: "5.jpg" },
+            { name: "Fastrack UFO Quartz Multifunction Black Dial Black Stainless Steel Strap Watch for Guys", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.fastrack.in%2Fproduct%2Ffastrack-ufo-quartz-multifunction-black-dial-black-stainless-steel-strap-watch-for-guys-3327nm01.html%3Flang%3Den_IN%26plp%3Dtrue%26catID%3Dufo", image: "4.jpg" },
+            { name: "Titan Quartz Multifunction Watch for Men Black Dial with Stainless Steel Strap", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.titan.co.in%2Fproduct%2Ftitan-quartz-multifunction-watch-for-men-black-dial-with-stainless-steel-strap-1877nm01.html%3Flang%3Den_IN%26plp%3Dtrue", image: "9.jpg" },
+            { name: "Timex Vector Men Silver Round Dial Analog Watch", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fshop.timexindia.com%2Fproducts%2Ftimex-vector-men-silver-round-dial-analog-watch-tweg26101", image: "12.jpg" },
+            { name: "Titan Workwear Quartz Analog Anthracite Dial Watch for Men with Black Colour Leather Strap", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.titan.co.in%2Fproduct%2Ftitan-workwear-quartz-analog-anthracite-dial-watch-for-men-with-black-colour-leather-strap-1884nm01.html%3Flang%3Den_IN%26plp%3Dtrue%26_gl%3D1*b3q3gh*_up*MQ..*_gs*MQ..%26gclid%3DCjwKCAjw1IHTBhAaEiwA4AYNFk-etjOjt1JJjRoL8xHHhCeqCgj-EGasJssYYuasim_x67UVN69-5RoCAMoQAvD_BwE", image: "7.jpg" },
+            { name: "Fastrack Black Dial Black Stainless Steel Strap Watch for Guys", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.fastrack.in%2Fproduct%2Ffastrack-black-dial-black-stainless-steel-strap-watch-for-guys-3273nm01.html%3Flang%3Den_IN%26plp%3Dfalse", image: "1.jpg" },
+            { name: "Fastrack VYB Showstopper Quartz Analog Blue Dial Watch for Girls with Rose Gold Colour Stainless Steel Strap", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.fastrack.in%2Fproduct%2Ffastrack-vyb-showstopper-quartz-analog-blue-dial-watch-for-girls-with-rose-gold-colour-stainless-steel-strap-fv60015wm01w.html%3Flang%3Den_IN%26plp%3Dtrue", image: "6.jpg" },
+             
             
             // Add more objects like: { name: "Name", link: "Link", image: "3.jpg" },
         ];
@@ -200,7 +191,7 @@ document.querySelectorAll(".accordion").forEach(button => {
             card.className = 'group flex flex-col h-full border-2 border-slate-300 p-2';
             card.innerHTML = `
                 <div class="aspect-[3/4] bg-gray-800 overflow-hidden mb-4">
-                    <img src="accessories/images/${product.image}" 
+                    <img src="timepieces/images/${product.image}" 
                          alt="${product.name}" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>

@@ -8,28 +8,16 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
         
-        body { 
-            font-family: 'Inter', sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            width: 100vw;
-            background-color: #ffffff;
-        }
-        
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; width: 100vw; background-color: #ffffff; }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        
-        .nav-link { 
-            font-size: 0.70rem; 
-            letter-spacing: 0.2em; 
-            text-transform: uppercase; 
-            color: #4a4a4a;
-            transition: color 0.3s; 
-        }
+        .nav-link { font-size: 0.70rem; letter-spacing: 0.2em; text-transform: uppercase; color: #4a4a4a; transition: color 0.3s; }
         .nav-link:hover { color: #000000; }
-        
-        #sidebar { 
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
-        }
+        #sidebar { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-anim { animation: fadeIn 1.5s ease-out forwards; }
+        .slide-up-anim { animation: slideUp 1s ease-out forwards; }
     </style>
 </head>
 <body>
@@ -153,21 +141,22 @@ document.querySelectorAll(".accordion").forEach(button => {
 });
 </script>
 
-     <!-- Hero Section -->
+    <!-- Hero Section -->
     <section class="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center fade-in-anim" 
-             style="background-image: url('accessories/background.jpg');"></div>
+             style="background-image: url('carry/background.jpg');"></div>
         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <!-- Gradient Blend -->
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#1c1c1c] to-transparent"></div>
+        
         <div class="relative text-center text-white p-6 fade-in-anim">
-            <h2 class="text-4xl md:text-6xl font-serif italic">"Style: A silent confession of who you are."</h2>
+            <h2 class="text-4xl md:text-6xl font-serif italic">"Carry your world with you."</h2>
         </div>
     </section>
 
-     <!-- Main Content -->
-    <main class="w-full bg-[#1a1a1c] min-h-screen p-8 md:p-16">
-        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <!-- Cards injected here -->
-        </div>
+
+    <main class="w-full bg-[#1c1c1c] min-h-screen p-8 md:p-16">
+        <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8"></div>
     </main>
 
     <script>
@@ -175,23 +164,48 @@ document.querySelectorAll(".accordion").forEach(button => {
         const sidebar = document.getElementById('sidebar');
         const grid = document.getElementById('product-grid');
 
-        menuBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('-translate-x-full');
-        });
+        menuBtn.addEventListener('click', () => sidebar.classList.toggle('-translate-x-full'));
 
         // ADD OR EDIT YOUR PRODUCTS BELOW
         const products = [
-             { name: "Product Name #", link: "URL_HERE", image: "1.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "2.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            
+            { name: "Caprese Claudiaa Large Black Tote Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-claudiaa-large-black-tote-bag%3Fvariant%3D50177635352809%26Color%3DBlack", image: "1.jpg" },
+            { name: "Arctic Hunter Slim Backpack for Men", link: "https://www.amazon.in/Backpack-Multiple-Aluminum-Suitcase-Resistant/dp/B0DJVFSS1K?&linkCode=ll2&tag=bestprice690e-21&linkId=f7280b3dcea0f102548e99c1939f878d&ref_=as_li_ss_tl", image: "29.jpg" },
+            { name: "Caprese Alpine Medium Black Satchel Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-alpine-medium-black-satchel-bag%3Fvariant%3D50882233958633%26Color%3DBlack", image: "2.jpg" },
+            { name: "Tommy Hilfiger Granite Grey & Black Blackburn Laptop Backpack", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Ftommy-hilfiger-granite-grey-black-blackburn-laptop-backpack%2Fp-mp000000029701753", image: "21.jpg" },
+            { name: "Caprese Malta Small Black Satchel Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-malta-small-black-satchel-bag%3Fvariant%3D50941271933161%26Color%3DBlack", image: "3.jpg" },
+            { name: "Caprese Rain Medium Black Satchel Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-rain-medium-black-satchel-bag%3Fvariant%3D50559103140073%26Color%3DBlack", image: "4.jpg" },
+            { name: "Arctic Hunter Slim Backpack for Men", link: "https://www.amazon.in/Anti-theft-Backpack-Separate-Semi-Hard-Resistant/dp/B0B6FXRBR8?&linkCode=ll2&tag=bestprice690e-21&linkId=35cf191f227ec6625e7c51ee9a48401e&ref_=as_li_ss_tl", image: "30.jpg" },
+            { name: "Mokobara The Transit Backpack", link: "https://www.amazon.in/MOKOBARA-Transit-Backpack-Laptop-Crypto/dp/B0B6CM781M?adgrpid=57668549263&content-id=amzn1.sym.8b99ac48-0c8d-4226-ac23-52de60b2e5f1%3Aamzn1.sym.8b99ac48-0c8d-4226-ac23-52de60b2e5f1&cv_ct_cx=arctic%2Bfox%2Bbackpack%2Btravel&gad_source=1&hvadid=590736358939&hvdev=c&hvexpln=0&hvlocphy=9149081&hvnetw=g&hvocijid=11227164526906939436--&hvqmt=b&hvrand=11227164526906939436&hvtargid=kwd-2328891643834&hydadcr=16070_2268649&keywords=arctic%2Bfox%2Bbackpack%2Btravel&mcid=e9981e6cf8ca3b39b18fec118bf9d9d4&nsdOptOutParam=true&pd_rd_i=B0B6CM781M&pd_rd_r=f1769339-ddcb-4c7f-b105-2b3571a395fd&pd_rd_w=TG3bD&pd_rd_wg=LGhmv&pf_rd_p=8b99ac48-0c8d-4226-ac23-52de60b2e5f1&pf_rd_r=N1GQ6BR00RQ4MJQ73F64&qid=1784737881&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-5-ced4eeeb-b190-41d6-902a-1ecb3fb8b7c4-spons&aref=Gfz9S7HoQO&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=00a8d400e5589a542033f16bea5d6aee&ref_=as_li_ss_tl", image: "28.jpg" },
+            { name: "Arctic Fox Kobra Laptop Backpack", link: "https://www.amazon.in/Arctic-Fox-Kobra-Laptop-Backpack/dp/B09GPHHZPW?adgrpid=57668549263&dib=eyJ2IjoiMSJ9.I3RselQYU1x1ryCAc97IEU6yHQfKJA6Ov0FMiLi4-OQpmHJhKMCY9otJVsNDUoveZllUHN3Y7D5JSYmY3PQuaoF2GE50pGgDuxE0d-sqLneFKNU3vseKJhvd0XedS7lt6IOGmNUqJMoAzFxPLivWw6HXI9EM1sam52HugJ6MnXseEI_zi3f3bCIWoOmFqH8TJYamYJ-2j5dzvZPffdIXoBUdc2HuXdo5L-yJQqcIA8I.sV6jueQ_GEIFSIT55I9BVef_72afPmAUW4B8qBGME0A&dib_tag=se&gad_source=1&hvadid=590736358939&hvdev=c&hvexpln=0&hvlocphy=9149081&hvnetw=g&hvocijid=11227164526906939436--&hvqmt=b&hvrand=11227164526906939436&hvtargid=kwd-2328891643834&hydadcr=16070_2268649&keywords=arctic%2Bfox%2Bbackpack%2Btravel&mcid=e9981e6cf8ca3b39b18fec118bf9d9d4&nsdOptOutParam=true&qid=1784737881&sr=8-4&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=277fe0e884e7840d09e2d952cd1bae54&ref_=as_li_ss_tl", image: "26.jpg" },
+            { name: "Skybags Black Transit Medium Laptop Backpack", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fskybags-black-transit-medium-laptop-backpack%2Fp-mp000000031089696", image: "24.jpg" },
+            { name: "Nasher Miles Tama Corporate Backpack", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fnashermiles.com%2Fcollections%2Flaptop-backpacks%2Fproducts%2Fnasher-miles-tama-corporate-backpack-premium-polyester-24l-ideal-for-office-college-school-travel-men-women-grey", image: "18.jpg" },
+            { name: "Caprese Ellen Medium Black Satchel Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-ellen-medium-black-satchel-bag%3Fvariant%3D50559104254185%26Color%3DBlack", image: "6.jpg" },
+            { name: "Caprese Fergi Medium Navy Blue Tote Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-fergi-medium-navy-blue-tote-bag%3Fvariant%3D50992383197417%26Color%3DNavy%2BBlue", image: "9.jpg" },
+            { name: "Tommy Hilfiger Black Joshua Laptop Backpack", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Ftommy-hilfiger-black-joshua-laptop-backpack%2Fp-mp000000012158322", image: "22.jpg" },
+            { name: "United Colors of Benetton Amaya Navy PU Solid Handbag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Funited-colors-of-benetton-amaya-navy-pu-solid-handbag%2Fp-mp000000020892333", image: "20.jpg" },
+            { name: "Arctic Fox Multipurpose Travel Backpack", link: "https://www.amazon.in/Arctic-Fox-Backpack-Resistant-Multipurpose/dp/B0GS2PDVT5?adgrpid=57668549263&dib=eyJ2IjoiMSJ9.I3RselQYU1x1ryCAc97IEU6yHQfKJA6Ov0FMiLi4-OQpmHJhKMCY9otJVsNDUoveZllUHN3Y7D5JSYmY3PQuaoF2GE50pGgDuxE0d-sqLneFKNU3vseKJhvd0XedS7lt6IOGmNUqJMoAzFxPLivWw6HXI9EM1sam52HugJ6MnXseEI_zi3f3bCIWoOmFqH8TJYamYJ-2j5dzvZPffdIXoBUdc2HuXdo5L-yJQqcIA8I.sV6jueQ_GEIFSIT55I9BVef_72afPmAUW4B8qBGME0A&dib_tag=se&gad_source=1&hvadid=590736358939&hvdev=c&hvexpln=0&hvlocphy=9149081&hvnetw=g&hvocijid=11227164526906939436--&hvqmt=b&hvrand=11227164526906939436&hvtargid=kwd-2328891643834&hydadcr=16070_2268649&keywords=arctic+fox+backpack+travel&mcid=e9981e6cf8ca3b39b18fec118bf9d9d4&nsdOptOutParam=true&qid=1784737881&sr=8-11&linkCode=ll2&tag=bestprice690e-21&linkId=8a2b84b370ca5052a77c19e997082691&ref_=as_li_ss_tl", image: "27.jpg" },
+            { name: "Caprese Giaa Large Tan Laptop Tote Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-giaa-large-tan-laptop-tote-bag%3Fvariant%3D50909522952425%26Color%3DTan", image: "10.jpg" },
+            { name: "Nasher Miles Madison Laptop Backpack", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fnashermiles.com%2Fcollections%2Flaptop-backpacks%2Fproducts%2Fmadison", image: "17.jpg" },
+            { name: "Skybags Black Elevate Medium Laptop Backpack", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fskybags-black-elevate-medium-laptop-backpack%2Fp-mp000000031089693", image: "23.jpg" },
+            { name: "Caprese Andrea Small Black Sling Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-andrea-small-black-sling-bag%3Fvariant%3D50287153086697%26Color%3DBlack", image: "11.jpg" },
+            { name: "Nasher Miles Newark Backpack for Men & Women", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fnashermiles.com%2Fcollections%2Flaptop-backpacks%2Fproducts%2Fnasher-miles-newark-backpack-for-men-women-corporate-travel-office-laptop-backpack-bag-navy-blue-30l", image: "15.jpg" },
+            { name: "Caprese Sunny Medium Black Sling Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-sunny-medium-black-sling-bag%3Fvariant%3D50287339536617%26Color%3DBlack", image: "12.jpg" },
+            { name: "Nasher Miles Monash Premium Polyester Laptop Backpack", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fnashermiles.com%2Fproducts%2Fnasher-miles-monash-premium-polyester-laptop-backpack-34l-reflective-rider-backpack-ideal-for-travel-office-men-women-olive", image: "16.jpg" },
+            { name: "Caprese Miko Medium Black Sling Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-miko-medium-black-sling-bag%3Fvariant%3D50992379068649%26Color%3DBlack", image: "13.jpg" },
+            { name: "Skybags Black Ontrak Medium Laptop Backpack", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fskybags-black-ontrak-medium-laptop-backpack%2Fp-mp000000031089689", image: "25.jpg" },
+            { name: "Caprese Gary Large Black Tote Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-gary-large-black-tote-bag%3Fvariant%3D50177632370921%26Color%3DBlack", image: "7.jpg" },
+            { name: "Faux Leather Pinched Strap Detail Tote Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.marksandspencer.in%2Ffaux-leather-pinched-strap-detail-tote-bag%2Fp%2FP60778761.html", image: "14.jpg" },
+            { name: "Caprese Rayn Large Blue Navy Tote Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-rayn-large-blue-navy-tote-bag%3Fvariant%3D50287140241641%26Color%3DBlue%2B%2526%2BNavy", image: "8.jpg" },
+            { name: "Nasher Miles Fordham Corporate Backpack", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fnashermiles.com%2Fcollections%2Flaptop-backpacks%2Fproducts%2Fnasher-miles-fordham-corporate-backpack-premium-polyester-laptop-backpack-ideal-for-office-college-school-travel-men-women-black", image: "19.jpg" },
+            { name: "Caprese Kai Large Olive Green Tote Bag", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.capresebags.com%2Fproducts%2Fcaprese-kai-large-olive-green-tote-bag%3Fvariant%3D50559104155881%26Color%3DOlive%2BGreen", image: "5.jpg" },
+
+
+
+
+
+
+
+
             // Add more objects like: { name: "Name", link: "Link", image: "3.jpg" },
         ];
 
@@ -200,7 +214,7 @@ document.querySelectorAll(".accordion").forEach(button => {
             card.className = 'group flex flex-col h-full border-2 border-slate-300 p-2';
             card.innerHTML = `
                 <div class="aspect-[3/4] bg-gray-800 overflow-hidden mb-4">
-                    <img src="accessories/images/${product.image}" 
+                    <img src="carry/images/${product.image}" 
                          alt="${product.name}" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
