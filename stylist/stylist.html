@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --surface-color: #171717;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --accent-gold: #d4af37;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            padding-top: 120px;
+            padding-bottom: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* Collage Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .photo-card {
+            position: relative;
+            background: var(--surface-color);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            aspect-ratio: 9/16;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Interactive Modal Pop-up */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 90vw;
+            max-height: 90vh;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+            transform: scale(0.95);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-content img {
+            max-height: 65vh;
+            max-width: 100%;
+            border-radius: 12px;
+            object-fit: contain;
+            margin-bottom: 24px;
+        }
+
+        /* Navigational Affiliate Buttons Container */
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 10px 18px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .nav-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-color);
+            border-color: var(--text-primary);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--text-primary);
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar Header -->
+    <header class="fixed top-0 left-0 w-full px-6 py-6 flex justify-between items-center bg-white border-b border-gray-200 z-50">
+        <button id="menu-btn" class="focus:outline-none flex flex-col justify-center gap-1.5 w-8 h-8">
+            <span class="block w-6 h-0.5 bg-black"></span>
+            <span class="block w-6 h-0.5 bg-black"></span>
+            <span class="block w-6 h-0.5 bg-black"></span>
+        </button>
+        
+        <div class="text-center absolute left-1/2 -translate-x-1/2">
+            <h1 class="text-xl md:text-3xl font-normal tracking-tight leading-[0.8] text-black">THE LOCAL PRODUCT</h1>
+        </div>
+        
+        <a href="../index.html" class="nav-link text-[10px] text-black hover:underline">Back →</a>
+    </header>
+
+    <!-- Page Subheader & Creative Disclaimer -->
+    <div class="text-center mb-8 px-4 max-w-xl">
+        <h2 style="font-family: 'Playfair Display', serif;" class="text-4xl tracking-widest uppercase font-bold mb-3">Stylist</h2>
+        <p class="text-xs tracking-wide text-[#a1a1a6] font-light leading-relaxed italic border-y border-[rgba(255,255,255,0.08)] py-2">
+            ✨ Inspiration in sight, perfection in match — visual references set the mood, while our curated picks bring the exact fit to life.
+        </p>
+    </div>
+
+    <!-- Photo Collage Grid -->
+    <main class="gallery-grid" id="galleryGrid"></main>
+
+    <!-- Pop-up Modal Container -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <img id="modalImage" src="" alt="Selected Style">
+            
+            <!-- Dynamic Affiliate Action Links (Only visible if links exist) -->
+            <div class="nav-buttons" id="modalNavButtons"></div>
+        </div>
+    </div>
+
+    <script>
+        const galleryGrid = document.getElementById('galleryGrid');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        const modalNavButtons = document.getElementById('modalNavButtons');
+
+        const affiliateData = {
+            1: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fmonte-carlo-beige-solid-regular-fit-jacket%2Fp-mp000000028340177",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Ffabindia-beige-relaxed-fit-solid-pants%2Fp-mp000000029502079",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-solid-regular-fit-interlock-t-shirt-006db0003%3F_pos%3D6%26_fid%3D703afb062%26_ss%3Dc%26variant%3D51430684655906", 
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fsmashic-unisex-sneakers%2Fp-mp000000016283447",
+                accessory: "" 
+            },
+            2: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-solid-olive-bomber-jacket-004jv0001%3F_gl%3D1*2b6ljp*_up*MQ..*_gs*MQ..%26gclid%3DCj0KCQjw94bTBhDQARIsAN3vv0w58eAcxRRTfcWtSkojy3lvhBo91-tA3gu7c6z-f11nSECxJPXZcZ0aAnYrEALw_wcB%26gbraid%3D0AAAAABV_QT6Y2nLr2J3AvfLlq8biSP-9_", 
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-513-mid-rise-slim-straight-fit-cotton-stretch-blend-jeans-0038i0075%3F_pos%3D12%26_fid%3D13d41c81e%26_ss%3Dc%26variant%3D51562544562466%26_gl%3D1*1mmoujy*_up*MQ..*_gs*MQ..%26gclid%3DCj0KCQjw94bTBhDQARIsAN3vv0w58eAcxRRTfcWtSkojy3lvhBo91-tA3gu7c6z-f11nSECxJPXZcZ0aAnYrEALw_wcB%26gbraid%3D0AAAAABV_QT6Y2nLr2J3AvfLlq8biSP-9_",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-solid-regular-fit-interlock-t-shirt-006db0003%3F_pos%3D6%26_fid%3D703afb062%26_ss%3Dc%26variant%3D51430684655906",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-piper-beige-navy-casual-sneakers-879700132%3F_pos%3D29%26_fid%3D250679de2%26_ss%3Dc%26variant%3D47970291613986%26_gl%3D1*16knen9*_up*MQ..*_gs*MQ..%26gclid%3DCj0KCQjw94bTBhDQARIsAN3vv0w58eAcxRRTfcWtSkojy3lvhBo91-tA3gu7c6z-f11nSECxJPXZcZ0aAnYrEALw_wcB%26gbraid%3D0AAAAABV_QT6Y2nLr2J3AvfLlq8biSP-9_",
+                accessory: ""
+            },
+            3: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fallen-solly-green-regular-fit-jacket%2Fp-mp000000029217652",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-mens-solid-slim-fit-elasticated-waistband-trouser%2Fp-mp000000027410944",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-solid-slim-fit-pique-t-shirt-169601467%3F_pos%3D18%26_fid%3D457c6c898%26_ss%3Dc%26variant%3D51912911716642%26_gl%3D1*107vzce*_up*MQ..*_gs*MQ..%26gclid%3DCj0KCQjw94bTBhDQARIsAN3vv0wS7j2_rBiIlF7BpiyIsZg_v_t-15K_u1VPH26m7jjbY8yND4tAii8aArRbEALw_wcB%26gbraid%3D0AAAAABV_QT6Y2nLr2J3AvfLlq8biSP-9_",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fsmashic-unisex-sneakers%2Fp-mp000000016283447",
+                accessory: ""
+            },
+            4: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F900852202-men-solid-grey-slim-fit-shacket-style-windcheater-jacket%3F_pos%3D5%26_fid%3D9ab3bb94d%26_ss%3Dc",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fwrogn-beige-casual-slim-tapered-jeans%2Fp%2F28144939",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Flouis-philippe-navy-cotton-slim-fit-tshirt%2Fp-mp000000029599406",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fsmashic-unisex-sneakers%2Fp-mp000000016283447",
+                accessory: ""
+            },
+            5: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F900609603-maroon-corduroy-cotton-shirt%3Fvariant%3D52389685592347%26country%3DIN%26currency%3DINR%26utm_medium%3Dproduct_sync%26utm_source%3Dgoogle%26utm_content%3Dsag_organic%26utm_campaign%3Dsag_organic%26utm_source%3DGH_Google_Pmax%26utm_medium%3DPaid%26utm_campaign%3DMixed_AllProducts-22691501712%26gad_source%3D1%26gad_campaignid%3D23271674832%26gbraid%3D0AAAAACU3RmBsK0I-j5mnz4zAO6OtpqpdS%26gclid%3DCjwKCAjwmozTBhAeEiwAkEGZzjHC-NI7DsXzAVr9Ih-5HydXxs3FCf2zpkMMrbd2LjXPFAzPbHoAaBoCsgkQAvD_BwE",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fvan-heusen-sport-grey-slim-fit-self-pattern-trousers%2Fp-mp000000018046956",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fbeing-human-grey-woven-design-slim-fit-tshirt%2Fp-mp000000031027838",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fsmashic-unisex-sneakers%2Fp-mp000000016283447",
+                accessory: ""
+            },
+            6: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fselected-homme-organic-cotton-corduroy-blue-jacket%2Fp%2F23826733%3Fintcmp%3Dwidget%2Csimilar_products%26ppid%3D26769343",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fjockey-im26-mens-super-combed-cotton-rich-elastane-stretch-woven-fabric-slim-fit-all-day-pants%2Fp-mp000000030018423",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-solid-slim-fit-pique-t-shirt-169601464%3F_pos%3D17%26_fid%3Dd7b2b8e84%26_ss%3Dc%26variant%3D51912929870114",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fus-polo-assn-mens-rheece-tan-casual-sneakers%2Fp-mp000000015884829",
+                accessory: ""
+            },
+            7: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Freebok-navy-regular-fit-solid-jacket%2Fp-mp000000026959372",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fpeter-england-navy-cotton-slim-fit-chinos%2Fp-mp000000027992541",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fpark-avenue-grey-slim-fit-sweatshirt%2Fp-mp000000029557636",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fnew-balance-mens-mr530ck-grey-running-shoes%2Fp-mp000000020356092",
+                accessory: ""
+            },
+            8: {
+                shirt: "",
+                pant: "",
+                tshirt: "",
+                shoe: "",
+                accessory: ""
+            },
+            9: {
+                shirt: "",
+                pant: "",
+                tshirt: "",
+                shoe: "",
+                accessory: ""
+            },
+            10: {
+                shirt: "",
+                pant: "",
+                tshirt: "",
+                shoe: "",
+                accessory: ""
+            }
+        };
+            
+            
+
+        function loadImagesAutomatically() {
+            let i = 1;
+            const maxImages = 20; 
+
+            function checkNextImage() {
+                if (i > maxImages) return;
+                
+                const displayPath = `images/${i}.jpg`;
+                const imgIndex = i; 
+                const imgTest = new Image();
+                
+                imgTest.onload = function() {
+                    createPhotoCard(displayPath, imgIndex);
+                    i++;
+                    checkNextImage();
+                };
+                
+                imgTest.onerror = function() {
+                    return; 
+                };
+                
+                imgTest.src = displayPath;
+            }
+
+            checkNextImage();
+        }
+
+        function createPhotoCard(imageSrc, index) {
+            const card = document.createElement('div');
+            card.className = 'photo-card';
+            
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = imageSrc;
+
+            card.appendChild(img);
+
+            card.addEventListener('click', () => {
+                modalImage.src = imageSrc;
+                
+                const links = affiliateData[index] || {};
+                let buttonsHTML = '';
+                
+                const buttonConfigs = [
+                    { key: 'shirt', label: 'Shirt' },
+                    { key: 'pant', label: 'Pant' },
+                    { key: 'tshirt', label: 'T-Shirt' },
+                    { key: 'shoe', label: 'Shoe' },
+                    { key: 'accessory', label: 'Accessory' }
+                ];
+
+                buttonConfigs.forEach(btn => {
+                    const url = links[btn.key];
+                    if (url && url.trim() !== "" && url !== "#") {
+                        buttonsHTML += `<a href="${url}" target="_blank" class="nav-btn">${btn.label}</a>`;
+                    }
+                });
+
+                modalNavButtons.innerHTML = buttonsHTML;
+                modalOverlay.classList.add('active');
+            });
+
+            galleryGrid.appendChild(card);
+        }
+
+        window.addEventListener('DOMContentLoaded', loadImagesAutomatically);
+
+        closeModal.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
