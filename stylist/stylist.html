@@ -38,6 +38,11 @@
             padding-right: 20px;
         }
 
+        /* Sidebar open state */
+        #sidebar.open {
+            transform: translateX(0);
+        }
+
         /* Collage Gallery Grid */
         .gallery-grid {
             display: grid;
@@ -181,20 +186,100 @@
 </head>
 <body>
 
-    <!-- Top Bar Header -->
-    <header class="fixed top-0 left-0 w-full px-6 py-6 flex justify-between items-center bg-white border-b border-gray-200 z-50">
-        <button id="menu-btn" class="focus:outline-none flex flex-col justify-center gap-1.5 w-8 h-8">
-            <span class="block w-6 h-0.5 bg-black"></span>
-            <span class="block w-6 h-0.5 bg-black"></span>
-            <span class="block w-6 h-0.5 bg-black"></span>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full px-6 pt-8 pb-8 flex justify-between items-center bg-white border-b border-gray-200 z-50">
+        <button id="menu-btn" class="focus:outline-none flex flex-col justify-between w-8 h-6">
+            <span class="block w-full h-1 bg-black"></span>
+            <span class="block w-full h-1 bg-black"></span>
+            <span class="block w-full h-1 bg-black"></span>
         </button>
         
-        <div class="text-center absolute left-1/2 -translate-x-1/2">
-            <h1 class="text-xl md:text-3xl font-normal tracking-tight leading-[0.8] text-black">THE LOCAL PRODUCT</h1>
+        <!-- Wrapped title inside an anchor tag for navigation -->
+        <div class="text-center">
+            <a href="../index.html" class="inline-block">
+                <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black hover:opacity-75 transition-opacity" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+            </a>
         </div>
         
-        <a href="../index.html" class="nav-link text-[10px] text-black hover:underline">Back →</a>
+        <a href="../index.html" class="nav-link text-xs font-medium text-black hover:opacity-75 transition-opacity">Back →</a>
     </header>
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="fixed top-[72px] left-0 h-full w-full md:w-64 bg-[#1a1a1c] text-white z-40 transform -translate-x-full shadow-2xl overflow-y-auto transition-transform duration-300">
+        <div class="p-10">
+            <ul class="space-y-8">
+                <!-- MENSWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-lg md:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>MENSWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-6 mt-4 text-[13px] md:text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-4 md:space-y-3">
+                        <li><a href="../fashion/menswear/stylish.html" class="hover:text-white transition block py-1">BE STYLISH</a></li>
+                        <li><a href="../fashion/menswear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/menswear/formal.html" class="hover:text-white transition block py-1">BE FORMAL</a></li>
+                        <li><a href="../fashion/menswear/bottomwear.html" class="hover:text-white transition block py-1">BOTTOMWEAR</a></li>
+                        <li><a href="../fashion/menswear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                    </ul>
+                </li>
+
+                <!-- WOMENSWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-lg md:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>WOMENSWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-6 mt-4 text-[13px] md:text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-4 md:space-y-3">
+                        <li><a href="../fashion/womenswear/stylish.html" class="hover:text-white transition block py-1">BE STYLISH</a></li>
+                        <li><a href="../fashion/womenswear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/womenswear/elegant.html" class="hover:text-white transition block py-1">BE ELEGANT</a></li>
+                        <li><a href="../fashion/womenswear/bottomwear.html" class="hover:text-white transition block py-1">BOTTOMWEAR</a></li>
+                        <li><a href="../fashion/womenswear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                    </ul>
+                </li>
+
+                <!-- FOOTWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-lg md:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>FOOTWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-6 mt-4 text-[13px] md:text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-4 md:space-y-3">
+                        <li><a href="../fashion/footwear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/footwear/formal.html" class="hover:text-white transition block py-1">BE FORMAL</a></li>
+                        <li><a href="../fashion/footwear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                        <li><a href="../fashion/footwear/slipper.html" class="hover:text-white transition block py-1">SLIPPERS</a></li>
+                        <li><a href="../fashion/footwear/sandal.html" class="hover:text-white transition block py-1">SANDALS</a></li>
+                    </ul>
+                </li>
+
+                <!-- ESSENTIALS -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-lg md:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>ESSENTIALS</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-6 mt-4 text-[13px] md:text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-4 md:space-y-3">
+                        <li><a href="../fashion/essentials/carry.html" class="hover:text-white transition block py-1">CARRY</a></li>
+                        <li><a href="../fashion/essentials/timepieces.html" class="hover:text-white transition block py-1">TIMEPIECES</a></li>
+                        <li><a href="../fashion/essentials/musthaves.html" class="hover:text-white transition block py-1">MUST HAVES</a></li>
+                    </ul>
+                </li>
+
+                <!-- FRAGRANCES -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-lg md:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>FRAGRANCES</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-6 mt-4 text-[13px] md:text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-4 md:space-y-3">
+                        <li><a href="../fashion/fragrances/him.html" class="hover:text-white transition block py-1">FOR HIM</a></li>
+                        <li><a href="../fashion/fragrances/her.html" class="hover:text-white transition block py-1">FOR HER</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <!-- Page Subheader & Creative Disclaimer -->
     <div class="text-center mb-8 px-4 max-w-xl">
@@ -224,6 +309,27 @@
         const modalImage = document.getElementById('modalImage');
         const closeModal = document.getElementById('closeModal');
         const modalNavButtons = document.getElementById('modalNavButtons');
+        
+        // Sidebar & Accordion Elements
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const accordions = document.querySelectorAll('.accordion');
+
+        // Toggle Sidebar Drawer
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Toggle Accordion Dropdowns
+        accordions.forEach(acc => {
+            acc.addEventListener('click', () => {
+                const submenu = acc.nextElementSibling;
+                const icon = acc.querySelector('.accordion-icon');
+                
+                submenu.classList.toggle('hidden');
+                icon.textContent = submenu.classList.contains('hidden') ? '+' : '−';
+            });
+        });
 
         const affiliateData = {
             1: {
@@ -248,7 +354,7 @@
                 accessory: ""
             },
             4: {
-                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.jackjones.in%2Fproducts%2F900852202-men-solid-grey-slim-fit-shacket-style-windcheater-jacket%3F_pos%3D5%26_fid%3D9ab3bb94d%26_ss%3Dc",
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fperch-grey-solid-woolen-jacket%2Fp%2F23628236",
                 pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fwrogn-beige-casual-slim-tapered-jeans%2Fp%2F28144939",
                 tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Flouis-philippe-navy-cotton-slim-fit-tshirt%2Fp-mp000000029599406",
                 shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fsmashic-unisex-sneakers%2Fp-mp000000016283447",
@@ -324,94 +430,20 @@
                 shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fnike-mens-downshifter-white-black-platinum-tint-anthracite-running-shoes%2Fp-mp000000030071792",
                 accessory: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fadidas-black-liverpool-fc-striped-baseball-cap-medium%2Fp-mp000000028009924",
             },
-             15: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
-             16: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
-             17: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
-             18: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
-             19: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
-             20: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
-             21: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
-             22: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
-             23: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
-             24: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
-             25: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
-             26: {
-                shirt: "",
-                pant: "",
-                tshirt: "",
-                shoe: "",
-                accessory: "",
-            },
+            15: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
+            16: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
+            17: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
+            18: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
+            19: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
+            20: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
+            21: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
+            22: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
+            23: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
+            24: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
+            25: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
+            26: { shirt: "", pant: "", tshirt: "", shoe: "", accessory: "" },
         };
             
-            
-
         function loadImagesAutomatically() {
             let i = 1;
             const maxImages = 20; 

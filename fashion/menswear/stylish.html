@@ -5,24 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE LOCAL PRODUCT | Collections</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
         
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; width: 100vw; background-color: #0c0b0b; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            width: 100vw;
+            background-color: #ffffff;
+        }
+        
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        .nav-link { font-size: 0.70rem; letter-spacing: 0.2em; text-transform: uppercase; color: #4a4a4a; transition: color 0.3s; }
+        
+        .nav-link { 
+            font-size: 0.70rem; 
+            letter-spacing: 0.2em; 
+            text-transform: uppercase; 
+            color: #4a4a4a;
+            transition: color 0.3s; 
+        }
         .nav-link:hover { color: #000000; }
-        #sidebar { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        #sidebar { 
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-in-anim { animation: fadeIn 1.5s ease-out forwards; }
-        .slide-up-anim { animation: slideUp 1s ease-out forwards; }
+        /* Forces 1 column layout on mobile screens (< 768px) to make pictures bigger, leaves desktop unchanged */
+        @media screen and (max-width: 768px) {
+            #product-grid {
+                grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+            }
+        }
     </style>
 </head>
 <body>
 
-   <!-- Header -->
+  <!-- Header -->
 <header class="fixed top-0 left-0 w-full px-6 pt-8 pb-8 flex justify-between items-center bg-white border-b border-gray-200 z-50">
     <button id="menu-btn" class="focus:outline-none flex flex-col justify-between w-8 h-6">
         <span class="block w-full h-1 bg-black"></span>
@@ -30,15 +49,15 @@
         <span class="block w-full h-1 bg-black"></span>
     </button>
     
+    <!-- Wrapped title inside an anchor tag for navigation -->
     <div class="text-center">
-        <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+        <a href="../../index.html" class="inline-block">
+            <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black hover:opacity-75 transition-opacity" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+        </a>
     </div>
     
     <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
 </header>
-       
-        <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
-    </header>
 
     <div id="sidebar" class="fixed top-[86px] left-0 h-full w-64 bg-[#1a1a1c] text-white z-40 transform -translate-x-full shadow-2xl overflow-y-auto">
     <div class="p-10">
@@ -170,6 +189,7 @@ document.querySelectorAll(".accordion").forEach(button => {
             { name: "Arrow Sports Maroon Horizontal Striped Regular Fit Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Farrow-sports-maroon-horizontal-striped-regular-fit-sweater%2Fp%2F22245437", image: "51.jpg" },
             { name: "Under Armour Men's Team Knit Warmup Full Zip Jacket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Funder-armour-men-s-team-knit-warmup-full-zip-jacket%2Fp%2F20980444%3Fintcmp%3Dwidget%2Csimilar_products%26ppid%3D22303905", image: "65.jpg" },
             { name: "Reebok Men Grey Jacket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Freebok-men-grey-jacket%2Fp%2F26288621", image: "64.jpg" },
+            { name: "U.S. Polo Assn. Solid Regular Fit Jacket", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fu-s-polo-assn-solid-regular-fit-jacket%2Fp%2F22303597%3Fintcmp%3Dwidget%2Csimilar_products%26ppid%3D27368952", image: "67.jpg" },
             { name: "Skechers Black Comfort Fit Hooded Sweatshirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fskechers-black-comfort-fit-hooded-sweatshirt%2Fp-mp000000024463781", image: "66.jpg" },
             { name: "Louis Philippe Men Green Textured Full Sleeves Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Flouis-philippe-men-green-textured-full-sleeves-sweater%2Fp%2F18479820", image: "55.jpg" },
             { name: "Pepe Jeans Burgundy High Neck Full Sleeve Lightweight Jacket", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.pepejeans.in%2Fburgundy-high-neck-full-sleeve-lightweight-jacket%2F8905875282969.html", image: "1.jpg" },
@@ -178,6 +198,7 @@ document.querySelectorAll(".accordion").forEach(button => {
             { name: "Red Bull Racing x Pepe Jeans Cotton Knit Half Zip", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.pepejeans.in%2Fred-bull-racing-x-pepe-jeans-cotton-knit-half-zip%2F8447166058315.html", image: "25.jpg" },
             { name: "Pepe Jeans Black Lightweight Full Sleeve Jacket", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.pepejeans.in%2Fblack-lightweight-full-sleeve-jacket%2F8905875003199.html", image: "6.jpg" },
             { name: "Tommy Hilfiger", link: "https://www.amazon.in/Tommy-Hilfiger-Mens-Color-Sweatshirt/dp/B0DFGWKQPF?dib=eyJ2IjoiMSJ9.AxVuMdwnmGlq0ITaCCFKdluVVr3MNdYPvE9KcDoGc8GX448gCa0b6Ixw4PdNuvXPkYjQWM4y_-mL248M2SwgQUD9aMZjn-3xrc_CtKplnQ4XR44YspK2a7kzcTqkoJoJtGm2Pq_hQYW5NdUW6WNXCG6RSDfpBc5dLPZfzp_ShZ_yteTWhv7IDtmbRAL9uwsH2qjLVCM9QQ9jG9910pjvWZItUe6UnUkuDVjvAkYHYs6AErlpXftN0Fww-osYDo67h4Rt4rYTCjozrMr2gzHEFe-AiTaa-ydifH8VVlF_CjQ.or06mgKr6ArG86TSFYl_mgtZaokSIthKTFhQtNR4YdY&dib_tag=se&pf_rd_i=7459781031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-19&qid=1784142376&refinements=p_85%3A10440599031%2Cp_123%3A232763%2Cp_n_pct-off-with-tax%3A2665402031&rnid=2665398031&rps=1&s=apparel&sr=1-32&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=c6d209899a87236ae9f93ae89e089942&ref_=as_li_ss_tl", image: "3.jpg" },
+            { name: "U.S. Polo Assn. Denim Co. Embossed Branded Bomber Jacket", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fu-s-polo-assn-denim-co-embossed-branded-bomber-jacket%2Fp%2F27368899%3Fintcmp%3Dwidget%2Csimilar_products%26ppid%3D22303597", image: "68.jpg" },
             { name: "The Indian Garage Co. Men Regular Fit Embroidered High Neck Full Sleeves Jacket", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fthe-indian-garage-co-men-regular-fit-embroidered-high-neck-full-sleeves-jacket%2Fp%2F23712138", image: "62.jpg" },
             { name: "The Souled Store Spider-Man Radioactive Men Oversized Full Sleeve T-Shirts", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fthe-souled-store-spider-man-radioactive-men-oversized-full-sleeve-t-shirts%2Fp%2F12832147", image: "59.jpg" },
             { name: "Wrogn Navy Blue Acrylic Solid Sweater", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fwrogn-navy-blue-acrylic-solid-sweater%2Fp%2F26769241", image: "49.jpg" },

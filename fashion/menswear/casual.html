@@ -13,21 +13,40 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
         
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; width: 100vw; background-color: #ffffff; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            width: 100vw;
+            background-color: #ffffff;
+        }
+        
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        .nav-link { font-size: 0.70rem; letter-spacing: 0.2em; text-transform: uppercase; color: #4a4a4a; transition: color 0.3s; }
+        
+        .nav-link { 
+            font-size: 0.70rem; 
+            letter-spacing: 0.2em; 
+            text-transform: uppercase; 
+            color: #4a4a4a;
+            transition: color 0.3s; 
+        }
         .nav-link:hover { color: #000000; }
-        #sidebar { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        #sidebar { 
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-in-anim { animation: fadeIn 1.5s ease-out forwards; }
-        .slide-up-anim { animation: slideUp 1s ease-out forwards; }
+        /* Forces 1 column layout on mobile screens (< 768px) to make pictures bigger, leaves desktop unchanged */
+        @media screen and (max-width: 768px) {
+            #product-grid {
+                grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+   <!-- Header -->
 <header class="fixed top-0 left-0 w-full px-6 pt-8 pb-8 flex justify-between items-center bg-white border-b border-gray-200 z-50">
     <button id="menu-btn" class="focus:outline-none flex flex-col justify-between w-8 h-6">
         <span class="block w-full h-1 bg-black"></span>
@@ -35,17 +54,15 @@
         <span class="block w-full h-1 bg-black"></span>
     </button>
     
+    <!-- Wrapped title inside an anchor tag for navigation -->
     <div class="text-center">
-        <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+        <a href="../../index.html" class="inline-block">
+            <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black hover:opacity-75 transition-opacity" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+        </a>
     </div>
     
     <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
 </header>
-        
-        
-        
-        <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
-    </header>
 
     <div id="sidebar" class="fixed top-[86px] left-0 h-full w-64 bg-[#1a1a1c] text-white z-40 transform -translate-x-full shadow-2xl overflow-y-auto">
     <div class="p-10">
@@ -181,6 +198,7 @@ document.querySelectorAll(".accordion").forEach(button => {
             { name: "Tommy Hilfiger", link: "https://www.amazon.in/Logo-Regular-Cotton-Polo-T-Shirt/dp/B0GDZBT4M1?dib=eyJ2IjoiMSJ9.ZPSaY_ef3An0_XKTJJbR0amyUYBCqS-ElgUG3Mt4z_T4VeD_3P7mIfniAKRvbPmvUTAExxzh3LHRKZiPd7fvkQ30HyYJip8LodBZ8CtKDPbi8j-zqpnXI1n-7SJ4aJMwYvZDHf3ZfQVyOlAKO3ja1Qk2KnufZLk5Zvq1cJi-NUadG5ot5ErTUhqiz2K_7yX5zKrIrnCImxlktE2UBEYpV_AxsU3fx1_sGfwayL2sYv8Rwws57ZPd7NF8wWyriJjBEQM5qW-s0tv6NQX4098IW4IAbdzb7VmFw4H99yuY._G9ddhDoQM8dllzhpOqNZJ9pcB9XCIz6TSclkP4wE&dib_tag=se&pf_rd_i=745978103&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-19&qid=1784142579&refinements=p_85%3A10440599031%2Cp_123%3A232763%2Cp_n_pct-off-with-tax%3A2665402031&rnid=2665398031&rps=1&s=apparel&sr=1-115&xpid=AZP0s0Ac_XSed&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=1d581ec05e576b0674848bb349c6c983&ref_=as_li_ss_tl", image: "4.jpg" },
             { name: "Men's Solid Slim Fit Linen Redloop Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-solid-slim-fit-linen-redloop-shirt-006dg0019%3F_pos%3D25%26_fid%3D51ce2cb09%26_ss%3Dc%26variant%3D51912890089762", image: "64.jpg" },
             { name: "MyDesignation Mural Panel Shirt", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.mydesignation.com%2Fproducts%2Fmural-panel-shirt%3Fhref%3Dvizup_commerce", image: "46.jpg" },
+            { name: "Men Casual Shirts", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fmen%2Ftopwear%2Fcasual-shirts%2Fc%2F6826%3Froot%3Dnav_3%26ptype%3Dlisting%252Cmen%252Ctopwear%252Ccasual-shirts%252C5%252Ccasual-shirts%26p%3D11", image: "74.jpg" },
             { name: "Pepe Jeans Blue Stripes Full Sleeves Sweater", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.pepejeans.in%2Fblue-stripes-full-sleeves-sweater%2F8905875274636.html", image: "5.jpg" },
             { name: "Men's Pin Stripes Navy Slim Fit Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fmens-pin-stripes-navy-slim-fit-shirt-a78040159", image: "68.jpg" },
             { name: "Men Black Vertical Stripe Polo", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.pepejeans.in%2Fmen-black-vertical-stripe-polo%2F8905875452331.html", image: "72.jpg" },

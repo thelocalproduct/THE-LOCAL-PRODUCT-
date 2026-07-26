@@ -5,24 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE LOCAL PRODUCT | Collections</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
+     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
         
-        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; width: 100vw; background-color: #ffffff; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            width: 100vw;
+            background-color: #ffffff;
+        }
+        
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
-        .nav-link { font-size: 0.70rem; letter-spacing: 0.2em; text-transform: uppercase; color: #4a4a4a; transition: color 0.3s; }
+        
+        .nav-link { 
+            font-size: 0.70rem; 
+            letter-spacing: 0.2em; 
+            text-transform: uppercase; 
+            color: #4a4a4a;
+            transition: color 0.3s; 
+        }
         .nav-link:hover { color: #000000; }
-        #sidebar { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        
+        #sidebar { 
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
-        .fade-in-anim { animation: fadeIn 1.5s ease-out forwards; }
-        .slide-up-anim { animation: slideUp 1s ease-out forwards; }
+        /* Forces 1 column layout on mobile screens (< 768px) to make pictures bigger, leaves desktop unchanged */
+        @media screen and (max-width: 768px) {
+            #product-grid {
+                grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+   <!-- Header -->
 <header class="fixed top-0 left-0 w-full px-6 pt-8 pb-8 flex justify-between items-center bg-white border-b border-gray-200 z-50">
     <button id="menu-btn" class="focus:outline-none flex flex-col justify-between w-8 h-6">
         <span class="block w-full h-1 bg-black"></span>
@@ -30,17 +49,15 @@
         <span class="block w-full h-1 bg-black"></span>
     </button>
     
+    <!-- Wrapped title inside an anchor tag for navigation -->
     <div class="text-center">
-        <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+        <a href="../../index.html" class="inline-block">
+            <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black hover:opacity-75 transition-opacity" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+        </a>
     </div>
     
     <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
 </header>
-        
-        
-        
-        <a href="../../category.html" class="nav-link text-[10px] hover:underline">Back →</a>
-    </header>
 
     <div id="sidebar" class="fixed top-[86px] left-0 h-full w-64 bg-[#1a1a1c] text-white z-40 transform -translate-x-full shadow-2xl overflow-y-auto">
     <div class="p-10">
