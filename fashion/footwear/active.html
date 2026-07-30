@@ -161,18 +161,18 @@ document.querySelectorAll(".accordion").forEach(button => {
      <!-- Hero Section -->
     <section class="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center fade-in-anim" 
-             style="background-image: url('formal/background.jpg');"></div>
+             style="background-image: url('active/background.jpg');"></div>
         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
         <!-- Gradient Blend -->
-        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#1a1a1c] to-transparent"></div>
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#000000] to-transparent"></div>
         
         <div class="relative text-center text-white p-6 fade-in-anim">
-            <h2 class="text-4xl md:text-6xl font-serif italic">"Style is your silent introduction."</h2>
+            <h2 class="text-4xl md:text-6xl font-serif italic">“Life is like riding a bicycle. To keep your balance, you must keep moving.” — Albert Einstein</h2>
         </div>
     </section>
 
 
-    <main class="w-full bg-[#1a1a1c] min-h-screen p-8 md:p-16">
+    <main class="w-full bg-[#000000] min-h-screen p-8 md:p-16">
         <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8"></div>
     </main>
 
@@ -186,16 +186,15 @@ document.querySelectorAll(".accordion").forEach(button => {
 
         // ADD OR EDIT YOUR PRODUCTS BELOW
         const products = [
-             { name: "Product Name #", link: "URL_HERE", image: "1.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "2.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
+            { name: "Nike Quest Mens Running Shoes", link: "https://www.amazon.in/Nike-Quest-Mens-Running-Shoes/dp/B0D8WBZKFG?dib=eyJ2IjoiMSJ9.g1NRrhH3YkZt6bS2gbNQtPKEKj191S88ZEU5qnEFozYYv4gtTnZjfTJTB2aFPzRLze1L-e2JuPUXQ3pveMr3JPWN3om5twn59Ch3UjZTXJ4LshRHANhlHgiR5E8pB-iI6e09xdX0D6YPuxeL_z1J5Y_zYkxMwFUTXMRjnGx_DF8uFdNKaKq9YccpekIaLihqxSpnREQ19wNqc45a2AHa_GqbfXuw8K4U6neQmnLuGxSc_l9Pxg1mfy4JvUNFv8c9bTKl9G3Ni0oiSNthDW_ZnTa45TKb-fBuSSUO8WZpAs4.dv-J0If0ysmFIs1YBfFaGLcRofA4iv6Kjx3fXZ5phxY&dib_tag=se&keywords=nike%2Bquest%2B6%2Brunning%2Bshoes%2Bfor%2Bmen&qid=1785432339&sr=8-7&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=1f845805a5339f08ea127945eab3ad3f&ref_=as_li_ss_tl", image: "5.jpg" },
+            { name: "Nike Mens Downshifter Running Shoes", link: "https://www.amazon.in/Nike-Downshifter-Black-Spruce-White-Black-Running/dp/B0GSR61KM2?mcid=9ca6faf5faea346e8a2894967fe273f7&hvadid=807477304020&hvpos=&hvnetw=g&hvrand=2705041395389951394&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9298838&hvtargid=pla-2488720068184&hvocijid=2705041395389951394-B0GSR61KM2-&hvexpln=0&gad_source=1&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=c83a8f1c4f1a91fc9ef3171b800a9604&ref_=as_li_ss_tl", image: "2.jpg" },
+            { name: "PUMA Skyrocket Lite Running Shoes", link: "https://www.amazon.in/PUMA-Skyrocket-Running-Black-Matte-Silver/dp/B0F638B5DW?crid=1H9R84I0N7NM0&dib=eyJ2IjoiMSJ9.GIe-YpqkRK7R-T4UZyoNjZQrplHrgPznZJ0SCAPdWf8UbJD9_km3P9J6i5hiY3pywo88tAg18wPDupO0E0kvg6Y99U_sinPfzLm-HeI2qY2QJ8HTNEC1wbqAHJtnhLR10VLD_kT8jCCtHbeuhBB_J2SW54O9dcVuPetYu9lh_lG_O5RdpglLX5X0YEbRZOv0YS5Ig8_5xY6N29sCtCAxsneqAI805XjhsUzk7xcJsNp6oUDToqQqAffngcsB_kT_oSacIIqLJ_4gHOnqng7sDcfbpTiYCfA_m6wTZrkljgE.IMWujktzJiVVj_efymxqYZD_KT8P6-GsXz1zYLkMp8Y&dib_tag=se&keywords=PUMA%2BSkyrocket%2BLite%2B2&qid=1785431375&sprefix=puma%2Bskyrocket%2Blite%2B2%2Caps%2C435&sr=8-1&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=b2e656347b06bc3f4048274994a509bc&ref_=as_li_ss_tl", image: "1.jpg" },
+            { name: "Reebok Mens Cage M Running Shoe", link: "https://www.amazon.in/Reebok-RMSORA4225-CAGE-M/dp/B0G93SXNHX?crid=195HRM775KKSF&dib=eyJ2IjoiMSJ9.BA5sblTLsBiPsJ7egsALSwffzyjnhPOjxNoCcverwyVU4JQnPC5plXs_I_38GRw31CXdFS_HTKnkSZLz41zYzOsIBVmObg2IZ7-UMHADGT-7aIboyFHPq2Ca6bJ5-l4Ysn46aDJfuMGwDH8Kre7IiqHJpFBINeTkoNTonJsJlaDKs-6owTZ4ay9cRzdoTE_xRCAm1PU4RHZkeWLwG_109qKUzafVy91twhKz2hFuvCZiFjd4cJDrpH_FKxwLrZTRtdDWhe5yoFVgz06K0eV5VMdtNuDdxvYyJtEvC-jGNMY.boS6K0I7uGwj0EmXdGSpnOTaXLLaA3cLfBO63Li61Bg&dib_tag=se&keywords=Reebok%2BMens%2BReebok%2BCage%2BM&qid=1785431902&s=shoes&sprefix=reebok%2Bmens%2Breebok%2Bcage%2Bm%2B%2Cshoes%2C296&sr=1-1&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=6b3ca3350e8f71511137108fbc0f38db&ref_=as_li_ss_tl", image: "4.jpg" },
+            { name: "Nike Revolution Running Shoes", link: "https://www.amazon.in/Nike-Revolution-Metallic-Silver-White-Running/dp/B0G2RMCNMW?mcid=442b7349279e356092a0819ba7ab493e&hvadid=800015375029&hvpos=&hvnetw=g&hvrand=8466622452521261361&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9298838&hvtargid=pla-2481371028699&hvocijid=8466622452521261361-B0FQN3CKM5-&hvexpln=0&gad_source=1&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=377b325d8b75bad085b95b7e76e5412a&ref_=as_li_ss_tl", image: "3.jpg" },
+            { name: "Nike Journey Run Men's Road Running Shoes", link: "https://www.amazon.in/Nike-Journey-Black-Orange-Anthracite-Wolf-Running/dp/B0FCMH4TMN?crid=1W7MW0VGGYMUF&dib=eyJ2IjoiMSJ9.QlQgbNo0Pdl0p7h4Fv46Um-D80LTsSwjw-8bd0G3jRvRe4YbesPqFlngLmrn-P0V2M0xutwj4gbewtIoLb9Ilo5Rjho-Uxx3iy_Srk-cUPkJfUh6voHPRJnpakx1C-pPrubuy55g3MzQkXh8u-IxW2aAl6idcox_AfXkKkm4MLsGFXE-QMbfMwmArp-xLQJH8C5etAXnX9iCbOKm1Yk0EJgJZUxoDQ5kCPlQBrl2COFu7Ds5VauZ9OQfuJ15spmLWbtJHV5DMYUKIa9DAcfVXwMQw-wCSFI7nqiappJfKEs.3LJa10i_VMyPa4NrbLHK2IcdKBiXQvvelPpC69xu25I&dib_tag=se&keywords=Nike%2BJourney%2BRun%2BMen%27s%2BRoad%2BRunning%2BShoes&qid=1784476874&sprefix=nike%2Bjourney%2Brun%2Bmen%27s%2Broad%2Brunning%2Bshoes%2Caps%2C522&sr=8-1&th=1&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=56bb4031955cf6847020e9794a8c3107&ref_=as_li_ss_tl", image: "35.jpg" },
+            { name: "Puma Softride Frequence Street Unisex Grey Echo For All Time Red Running Shoes", link: "https://linksredirect.com/?cid=302985&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fpuma-softride-frequence-street-unisex-grey-echo-for-all-time-red-running-shoes%2Fp-mp000000030378392%3Ftc%3Dtrue%26cid%3Dps%3AMall_Google_Perf_Shopping_Sok_23732536203_Footwear%26gad_source%3D1%26gad_campaignid%3D23732536203%26gbraid%3D0AAAAADeBiByspRsVfiXyhkXhecYLJeBim%26gclid%3DCjwKCAjwsfzSBhB5EiwAOGyqSXcq38GdFL3lVbO4WKi5K3uJXEyJ3UTveCm8H9P9zcR3O2Z56UyvvxoC5YcQAvD_BwE", image: "74.jpg" },
+
+
             
             // Add more objects like: { name: "Name", link: "Link", image: "3.jpg" },
         ];
@@ -205,7 +204,7 @@ document.querySelectorAll(".accordion").forEach(button => {
             card.className = 'group flex flex-col h-full border-2 border-slate-300 p-2';
             card.innerHTML = `
                 <div class="aspect-[3/4] bg-gray-800 overflow-hidden mb-4">
-                    <img src="accessories/images/${product.image}" 
+                    <img src="active/images/${product.image}" 
                          alt="${product.name}" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>

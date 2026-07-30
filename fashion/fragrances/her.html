@@ -185,16 +185,19 @@ document.querySelectorAll(".accordion").forEach(button => {
 
         // ADD OR EDIT YOUR PRODUCTS BELOW
         const products = [
-             { name: "Product Name #", link: "URL_HERE", image: "1.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "2.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
+            { name: "Davidoff Cool Water Eau de Toilette Spray for Women", link: "https://www.amazon.in/Davidoff-Water-Toilette-Spray-Women/dp/B0009OAHCS?linkCode=ll2&tag=bestprice690e-21&linkId=e93b8053de98902d50d784212d5a147c&ref_=as_li_ss_tl", image: "1.jpg" },
+            { name: "Carolina Herrera Good Girl Blush Eau De Parfum", link: "https://www.amazon.in/Carolina-Herrera-Good-Blush-Parfum/dp/B0BZ8MBHLK?linkCode=ll2&tag=bestprice690e-21&linkId=e6a84be3909f3b9247c77ade1934ea7a&ref_=as_li_ss_tl", image: "3.jpg" },
+            { name: "Titan Skinn Nude Eau De Parfum for Women", link: "https://www.amazon.in/Titan-Skinn-Womens-Parfum-100ml/dp/B00HYTM1GG?linkCode=ll2&tag=bestprice690e-21&linkId=8e3a1fc8e5ec14b160c2f064839a7346&ref_=as_li_ss_tl", image: "11.jpg" },
+            { name: "Remy Marquis Shalis Eau De Parfum For Women", link: "https://www.amazon.in/Remy-Marquis-Paris-Shalis-Woman/dp/B008MZ6ES2?linkCode=ll2&tag=bestprice690e-21&linkId=188fa43dacec63ff624e20338e8d1d16&ref_=as_li_ss_tl", image: "9.jpg" },
+            { name: "Rihanah Vision Pour Femme Eau De Parfum", link: "https://www.amazon.in/RIHANAH-VISION-POUR-FEMME-Parfum/dp/B09JC5Q8KF?linkCode=ll2&tag=bestprice690e-21&linkId=c02054a180b19680a498b30b243f480d&ref_=as_li_ss_tl", image: "8.jpg" },
+            { name: "Ajmal Raindrops Eau De Parfum For Women", link: "https://www.amazon.in/Ajmal-Raindrops-Chypre-Perfume-Women/dp/B01KYRUPQW?linkCode=ll2&tag=bestprice690e-21&linkId=35100ad4d357e689091a3e10d83403b2&ref_=as_li_ss_tl", image: "12.jpg" },
+            { name: "Winter Handpicked Long Lasting Fragrance Perfume", link: "https://www.amazon.in/Winter-Handpicked-Lasting-Fragrance-Perfume/dp/B0D9B85LCL?linkCode=ll2&tag=bestprice690e-21&linkId=92f03a55764d94975334891ca777522f&ref_=as_li_ss_tl", image: "10.jpg" },
+            { name: "Titan Skinn Celeste Fragrance for Women 50ml", link: "https://www.amazon.in/Skinn-Celeste-Perfume-Women-50ml/dp/B077XWTBY6?linkCode=ll2&tag=bestprice690e-21&linkId=263eb306a5ee35683a88895bd778ffd3&ref_=as_li_ss_tl", image: "5.jpg" },
+            { name: "Jimmy Choo Blossom Eau De Parfum 60 ml", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fjimmy-choo-blossom-eau-de-parfum--60-ml%2Fp-mp000000031465849", image: "4.jpg" },
+            { name: "Jimmy Choo Floral Eau De Toilette 90 ml", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fjimmy-choo-floral-edt--90-ml%2Fp-mp000000012161187", image: "7.jpg" },
+            { name: "Calvin Klein Euphoria Eau De Parfum For Women 100 ml", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fcalvin-klein-euphoria-eau-de-parfum-for-women--100-ml%2Fp-mp000000016026863", image: "6.jpg" },
+            { name: "Giorgio Armani My Way Eau De Parfum", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fgiorgio-armani-my-way-eau-de-parfum-50-ml%2Fp-mp000000015244087", image: "2.jpg" },
+            
             
             // Add more objects like: { name: "Name", link: "Link", image: "3.jpg" },
         ];
@@ -214,7 +217,7 @@ document.querySelectorAll(".accordion").forEach(button => {
                 <a href="${product.link}" 
                    target="_blank"
                    class="block w-full py-3 text-center border border-white text-white text-[10px] uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-300">
-                   Purchase
+                   CHECK THE PRICE
                 </a>
             `;
             grid.appendChild(card);
