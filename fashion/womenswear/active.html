@@ -158,18 +158,21 @@ document.querySelectorAll(".accordion").forEach(button => {
 });
 </script>
 
-     <!-- Hero Section -->
+      <!-- Hero Section -->
     <section class="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center fade-in-anim" 
-             style="background-image: url('accessories/background.jpg');"></div>
+             style="background-image: url('active/background.jpg');"></div>
         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <!-- Gradient Blend -->
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#000000] to-transparent"></div>
+        
         <div class="relative text-center text-white p-6 fade-in-anim">
-            <h2 class="text-4xl md:text-6xl font-serif italic">"Style: A silent confession of who you are."</h2>
+            <h2 class="text-4xl md:text-6xl font-serif italic">"Don't wish for a good body, work for it."</h2>
         </div>
     </section>
 
      <!-- Main Content -->
-    <main class="w-full bg-[#1a1a1c] min-h-screen p-8 md:p-16">
+    <main class="w-full bg-[#000000] min-h-screen p-8 md:p-16">
         <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8">
             <!-- Cards injected here -->
         </div>
@@ -186,16 +189,29 @@ document.querySelectorAll(".accordion").forEach(button => {
 
         // ADD OR EDIT YOUR PRODUCTS BELOW
         const products = [
-             { name: "Product Name #", link: "URL_HERE", image: "1.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "2.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
+            { name: "PUMA Women's Sleeveless Black Tank Top", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fpuma-women-s-sleeveless-black-tank-top%2Fp%2F26524813", image: "5.jpg" },
+            { name: "PUMA Black Run Cloud Spun Women's Slim Fit Solid Running T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fpuma-black-run-cloud-spun-women-s-slim-fit-solid-running-t-shirt%2Fp%2F20545138", image: "2.jpg" },
+            { name: "Athlisis Pink Women's E-Dry Slim Fit T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fathlisis-pink-women-s-e-dry-slim-fit-t-shirt%2Fp%2F25949137", image: "1.jpg" },
+            { name: "Women's Fitness Cardio Training Bottoms 100 - Wenge Brown", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.decathlon.in%2Fp%2F8976732%2Fwomen-s-fitness-cardio-training-bottoms-100-wenge-brown", image: "15.jpg" },
+            { name: "Women's Breathable Running Jacket Dry - Black", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.decathlon.in%2Fp%2F8650499%2Fwomen-s-breathable-running-jacket-dry-black", image: "20.jpg" },
+            { name: "Cloudflex Round Neck Tee", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fblissclub.com%2Fproducts%2Fcloudflex-round-neck-tee", image: "13.jpg" },
+            { name: "Women Run Dry 150 Print T-Shirt - Turquoise", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.decathlon.in%2Fp%2F8989026%2Fwomen-run-dry-150-print-tshirt-turquoise", image: "18.jpg" },
+            { name: "Women's Zip-Up Jacket - Black", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.decathlon.in%2Fp%2F8801148%2Fwomen-s-zip-up-jacket-black", image: "17.jpg" },
+            { name: "Women's Breathable Long-Sleeved Running T-Shirt Kiprun Run 500 Dry - Purple", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.decathlon.in%2Fp%2F8913606%2Fwomen-s-breathable-long-sleeved-running-t-shirt-kiprun-run-500-dry-purple", image: "19.jpg" },
+            { name: "Full Sleeve Polyester Jacket with 4 Pockets", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fblissclub.com%2Fproducts%2Ffull-sleeve-polyester-jacket-with-4-pockets", image: "14.jpg" },
+            { name: "Technosport Grey Solid Slim Fit Joggers", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Ftechnosport-grey-solid-slim-fit-joggers%2Fp%2F20891696", image: "11.jpg" },
+            { name: "Women Gym Pants Carrot Cut - Navy Blue", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.decathlon.in%2Fp%2F8785408%2Fwomen-gym-pants-carrot-cut-navy-blue", image: "16.jpg" },
+            { name: "Athlisis Yellow Women's E-Dry Slim Fit T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fathlisis-yellow-women-s-e-dry-slim-fit-t-shirt%2Fp%2F25950388", image: "7.jpg" },
+            { name: "Reebok Women's Solid Rust T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Freebok-womens-solid-rust-t-shirt%2Fp%2F20838666", image: "6.jpg" },
+            { name: "PUMA Women's Cotton Fleece Black Solid Joggers", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fpuma-womens-cotton-fleece-black-solid-joggers%2Fp%2F21658511", image: "10.jpg" },
+            { name: "Femea Women Mid Rise Flared Pure Cotton Black Track Pant", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Ffemea-women-mid-rise-flared-pure-cotton-black-track-pant%2Fp%2F15936276", image: "8.jpg" },
+            { name: "Technosport Navy Blue Solid Slim T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Ftechnosport-navy-blue-solid-slim-t-shirt%2Fp%2F24492539", image: "4.jpg" },
+            { name: "Skechers Women Black Contrast Tape Jogger", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fskechers-women-black-contrast-tape-jogger%2Fp%2F22589952", image: "9.jpg" },
+            { name: "Skechers Women Blue Contrast Tape Jogger", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fskechers-women-blue-contrast-tape-jogger%2Fp%2F22589951", image: "12.jpg" },
+            { name: "Cava Athleisure Women Black Poly Spandex Solid Fitted Fit T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fcava-athleisure-women-black-poly-spandex-solid-fitted-fit-t-shirt%2Fp%2F22450170", image: "3.jpg" },
+            
+
+
             
             // Add more objects like: { name: "Name", link: "Link", image: "3.jpg" },
         ];
@@ -205,7 +221,7 @@ document.querySelectorAll(".accordion").forEach(button => {
             card.className = 'group flex flex-col h-full border-2 border-slate-300 p-2';
             card.innerHTML = `
                 <div class="aspect-[3/4] bg-gray-800 overflow-hidden mb-4">
-                    <img src="accessories/images/${product.image}" 
+                    <img src="active/images/${product.image}" 
                          alt="${product.name}" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>

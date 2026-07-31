@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE LOCAL PRODUCT | Collections</title>
     <script src="https://cdn.tailwindcss.com"></script>
-     <style>
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap');
         
         body { 
@@ -158,18 +158,21 @@ document.querySelectorAll(".accordion").forEach(button => {
 });
 </script>
 
-     <!-- Hero Section -->
+      <!-- Hero Section -->
     <section class="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 bg-cover bg-center fade-in-anim" 
-             style="background-image: url('accessories/background.jpg');"></div>
+             style="background-image: url('bottomwear/background.jpg');"></div>
         <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <!-- Gradient Blend -->
+        <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#000000] to-transparent"></div>
+        
         <div class="relative text-center text-white p-6 fade-in-anim">
-            <h2 class="text-4xl md:text-6xl font-serif italic">"Style: A silent confession of who you are."</h2>
+            <h2 class="text-4xl md:text-6xl font-serif italic">"Style is your silent introduction."</h2>
         </div>
     </section>
 
      <!-- Main Content -->
-    <main class="w-full bg-[#1a1a1c] min-h-screen p-8 md:p-16">
+    <main class="w-full bg-[#000000] min-h-screen p-8 md:p-16">
         <div id="product-grid" class="grid grid-cols-2 md:grid-cols-4 gap-8">
             <!-- Cards injected here -->
         </div>
@@ -186,16 +189,26 @@ document.querySelectorAll(".accordion").forEach(button => {
 
         // ADD OR EDIT YOUR PRODUCTS BELOW
         const products = [
-             { name: "Product Name #", link: "URL_HERE", image: "1.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "2.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
-            { name: "Product Name #", link: "URL_HERE", image: "#.jpg" },
+            { name: "Tommy Hilfiger Solid Slim Fit Cotton Navy Blue T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Ftommy-hilfiger-solid-slim-fit-cotton-navy-blue-t-shirt%2Fp%2F24536372", image: "2.jpg" },
+            { name: "Van Heusen Green Solid Top", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fvan-heusen-green-solid-top%2Fp-mp000000030188537", image: "1.jpg" },
+            { name: "Tokyo Talkies Maroon Lace Inserts Peplum Top", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Ftokyo-talkies-maroon-lace-inserts-peplum-top%2Fp%2F21278589", image: "13.jpg" },
+            { name: "Indreams Women Printed Night Suit - Set of 2", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Findreams-women-printed-night-suit-set-of-2%2Fp%2F20157067", image: "17.jpg" },
+            { name: "U.S. Polo Assn. Women Green Casual Regular Fit T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fu-s-polo-assn-women-green-casual-regular-fit-t-shirt%2Fp%2F28101393", image: "15.jpg" },
+            { name: "U.S. Polo Assn. Women Blue Casual Regular Fit T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fu-s-polo-assn-women-blue-casual-regular-fit-t-shirt%2Fp%2F28101385", image: "5.jpg" },
+            { name: "House of Comfort Floral Printed Pure Cotton Kurti with Pyjama", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fhouse-of-comfort-floral-printed-pure-cotton-kurti-with-pyjama%2Fp%2F24597298", image: "18.jpg" },
+            { name: "Bewakoof Women Purple All Over Printed Wide Leg Pyjamas", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fbewakoof-women-purple-all-over-printed-wide-leg-pyjamas%2Fp%2F18382356", image: "10.jpg" },
+            { name: "Style Quotient Women Nude Coloured Print Crepe Top", link: "https://www.nykaafashion.com/style-quotient-women-nude-coloured-print-crepe-top/p/6840936", image: "12.jpg" },
+            { name: "Chelvet Women's Premium Grey Waffle Nightsuit - Pack of 2", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fchelvet-womens-premium-grey-waffle-nightsuit-pack-of-2%2Fp%2F27425776", image: "16.jpg" },
+            { name: "Shaye Mandarin Neck White Embroidered Three Quarter Sleeves Casual Top", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fshaye-mandarin-neck-white-embroidered-three-quarter-sleeves-casual-top%2Fp%2F16016412", image: "14.jpg" },
+            { name: "Only Women's Embellished Regular Fit Black T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fonly-womens-embellished-regular-fit-black-t-shirt%2Fp%2F22713464", image: "4.jpg" },
+            { name: "Shaye Women Band Collar Navy Blue Solid Three Quarter Sleeves Casual Tops", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fshaye-women-band-collar-navy-blue-solid-three-quarter-sleeves-casual-tops%2Fp%2F14349496", image: "11.jpg" },
+            { name: "Micro Modal Cotton Relaxed Fit Printed Pyjama with Side Pockets", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.jockey.in%2Fproducts%2Fmicro-modal-cotton-relaxed-fit-printed-pyjama-with-side-pockets-purple-wine-assorted-prints-rx09", image: "8.jpg" },
+            { name: "Super Combed Cotton Rich Oversized Printed T-Shirt with Drop Shoulder Styling", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.jockey.in%2Fproducts%2Fsuper-combed-cotton-rich-oversized-printed-t-shirt-with-drop-shoulder-styling-lily-pad-wz04", image: "7.jpg" },
+            { name: "Super Combed Cotton Elastane Regular Fit Solid V-Neck Half Sleeve T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.jockey.in%2Fproducts%2Fsuper-combed-cotton-elastane-regular-fit-solid-v-neck-half-sleeve-t-shirt-black-1359", image: "6.jpg" },
+            { name: "Style Shoes Red Jaipuri Print Rayon Mid Waist Pajama", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fstyle-shoes-red-jaipuri-print-rayon-mid-waist-pajama%2Fp%2F28044836", image: "9.jpg" },
+            { name: "Athlisis Maroon Women's E-Dry Slim Fit T-Shirt", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fathlisis-maroon-women-s-e-dry-slim-fit-t-shirt%2Fp%2F25950392", image: "3.jpg" },
+            
+
             
             // Add more objects like: { name: "Name", link: "Link", image: "3.jpg" },
         ];
@@ -205,7 +218,7 @@ document.querySelectorAll(".accordion").forEach(button => {
             card.className = 'group flex flex-col h-full border-2 border-slate-300 p-2';
             card.innerHTML = `
                 <div class="aspect-[3/4] bg-gray-800 overflow-hidden mb-4">
-                    <img src="accessories/images/${product.image}" 
+                    <img src="casual/images/${product.image}" 
                          alt="${product.name}" 
                          class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
                 </div>
