@@ -32,32 +32,84 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 2rem 3rem;
+            padding: 1.25rem 1rem;
             border-bottom: 1px solid var(--border-color);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                padding: 2rem 3rem;
+                letter-spacing: 2px;
+                font-size: 0.9rem;
+            }
         }
 
         .nav-brand {
             font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            transition: opacity 0.2s ease;
+        }
+
+        @media (min-width: 768px) {
+            .nav-brand {
+                font-size: 0.9rem;
+            }
+        }
+
+        .nav-brand:hover {
+            opacity: 0.8;
         }
 
         .nav-center {
-            font-weight: 500;
-            color: var(--text-muted);
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            transition: opacity 0.2s ease;
+        }
+
+        @media (min-width: 768px) {
+            .nav-center {
+                font-size: 2rem;
+                letter-spacing: 1.5px;
+                white-space: normal;
+            }
+        }
+
+        .nav-center:hover {
+            opacity: 0.8;
         }
 
         .nav-btn-back {
             border: 1px solid var(--border-color);
-            padding: 0.5rem 1.25rem;
+            padding: 0.4rem 0.8rem;
             color: var(--text-main);
             text-decoration: none;
             border-radius: 4px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             letter-spacing: 1px;
+            white-space: nowrap;
             transition: background 0.2s;
+        }
+
+        @media (min-width: 768px) {
+            .nav-btn-back {
+                padding: 0.5rem 1.25rem;
+                font-size: 0.75rem;
+            }
         }
 
         .nav-btn-back:hover {
@@ -67,18 +119,25 @@
         .container {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            padding: 1.5rem 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 3rem 1.5rem;
+            }
         }
 
         .products-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 3rem;
+            gap: 1.5rem;
         }
 
         @media (min-width: 900px) {
             .products-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
             }
         }
 
@@ -89,14 +148,16 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            padding: 2rem;
-            gap: 2rem;
+            padding: 1.25rem;
+            gap: 1.25rem;
         }
 
         @media (min-width: 600px) {
             .product-card {
                 flex-direction: row;
                 align-items: center;
+                padding: 2rem;
+                gap: 2rem;
             }
         }
 
@@ -105,12 +166,18 @@
             border: 1px solid var(--border-color);
             border-radius: 8px;
             width: 100%;
-            min-height: 260px;
+            min-height: 220px;
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
+        }
+
+        @media (min-width: 600px) {
+            .card-image-box {
+                min-height: 260px;
+            }
         }
 
         .card-image-box img {
@@ -127,7 +194,7 @@
 
         .product-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
             letter-spacing: 0.5px;
             margin-bottom: 0.75rem;
@@ -135,41 +202,68 @@
             line-height: 1.3;
         }
 
+        @media (min-width: 768px) {
+            .product-title {
+                font-size: 1.4rem;
+            }
+        }
+
         .specs-list {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             display: flex;
             flex-direction: column;
             gap: 0.4rem;
         }
 
         .specs-list li {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: var(--text-muted);
             display: flex;
             justify-content: space-between;
             border-bottom: 1px solid rgba(255, 255, 255, 0.03);
             padding-bottom: 0.3rem;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .specs-list li {
+                font-size: 0.85rem;
+            }
         }
 
         .specs-list li span {
             color: var(--text-main);
             font-weight: 500;
+            text-align: right;
         }
 
         .price-heading {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--text-muted);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
+        }
+
+        @media (min-width: 768px) {
+            .price-heading {
+                font-size: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
         }
 
         .btn-group {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 0.5rem;
+            gap: 0.4rem;
+        }
+
+        @media (min-width: 768px) {
+            .btn-group {
+                gap: 0.5rem;
+            }
         }
 
         .nav-btn {
@@ -177,14 +271,21 @@
             border: 1px solid var(--border-color);
             color: var(--text-main);
             text-align: center;
-            padding: 0.6rem 0.3rem;
+            padding: 0.5rem 0.2rem;
             border-radius: 4px;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             font-weight: 600;
             letter-spacing: 0.5px;
             text-decoration: none;
             text-transform: uppercase;
             transition: all 0.2s ease;
+        }
+
+        @media (min-width: 768px) {
+            .nav-btn {
+                padding: 0.6rem 0.3rem;
+                font-size: 0.7rem;
+            }
         }
 
         .nav-btn:hover {
@@ -201,235 +302,242 @@
         footer {
             border-top: 1px solid var(--border-color);
             text-align: center;
-            padding: 2.5rem;
+            padding: 2rem 1rem;
             color: var(--text-muted);
-            font-size: 0.8rem;
-            margin-top: 4rem;
+            font-size: 0.75rem;
+            margin-top: 2rem;
             letter-spacing: 1px;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                padding: 2.5rem;
+                font-size: 0.8rem;
+                margin-top: 4rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-brand">Tech Ten</div>
-        <div class="nav-center">The Audio & Camera People</div>
-        <a href="#" class="nav-btn-back">Back</a>
+        <a href="../shop.html" class="nav-brand">Tech Ten</a>
+        <a href="../../index.html" class="nav-center">the local product</a>
+        <a href="../shop.html" class="nav-btn-back">Back</a>
     </nav>
 
     <div class="container">
         <div class="products-grid">
 
-            <!-- PRODUCT CARD 1 -->
-            <div class="product-card">
-                <div class="card-image-box">
-                    <img src="camera/images/1.jpg" alt="Sony ZV-E10 II">
-                </div>
-                <div class="card-info">
-                    <h2 class="product-title">Sony ZV-E10 II</h2>
-                    <ul class="specs-list">
-                        <li>Sensor: <span>26MP APS-C Exmor R</span></li>
-                        <li>Video: <span>4K 60p 10-bit</span></li>
-                        <li>Weight: <span>292g (Body only)</span></li>
-                    </ul>
-                    <div class="price-heading">Check The Price</div>
-                    <div class="btn-group">
-                        <!-- Add your links below. Leave href="" blank to hide a button -->
-                        <a href="https://www.amazon.in/Sony-ZV-E10M2K-Interchangeable-Mirrorless-Creators/dp/B0DJSLJYCF?source=ps-sl-shoppingads-lpcontext&smid=AJ6SIZC8YQDZX&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=a63e4bf50ee27b280e43c46738313259&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
-                    </div>
-                </div>
+           <!-- PRODUCT CARD 1 -->
+    <div class="product-card">
+        <div class="card-image-box">
+            <img src="camera/images/1.jpg" alt="Sony ZV-E10 II">
+        </div>
+        <div class="card-info">
+            <h2 class="product-title">Sony ZV-E10 II</h2>
+            <ul class="specs-list">
+                <li>Sensor: <span>26MP APS-C Sensor</span></li>
+                <li>Video: <span>4K 60fps</span></li>
+                <li>Features: <span>Fast Hybrid AF, Flip Screen</span></li>
+            </ul>
+            <div class="price-heading">Check The Price</div>
+            <div class="btn-group">
+                <a href="https://www.amazon.in/Sony-ZV-E10M2K-Interchangeable-Mirrorless-Creators/dp/B0DJSLJYCF?source=ps-sl-shoppingads-lpcontext&smid=AJ6SIZC8YQDZX&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=da7b8d9312e73dbecebaa634e9aaa956&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                <a href="https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.croma.com%2Fsony-zv-e10-ii-26mp-mirrorless-camera-body-only-23-3-x-15-5-mm-sensor-intelligent-three-capsule-microphone-%2Fp%2F319075%3Fsrsltid%3DAfmBOooqJ0ZnVfTaWLP9EhHZ3GkRAqVXi2sjmsA5gN7eWodLcj42bkNM" class="nav-btn" target="_blank" rel="nofollow">croma</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
             </div>
+        </div>
+    </div>
 
-            <!-- PRODUCT CARD 2 -->
-            <div class="product-card">
-                <div class="card-image-box">
-                    <img src="camera/images/2.jpg" alt="Camera 2">
-                </div>
-                <div class="card-info">
-                    <h2 class="product-title">Canon EOS R6 Mark II</h2>
-                    <ul class="specs-list">
-                        <li>Sensor: <span>24.2MP Full-Frame</span></li>
-                        <li>Burst: <span>40 fps Electronic</span></li>
-                        <li>Weight: <span>670g</span></li>
-                    </ul>
-                    <div class="price-heading">Check The Price</div>
-                    <div class="btn-group">
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
-                    </div>
-                </div>
+    <!-- PRODUCT CARD 2 -->
+    <div class="product-card">
+        <div class="card-image-box">
+            <img src="camera/images/2.jpg" alt="Canon EOS R50">
+        </div>
+        <div class="card-info">
+            <h2 class="product-title">Canon EOS R50</h2>
+            <ul class="specs-list">
+                <li>Sensor: <span>24.2MP APS-C Sensor</span></li>
+                <li>Video: <span>4K 30fps (oversampled)</span></li>
+                <li>Features: <span>Dual Pixel AF II, Flip Screen</span></li>
+            </ul>
+            <div class="price-heading">Check The Price</div>
+            <div class="btn-group">
+                <a href="https://www.amazon.in/Canon-Digital-Camera-RF-S18-45mm-Black/dp/B0BYZHDRN6?source=ps-sl-shoppingads-lpcontext&smid=AJ6SIZC8YQDZX&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=9c2a2c716db1fd3990adb1194fdcebc2&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                <a href="https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.reliancedigital.in%2Fproduct%2Fcanon-eos-r50-mirrorless-camera-with-focal-length-29-72-mm-lens-kit-rf-s18-45mm-f45-63-is-stm-black-lftshf" class="nav-btn" target="_blank" rel="nofollow">reliance</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
             </div>
+        </div>
+    </div>
 
-            <!-- PRODUCT CARD 3 -->
-            <div class="product-card">
-                <div class="card-image-box">
-                    <img src="camera/images/3.jpg" alt="Camera 3">
-                </div>
-                <div class="card-info">
-                    <h2 class="product-title">Fujifilm X-T5</h2>
-                    <ul class="specs-list">
-                        <li>Sensor: <span>40.2MP APS-C</span></li>
-                        <li>Video: <span>6.2K 30p</span></li>
-                        <li>Weight: <span>557g</span></li>
-                    </ul>
-                    <div class="price-heading">Check The Price</div>
-                    <div class="btn-group">
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
-                    </div>
-                </div>
+    <!-- PRODUCT CARD 3 -->
+    <div class="product-card">
+        <div class="card-image-box">
+            <img src="camera/images/3.jpg" alt="Sony ZV-E10">
+        </div>
+        <div class="card-info">
+            <h2 class="product-title">Sony ZV-E10</h2>
+            <ul class="specs-list">
+                <li>Sensor: <span>24.2MP APS-C Sensor</span></li>
+                <li>Video: <span>4K 30fps</span></li>
+                <li>Features: <span>Real-time Eye AF, Flip Screen</span></li>
+            </ul>
+            <div class="price-heading">Check The Price</div>
+            <div class="btn-group">
+                <a href="https://www.amazon.in/Sony-ZV-E10-Interchangeable-Lens-Mirrorless-Autofocus/dp/B09F9QMR1T?th=1&linkCode=ll2&tag=bestprice690e-21&linkId=72f156a4d03cf2f458e74823b74e83f5&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                <a href="https://www.croma.com/sony-alpha-zv-e10l-24-2mp-mirrorless-camera-16-50-mm-lens-23-5-x-15-6-mm-sensor-vari-angle-touch-screen-lcd-/p/244230" class="nav-btn" target="_blank" rel="nofollow">croma</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
             </div>
+        </div>
+    </div>
 
-            <!-- PRODUCT CARD 4 -->
-            <div class="product-card">
-                <div class="card-image-box">
-                    <img src="camera/images/4.jpg" alt="Camera 4">
-                </div>
-                <div class="card-info">
-                    <h2 class="product-title">Nikon Z8</h2>
-                    <ul class="specs-list">
-                        <li>Sensor: <span>45.7MP Stacked</span></li>
-                        <li>Video: <span>8K 30p</span></li>
-                        <li>Weight: <span>910g</span></li>
-                    </ul>
-                    <div class="price-heading">Check The Price</div>
-                    <div class="btn-group">
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
-                    </div>
-                </div>
+    <!-- PRODUCT CARD 4 -->
+    <div class="product-card">
+        <div class="card-image-box">
+            <img src="camera/images/4.jpg" alt="Nikon Z30">
+        </div>
+        <div class="card-info">
+            <h2 class="product-title">Nikon Z30</h2>
+            <ul class="specs-list">
+                <li>Sensor: <span>20.9MP APS-C Sensor</span></li>
+                <li>Video: <span>4K 30fps</span></li>
+                <li>Features: <span>Flip Screen, Excellent Battery</span></li>
+            </ul>
+            <div class="price-heading">Check The Price</div>
+            <div class="btn-group">
+                <a href="https://www.amazon.in/Nikon-Mirrorless-Camera-Optical-Black/dp/B0B68ZVQJ9?&linkCode=ll2&tag=bestprice690e-21&linkId=702ccd8e268131a068cb1055e65859ba&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                <a href="https://www.reliancedigital.in/product/nikon-z30-mirrorless-camera-body-only-black-l6fbmm" class="nav-btn" target="_blank" rel="nofollow">reliance</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
             </div>
+        </div>
+    </div>
 
-            <!-- PRODUCT CARD 5 -->
-            <div class="product-card">
-                <div class="card-image-box">
-                    <img src="camera/images/5.jpg" alt="Camera 5">
-                </div>
-                <div class="card-info">
-                    <h2 class="product-title">Sony Alpha A7R V</h2>
-                    <ul class="specs-list">
-                        <li>Sensor: <span>61MP Full-Frame</span></li>
-                        <li>AI AF: <span>Dedicated Processor</span></li>
-                        <li>Weight: <span>723g</span></li>
-                    </ul>
-                    <div class="price-heading">Check The Price</div>
-                    <div class="btn-group">
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
-                    </div>
-                </div>
+    <!-- PRODUCT CARD 5 -->
+    <div class="product-card">
+        <div class="card-image-box">
+            <img src="camera/images/5.jpg" alt="Fujifilm X-M5">
+        </div>
+        <div class="card-info">
+            <h2 class="product-title">Fujifilm X-M5</h2>
+            <ul class="specs-list">
+                <li>Sensor: <span>26MP APS-C X-Trans Sensor</span></li>
+                <li>Video: <span>6K Video</span></li>
+                <li>Features: <span>AI Autofocus, Compact Body</span></li>
+            </ul>
+            <div class="price-heading">Check The Price</div>
+            <div class="btn-group">
+                <a href="https://www.amazon.in/Fujifilm-mirrorless-vlogging-Recording-Lifestyle/dp/B0DJC4NBV8?mcid=271ee0d1668e3697af6fb9991a719423&hvadid=709962856310&hvpos=&hvnetw=g&hvrand=567947789652950516&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9149264&hvtargid=pla-2376314459492&hvocijid=567947789652950516-B0DJC4NBV8-&hvexpln=0&gad_source=1&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=f9e0d07e8a5d6406a356f4634681d2e6&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
             </div>
+        </div>
+    </div>
 
-            <!-- PRODUCT CARD 6 -->
-            <div class="product-card">
-                <div class="card-image-box">
-                    <img src="camera/images/6.jpg" alt="Camera 6">
-                </div>
-                <div class="card-info">
-                    <h2 class="product-title">Canon EOS R50</h2>
-                    <ul class="specs-list">
-                        <li>Sensor: <span>24.2MP APS-C</span></li>
-                        <li>Video: <span>4K 30p Oversampled</span></li>
-                        <li>Weight: <span>375g</span></li>
-                    </ul>
-                    <div class="price-heading">Check The Price</div>
-                    <div class="btn-group">
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
-                    </div>
-                </div>
+    <!-- PRODUCT CARD 6 -->
+    <div class="product-card">
+        <div class="card-image-box">
+            <img src="camera/images/6.jpg" alt="DJI Osmo Pocket 3">
+        </div>
+        <div class="card-info">
+            <h2 class="product-title">DJI Osmo Pocket 3</h2>
+            <ul class="specs-list">
+                <li>Sensor: <span>1-inch CMOS Sensor</span></li>
+                <li>Video: <span>4K 120fps</span></li>
+                <li>Features: <span>3-Axis Gimbal, Face Tracking</span></li>
+            </ul>
+            <div class="price-heading">Check The Price</div>
+            <div class="btn-group">
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                <a href="https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.reliancedigital.in%2Fproduct%2Fdji-osmo-pocket-3-action-camera-black-mr97hv-10261507" class="nav-btn" target="_blank" rel="nofollow">reliance</a>
+                <a href="https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.croma.com%2Fdji-osmo-pocket-3-4k-and-9-4mp-120-fps-digital-vlogging-camera-with-three-axis-stabilization-black-%2Fp%2F308769%3Fsrsltid%3DAfmBOorONlZ2mEmshjCYSrX_5wrCf-AlOqaTxaYLf_GqC_SMI-vHnGGR_tk" class="nav-btn" target="_blank" rel="nofollow">croma</a>
             </div>
+        </div>
+    </div>
 
-            <!-- PRODUCT CARD 7 -->
-            <div class="product-card">
-                <div class="card-image-box">
-                    <img src="camera/images/7.jpg" alt="Camera 7">
-                </div>
-                <div class="card-info">
-                    <h2 class="product-title">Fujifilm X-S20</h2>
-                    <ul class="specs-list">
-                        <li>Sensor: <span>26.1MP X-Trans</span></li>
-                        <li>Battery: <span>NP-W235</span></li>
-                        <li>Weight: <span>491g</span></li>
-                    </ul>
-                    <div class="price-heading">Check The Price</div>
-                    <div class="btn-group">
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
-                    </div>
-                </div>
+    <!-- PRODUCT CARD 7 -->
+    <div class="product-card">
+        <div class="card-image-box">
+            <img src="camera/images/7.jpg" alt="DJI Osmo Pocket 4">
+        </div>
+        <div class="card-info">
+            <h2 class="product-title">DJI Osmo Pocket 4</h2>
+            <ul class="specs-list">
+                <li>Sensor: <span>Dual-Lens 1-inch Camera</span></li>
+                <li>Video: <span>4K 240fps</span></li>
+                <li>Features: <span>3-Axis Gimbal, ActiveTrack 7.0</span></li>
+            </ul>
+            <div class="price-heading">Check The Price</div>
+            <div class="btn-group">
+                <a href="https://www.amazon.in/DJI-Standard-Tracking-Touchscreen-Stabilized/dp/B0FKTBGNR8?source=ps-sl-shoppingads-lpcontext&smid=AJ6SIZC8YQDZX&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=39051ebb513f2d9c7f99b4e05a91035b&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
             </div>
+        </div>
+    </div>
 
-            <!-- PRODUCT CARD 8 -->
-            <div class="product-card">
-                <div class="card-image-box">
-                    <img src="camera/images/8.jpg" alt="Camera 8">
-                </div>
-                <div class="card-info">
-                    <h2 class="product-title">Panasonic Lumix S5 II</h2>
-                    <ul class="specs-list">
-                        <li>Sensor: <span>24.2MP Full-Frame</span></li>
-                        <li>Phase AF: <span>Hybrid Phase Detect</span></li>
-                        <li>Weight: <span>740g</span></li>
-                    </ul>
-                    <div class="price-heading">Check The Price</div>
-                    <div class="btn-group">
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
-                    </div>
-                </div>
+    <!-- PRODUCT CARD 8 -->
+    <div class="product-card">
+        <div class="card-image-box">
+            <img src="camera/images/8.jpg" alt="Sony ZV-1 II">
+        </div>
+        <div class="card-info">
+            <h2 class="product-title">Sony ZV-1 II</h2>
+            <ul class="specs-list">
+                <li>Sensor: <span>1-inch 20MP Sensor</span></li>
+                <li>Video: <span>4K 30fps</span></li>
+                <li>Features: <span>18–50mm Lens, Fast AF</span></li>
+            </ul>
+            <div class="price-heading">Check The Price</div>
+            <div class="btn-group">
+                <a href="https://www.amazon.in/Sony-ZV-1-Microphone-Vlogging-Creation/dp/B08JVPJXMT?mcid=510b8ce619c3336387bebfc25e4b9a59&hvadid=709962856310&hvpos=&hvnetw=g&hvrand=3354624430661828624&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9149264&hvtargid=pla-969149791860&hvocijid=3354624430661828624-B08JVPJXMT-&hvexpln=0&gad_source=1&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=62f35be1fb6bd212f1fa805e22570cff&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
             </div>
+        </div>
+    </div>
 
-            <!-- PRODUCT CARD 9 -->
-            <div class="product-card">
-                <div class="card-image-box">
-                    <img src="camera/images/9.jpg" alt="Camera 9">
-                </div>
-                <div class="card-info">
-                    <h2 class="product-title">OM System OM-1</h2>
-                    <ul class="specs-list">
-                        <li>Sensor: <span>20.4MP Micro 4/3</span></li>
-                        <li>IBIS: <span>Up to 8 Stops</span></li>
-                        <li>Weight: <span>599g</span></li>
-                    </ul>
-                    <div class="price-heading">Check The Price</div>
-                    <div class="btn-group">
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
-                    </div>
-                </div>
+    <!-- PRODUCT CARD 9 -->
+    <div class="product-card">
+        <div class="card-image-box">
+            <img src="camera/images/9.jpg" alt="Canon PowerShot G7 X Mark III">
+        </div>
+        <div class="card-info">
+            <h2 class="product-title">Canon PowerShot G7 X Mark III</h2>
+            <ul class="specs-list">
+                <li>Sensor: <span>20.1MP 1-inch Sensor</span></li>
+                <li>Video: <span>4K 30fps</span></li>
+                <li>Lens: <span>24–100mm f/1.8–2.8 Lens</span></li>
+            </ul>
+            <div class="price-heading">Check The Price</div>
+            <div class="btn-group">
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                <a href="https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.reliancedigital.in%2Fproduct%2Fcanon-digital-camera-powershot-g7-x-mark-iii-mm0n6p-9956997" class="nav-btn" target="_blank" rel="nofollow">reliance</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
             </div>
+        </div>
+    </div>
 
-            <!-- PRODUCT CARD 10 -->
-            <div class="product-card">
-                <div class="card-image-box">
-                    <img src="camera/images/10.jpg" alt="Camera 10">
-                </div>
-                <div class="card-info">
-                    <h2 class="product-title">Sony ZV-E10 II</h2>
-                    <ul class="specs-list">
-                        <li>Sensor: <span>26MP APS-C</span></li>
-                        <li>Design: <span>Vlogger Focused</span></li>
-                        <li>Weight: <span>292g</span></li>
-                    </ul>
-                    <div class="price-heading">Check The Price</div>
-                    <div class="btn-group">
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
-                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
-                    </div>
-                </div>
+    <!-- PRODUCT CARD 10 -->
+    <div class="product-card">
+        <div class="card-image-box">
+            <img src="camera/images/10.jpg" alt="Panasonic Lumix G100D">
+        </div>
+        <div class="card-info">
+            <h2 class="product-title">Panasonic Lumix G100D</h2>
+            <ul class="specs-list">
+                <li>Sensor: <span>20.3MP Micro Four Thirds</span></li>
+                <li>Video: <span>4K 30fps</span></li>
+                <li>Features: <span>Flip Screen, Lightweight</span></li>
+            </ul>
+            <div class="price-heading">Check The Price</div>
+            <div class="btn-group">
+                <a href="https://www.amazon.in/PANASONIC-Mirrorless-14-42mm-Megapixels-DMC-G7KS/dp/B00X409O6O?pd_rd_w=TDK5M&content-id=amzn1.sym.d1406b44-aa69-47e4-9270-f613e12d52dc&pf_rd_p=d1406b44-aa69-47e4-9270-f613e12d52dc&pf_rd_r=95FDEZKMCY8X6MD3BJH0&pd_rd_wg=STNXq&pd_rd_r=f2535772-ef8c-46d5-95eb-d38d65eedbfd&pd_rd_i=B00X409O6O&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=94bb143801ba131ea3f49f5cec14a416&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
+                <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
             </div>
+        </div>
+    </div>
 
         </div>
     </div>

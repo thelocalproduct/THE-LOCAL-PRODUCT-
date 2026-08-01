@@ -3,104 +3,548 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE AUDIO PEOPLE | COMING SOON</title>
+    <title>Tech Ten - Top 10 Smartwatches</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@200;300;400&display=swap');
-
         :root {
-            --bg-color: #050505;
+            --bg-body: #111111;
+            --bg-card: #181818;
+            --border-color: #2a2a2a;
             --text-main: #ffffff;
-            --accent-gold: #c4a496; /* Rose Gold/Bronze */
-            --border-dim: rgba(196, 164, 150, 0.2);
+            --text-muted: #9ca3af;
+            --radius: 12px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
 
         body {
-            background-color: var(--bg-color);
+            background-color: var(--bg-body);
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            height: 100vh;
+            line-height: 1.6;
+        }
+
+        nav {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            overflow: hidden;
+            padding: 1.25rem 1rem;
+            border-bottom: 1px solid var(--border-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.8rem;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            nav {
+                padding: 2rem 3rem;
+                letter-spacing: 2px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            transition: opacity 0.2s ease;
+        }
+
+        @media (min-width: 768px) {
+            .nav-brand {
+                font-size: 0.9rem;
+            }
+        }
+
+        .nav-brand:hover {
+            opacity: 0.8;
+        }
+
+        .nav-center {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.95rem;
+            text-decoration: none;
+            letter-spacing: 1px;
             text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            transition: opacity 0.2s ease;
+        }
+
+        @media (min-width: 768px) {
+            .nav-center {
+                font-size: 2rem;
+                letter-spacing: 1.5px;
+                white-space: normal;
+            }
+        }
+
+        .nav-center:hover {
+            opacity: 0.8;
+        }
+
+        .nav-btn-back {
+            border: 1px solid var(--border-color);
+            padding: 0.4rem 0.8rem;
+            color: var(--text-main);
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            transition: background 0.2s;
+        }
+
+        @media (min-width: 768px) {
+            .nav-btn-back {
+                padding: 0.5rem 1.25rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        .nav-btn-back:hover {
+            background: #222222;
         }
 
         .container {
-            padding: 40px;
-            border: 1px solid var(--border-dim);
-            max-width: 600px;
-            position: relative;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem;
         }
 
-        .container::before {
-            content: "";
-            position: absolute;
-            top: -1px; left: -1px; right: -1px; bottom: -1px;
-            border: 1px solid var(--border-dim);
-            transform: scale(1.03);
-            pointer-events: none;
+        @media (min-width: 768px) {
+            .container {
+                padding: 3rem 1.5rem;
+            }
         }
 
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            letter-spacing: 0.5rem;
-            text-transform: uppercase;
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
-        .subtext {
-            font-size: 0.9rem;
-            letter-spacing: 0.3rem;
-            text-transform: uppercase;
-            font-weight: 300;
-            color: var(--text-main);
-            opacity: 0.7;
-            margin-bottom: 3rem;
+        @media (min-width: 900px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
         }
 
-        .coming-soon-label {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
+        .product-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 1.25rem;
+            gap: 1.25rem;
+        }
+
+        @media (min-width: 600px) {
+            .product-card {
+                flex-direction: row;
+                align-items: center;
+                padding: 2rem;
+                gap: 2rem;
+            }
+        }
+
+        .card-image-box {
+            background: radial-gradient(circle, #222 0%, #141414 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            width: 100%;
+            min-height: 220px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        @media (min-width: 600px) {
+            .card-image-box {
+                min-height: 260px;
+            }
+        }
+
+        .card-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-info {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-title {
+            font-family: 'Cinzel', serif;
             font-size: 1.2rem;
-            color: var(--accent-gold);
-            margin-bottom: 2rem;
-        }
-
-        .footer-nav {
-            margin-top: 3rem;
-        }
-
-        .footer-nav a {
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.75rem;
             color: var(--text-main);
-            text-decoration: none;
-            font-size: 0.7rem;
-            letter-spacing: 0.2rem;
-            text-transform: uppercase;
-            transition: opacity 0.3s;
+            line-height: 1.3;
         }
 
-        .footer-nav a:hover {
-            opacity: 0.5;
+        @media (min-width: 768px) {
+            .product-title {
+                font-size: 1.4rem;
+            }
+        }
+
+        .specs-list {
+            list-style: none;
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .specs-list li {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            padding-bottom: 0.3rem;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .specs-list li {
+                font-size: 0.85rem;
+            }
+        }
+
+        .specs-list li span {
+            color: var(--text-main);
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .price-heading {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        @media (min-width: 768px) {
+            .price-heading {
+                font-size: 0.75rem;
+                margin-bottom: 0.75rem;
+            }
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.4rem;
+        }
+
+        @media (min-width: 768px) {
+            .btn-group {
+                gap: 0.5rem;
+            }
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            text-align: center;
+            padding: 0.5rem 0.2rem;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        @media (min-width: 768px) {
+            .nav-btn {
+                padding: 0.6rem 0.3rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        .nav-btn:hover {
+            background-color: var(--text-main);
+            color: var(--bg-body);
+            border-color: var(--text-main);
+        }
+
+        .nav-btn:not([href]), 
+        .nav-btn[href=""] {
+            display: none !important;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin-top: 2rem;
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 768px) {
+            footer {
+                padding: 2.5rem;
+                font-size: 0.8rem;
+                margin-top: 4rem;
+            }
         }
     </style>
 </head>
 <body>
 
+    <nav>
+        <a href="../shop.html" class="nav-brand">Tech Ten</a>
+        <a href="../../index.html" class="nav-center">Smart watch</a>
+        <a href="../shop.html" class="nav-btn-back">Back</a>
+    </nav>
+
     <div class="container">
-        <div class="coming-soon-label">Refining the experience...</div>
-        <h1>coming soon</h1>
-        <p class="subtext">A NEW STANDARD IN SONIC EXCELLENCE</p>
-        
-        <div class="footer-nav">
-            <a href="javascript:history.back()">Return to previous</a>
+        <div class="products-grid">
+
+            <!-- PRODUCT CARD 1 -->
+            <div class="product-card">
+                <div class="card-image-box">
+                    <img src="smartwatch/images/1.jpg" alt="Apple Watch Ultra 3">
+                </div>
+                <div class="card-info">
+                    <h2 class="product-title">Apple Watch Ultra 3</h2>
+                    <ul class="specs-list">
+                        <li>Display: <span>1.9" LTPO OLED</span></li>
+                        <li>Build: <span>Titanium case</span></li>
+                        <li>Features: <span>GPS + Cellular, ECG, Blood Oxygen, Dual-frequency GPS, 42h battery</span></li>
+                    </ul>
+                    <div class="price-heading">Check The Price</div>
+                    <div class="btn-group">
+                        <a href="https://www.amazon.in/Apple-Watch-Cellular-Titanium-Alpine/dp/B0FQFJG6MH?dib=eyJ2IjoiMSJ9.pVFzafS6tnb82ZD_pGL4Vzje_efiyGcKKKpO3v9FkHmNWYzNg_cRvqzMKCvdllAyiFzsOPBXK647wq4PBit4mwnPxa-xX4KNBfWwiVQVuuievbMBnyj_l-GrTeTCbfkMQjO13jGhu8ZObnX0Dmz2JNsOs_kwxjxr0K7Rox3ptruhPZdspri21RVBl8t6fGPIjh271KoGfkjDCEWgfJxqEPJ_zQA_dU7Nb4k6IVaI4U4.v--QDvB10l9Q48BfZMMRPsojYSJ9UbjRJzl0U1JFpN8&dib_tag=se&keywords=Apple+Watch+Ultra+3&nsdOptOutParam=true&qid=1785600722&sr=8-1-spons&utm_source=chatgpt.com&aref=ttDxgP0uok&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1&linkCode=ll2&tag=bestprice690e-21&linkId=9e97ef811f7d9b39cf50e302d7a621ac&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Croma</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 2 -->
+            <div class="product-card">
+                <div class="card-image-box">
+                    <img src="smartwatch/images/2.jpg" alt="Samsung Galaxy Watch 8">
+                </div>
+                <div class="card-info">
+                    <h2 class="product-title">Samsung Galaxy Watch 8</h2>
+                    <ul class="specs-list">
+                        <li>Display: <span>Super AMOLED display</span></li>
+                        <li>Platform: <span>Wear OS, Exynos W1000</span></li>
+                        <li>Features: <span>ECG, Body Composition, Dual-band GPS, Sapphire Crystal</span></li>
+                    </ul>
+                    <div class="price-heading">Check The Price</div>
+                    <div class="btn-group">
+                        <a href="https://www.amazon.in/Samsung-Bluetooth-Processor-Monitoring-Anti-oxidant/dp/B0FDQJSPJK?dib=eyJ2IjoiMSJ9.MbA9pkw6UxcjYAANhtqURRIvN17voBgd0j7S3l9E11Zct3CgM67zbHuVx8WfzUFHK4aZ6IlWLCMOLnEZxKIqfhqvVBxpCDiHbmp9PM-HdR9F25VOTkpB7f2K9T_N2h_jCio_YDp1Smhk2XAlT6zaUWHcKuVHdNN-D9R_fHF2MSUojls3tCwKdkQJSStYaOpnu9zHlswGloDlX6BOUgCuCVYgibNWG8qjJi6LoFosdnE.OS_CWW0fndcrOCw7n-dRNMD4jfPCLumR8vRCTnWor9s&dib_tag=se&keywords=Samsung%2BGalaxy%2BWatch%2B8&nsdOptOutParam=true&qid=1785601583&sr=8-1&utm_source=chatgpt.com&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=e226fddbde6e40088410e425a0693e43&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                        <a href="https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.croma.com%2Fsamsung-galaxy-watch8-wi-fi%2Bbt%2Bgps%2Blte-wear-os-smartwatch-44mm-super-amoled-display-3nm-processor-fall-detection-sport-strap-%2Fp%2F316939%3Futm_source%3Dgoogle%26utm_medium%3Dps%26utm_campaign%3DCRTL-GH_Sok_Standard_Shopping_BlackPinCode%26gad_source%3D1%26gad_campaignid%3D23918620995%26gbraid%3D0AAAAADv7K36t_8pw13-542a9A3IGgSyE_%26gclid%3DCjwKCAjwsrbTBhAvEiwA0Bpp4RKPPY6fvWZ5hUd5Ol2oyE11aMDqLmlWLK6UJP3FVJEUzJBhY5OKxhoCfkIQAvD_BwE" class="nav-btn" target="_blank" rel="nofollow">croma</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 3 -->
+            <div class="product-card">
+                <div class="card-image-box">
+                    <img src="smartwatch/images/3.jpg" alt="Google Pixel Watch 4">
+                </div>
+                <div class="card-info">
+                    <h2 class="product-title">Google Pixel Watch 4</h2>
+                    <ul class="specs-list">
+                        <li>Display: <span>AMOLED display</span></li>
+                        <li>Platform: <span>Wear OS 6, Fitbit integration</span></li>
+                        <li>Features: <span>ECG, SpO₂, Dual-band GPS, 5 ATM</span></li>
+                    </ul>
+                    <div class="price-heading">Check The Price</div>
+                    <div class="btn-group">
+                        <a href="https://www.amazon.in/Google-Pixel-Watch-45mm-Smartwatch/dp/B0FJWGT642?th=1&linkCode=ll2&tag=bestprice690e-21&linkId=329512121c7369528d905c8067fabbc6&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                        <a href="https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.croma.com%2Fgoogle-pixel-watch-4-wi-fi%2Bbluetooth-wear-os-6-0-smartwatch-45mm-amoled-ltpo-display-qualcomm-snapdragon-w5-gen-2-cortex-m55-health-tracking-insights-obsidian-active-band-%2Fp%2F319508%3Fsrsltid%3DAfmBOooWgMhHVasEzzRqFLsaS2CHJi_pQRZBthO9BFtmpO5k31XyKVCG" class="nav-btn" target="_blank" rel="nofollow">Croma</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 4 -->
+            <div class="product-card">
+                <div class="card-image-box">
+                    <img src="smartwatch/images/4.jpg" alt="Garmin Fenix 8 AMOLED">
+                </div>
+                <div class="card-info">
+                    <h2 class="product-title">Garmin Fenix 8 AMOLED</h2>
+                    <ul class="specs-list">
+                        <li>Display: <span>AMOLED display</span></li>
+                        <li>Battery: <span>16–29 days battery</span></li>
+                        <li>Features: <span>Multi-band GPS, ECG, Advanced metrics, Offline maps</span></li>
+                    </ul>
+                    <div class="price-heading">Check The Price</div>
+                    <div class="btn-group">
+                        <a href="https://www.amazon.in/Garmin-Fenix-AMOLED-SparkOrg-GrphtBd/dp/B0DFLYZ28M?mcid=898e570c8b5b344a934fd8f684472aaa&hvadid=709855562868&hvpos=&hvnetw=g&hvrand=5428158609825776436&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9149264&hvtargid=pla-2378194035100&psc=1&hvocijid=5428158609825776436-B0DFLYZ28M-&hvexpln=0&gad_source=1&linkCode=ll2&tag=bestprice690e-21&linkId=3c9ffddcc085798515ffbab6fb976181&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Reliance</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 5 -->
+            <div class="product-card">
+                <div class="card-image-box">
+                    <img src="smartwatch/images/5.jpg" alt="Garmin Venu X1">
+                </div>
+                <div class="card-info">
+                    <h2 class="product-title">Garmin Venu X1</h2>
+                    <ul class="specs-list">
+                        <li>Display: <span>2" AMOLED display</span></li>
+                        <li>Build: <span>Titanium case</span></li>
+                        <li>Features: <span>Speaker & mic, ECG, Multi-band GPS, Up to 8 days battery</span></li>
+                    </ul>
+                    <div class="price-heading">Check The Price</div>
+                    <div class="btn-group">
+                        <a href="https://www.amazon.in/Lightweight-Smartwatch-Advanced-Features-ComfortFit/dp/B0FCYHNL3C?dib=eyJ2IjoiMSJ9.3biPdanjSda5iAHmY9PUP4HU7v86Az_o6CCoNBkdCj_gTsBpeCgrhoDo5J_GSYncpYgF10G7rcP4wcQoRhiTTL0-uIO1Y3ZMOf85B64uHEvVGJ2kwdGynwCtU3-7UTeuibL9TruAMFWsAL1WvS1vs6h8G0eOZaijSl6Pc6FFGsFaFmG5C55a-N1rJQS6EBehf35GazHf1Oybin4lUOy-UDOqNO7M0HxN0iLQPPp82XQ.ajEOtf6e7kaf0REZaSJCsAXDRt4z9BGQd7-F0UGZpFE&dib_tag=se&keywords=Garmin%2BVenu%2BX1&nsdOptOutParam=true&qid=1785602095&sr=8-1&utm_source=chatgpt.com&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=793c955cd8aaaf825f252d2cbb9c0c21&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 6 -->
+            <div class="product-card">
+                <div class="card-image-box">
+                    <img src="smartwatch/images/6.jpg" alt="Apple Watch Series 11">
+                </div>
+                <div class="card-info">
+                    <h2 class="product-title">Apple Watch Series 11</h2>
+                    <ul class="specs-list">
+                        <li>Display: <span>LTPO OLED Retina display</span></li>
+                        <li>Platform: <span>S11 chip</span></li>
+                        <li>Features: <span>ECG, Blood Oxygen, Temperature sensor, GPS + Cellular, 24h battery</span></li>
+                    </ul>
+                    <div class="price-heading">Check The Price</div>
+                    <div class="btn-group">
+                        <a href="https://www.amazon.in/Apple-Watch-Space-Aluminium-Black/dp/B0FQFL2DYY?dib=eyJ2IjoiMSJ9.pVFzafS6tnb82ZD_pGL4V3FfbGFTp_BMTyAHobzyOunZTLPLGs-iaKrOZNjbH0x-X9_sVd_eO1XvkZMnUu3N1MrrfewfUqVTAM9JvPHLZFvh0Qfqx2-SPvBJ1_4Ek3nE5-CWlDRWqXwBVNQk--t5RnehTFpp_xO-fUdufCy9zOEMh_avgOEo3S-3M1XPkxzGj1enxqop9IO_9B8BA0BIqBlXRoRWAb6GKay2AbKjIw4.IZLGswU1Y81Zc4LEf05q4DhhupFgXmHjmED0tqR2gzs&dib_tag=se&keywords=Apple%2BWatch%2BSeries%2B11&nsdOptOutParam=true&qid=1785602236&sr=8-1-spons&utm_source=chatgpt.com&aref=ZnAya868cz&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=29275ccb34f35613f6f4ed429d668031&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Reliance</a>
+                        <a href="https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.croma.com%2Fapple-watch-series-11-gps-with-black-sport-band-m-l-42mm-retina-ltpo3-oled-display-rose-gold-aluminium-case-%2Fp%2F317520%3Futm_source%3Dgoogle%26utm_medium%3Dps%26utm_campaign%3DCRTL-GH_Sok_Standard_Shopping_BlackPinCode%26gad_source%3D1%26gad_campaignid%3D23918620995%26gbraid%3D0AAAAADv7K36t_8pw13-542a9A3IGgSyE_%26gclid%3DCjwKCAjwsrbTBhAvEiwA0Bpp4bAGT3YBC3fSUszzpCvYhgDVmVBQdMi-WhaXRUsaArCXkRW9jh_FfRoC4MoQAvD_BwE" class="nav-btn" target="_blank" rel="nofollow">Croma</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 7 -->
+            <div class="product-card">
+                <div class="card-image-box">
+                    <img src="smartwatch/images/7.jpg" alt="Huawei Watch 5">
+                </div>
+                <div class="card-info">
+                    <h2 class="product-title">Huawei Watch 5</h2>
+                    <ul class="specs-list">
+                        <li>Display: <span>LTPO AMOLED display</span></li>
+                        <li>Platform: <span>HarmonyOS</span></li>
+                        <li>Features: <span>ECG, SpO₂, eSIM support, Dual-band GPS, Up to 11 days battery</span></li>
+                    </ul>
+                    <div class="price-heading">Check The Price</div>
+                    <div class="btn-group">
+                        <a href="https://www.amazon.in/Smartwatch-Multi-Sensing-Real-Time-Fingertip-Aerospace-Grade/dp/B0F1G7YT8B?&linkCode=ll2&tag=bestprice690e-21&linkId=4e9e8d2eedcc0d25458e8eaa7a485b47&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 8 -->
+            <div class="product-card">
+                <div class="card-image-box">
+                    <img src="smartwatch/images/8.jpg" alt="OnePlus Watch 3">
+                </div>
+                <div class="card-info">
+                    <h2 class="product-title">OnePlus Watch 3</h2>
+                    <ul class="specs-list">
+                        <li>Display: <span>1.5" LTPO AMOLED</span></li>
+                        <li>Platform: <span>Snapdragon W5 + BES2800</span></li>
+                        <li>Features: <span>Dual-frequency GPS, ECG, Up to 5 days smart mode</span></li>
+                    </ul>
+                    <div class="price-heading">Check The Price</div>
+                    <div class="btn-group">
+                        <a href="https://www.amazon.in/OnePlus-Watch-Smartwatch-1-32-Inch-Multi-GNSS/dp/B0FDJXQ3D4?&linkCode=ll2&tag=bestprice690e-21&linkId=d6d7f404b3a330ca4c5a8a256f072978&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">B&H Photo</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 9 -->
+            <div class="product-card">
+                <div class="card-image-box">
+                    <img src="smartwatch/images/9.jpg" alt="Amazfit Active 2">
+                </div>
+                <div class="card-info">
+                    <h2 class="product-title">Amazfit Active 2</h2>
+                    <ul class="specs-list">
+                        <li>Display: <span>1.32" AMOLED</span></li>
+                        <li>Platform: <span>Zepp OS</span></li>
+                        <li>Features: <span>GPS, Heart Rate, SpO₂, 164+ sports, Up to 10 days battery</span></li>
+                    </ul>
+                    <div class="price-heading">Check The Price</div>
+                    <div class="btn-group">
+                        <a href="https://www.amazon.in/Amazfit-Premium-Sapphire-Display-Silicon/dp/B0DT3YMDMZ?dib=eyJ2IjoiMSJ9.7SN5xO39IY7PzGQ_TmiK6rBjeRptJ49IhEZMMY7nRpPzEq-w3gPGcI_uRwTPiSUr4O2k-2FQw-t_t015_XUlYbdDLlb_z4e-W2GVjymDFiO-tzcr0d5oUlIfoka0jLbnFJaesYNNpGhQXdMRlG0DcNhAECdIQIErl93fR5jn1waMWMtjvbr0pymsqAdypEUCKh0vvRniUlIJ-Vf0kF26ZimqQJTf0ee9aL20Au1bH-E.aB5xF9oG96ohVlJ67JPViaTiM8MHJldyExizcZt5aCQ&dib_tag=se&keywords=Amazfit%2BActive%2B2&nsdOptOutParam=true&qid=1785603089&sr=8-1&utm_source=chatgpt.com&th=1&linkCode=ll2&tag=bestprice690e-21&linkId=ef83e81583badb52a52a5b36770e9149&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                        <a href="https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.reliancedigital.in%2Fproduct%2Famazfit-active-2r-black-leather-premium-version-smartwatch-ma1470-9081418" class="nav-btn" target="_blank" rel="nofollow">Reliance</a>
+                        <a href="" class="nav-btn" target="_blank" rel="nofollow">Best Buy</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCT CARD 10 -->
+            <div class="product-card">
+                <div class="card-image-box">
+                    <img src="smartwatch/images/10.jpg" alt="Nothing CMF Watch Pro 3">
+                </div>
+                <div class="card-info">
+                    <h2 class="product-title">Nothing CMF Watch Pro 3</h2>
+                    <ul class="specs-list">
+                        <li>Display: <span>1.43" AMOLED</span></li>
+                        <li>Connectivity: <span>Built-in GPS, Bluetooth Calling</span></li>
+                        <li>Features: <span>Heart Rate, SpO₂, 120+ sports, Up to 13 days battery</span></li>
+                    </ul>
+                    <div class="price-heading">Check The Price</div>
+                    <div class="btn-group">
+                        <a href="https://www.amazon.in/CMF-NOTHING-Watch-Smartwatch-Light/dp/B0H5KPT14S?dib=eyJ2IjoiMSJ9.bfdaluyHqJrBS6geA4rry3Ba8wGXJR9V9NqlPmvmsklLVJjxElC1pJ3mxeXj2XAwRTFtZBYN2XXu4M6CMtssyDmaDj72hF6SGHMXRFVy78FVxpro4XzwkdBApomx0Kw1AZmL9kVVMhAKDfyqsoHADR-u3cUQ8wcGChQ6YsRo04dtCfmRPBHOpNdY5sDBtH4VHhB06nKFR87L5AeZ1D8EFv4j2cil-JakT-5YDmBFjGo.8g7WUsCtmYpxh_X76QEdiIM17Ec3yB-jaShzXkiSBJ0&dib_tag=se&keywords=CMF+Watch+Pro+3&qid=1785603366&sr=8-1&utm_source=chatgpt.com&linkCode=ll2&tag=bestprice690e-21&linkId=1cc2ff2606c9acd5d06507f179e8c0f8&ref_=as_li_ss_tl" class="nav-btn" target="_blank" rel="nofollow">Amazon</a>
+                        <a href="https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.croma.com%2Fnothing-cmf-watch-3-pro-smartwatch-with-bluetooth-calling-36mm-amoled-display-ip68-water-dust-resistant-dark-grey-strap-%2Fp%2F322966%3Fsrsltid%3DAfmBOoqcKPOH9YujGppUwrY2TosvZ232OOvGE0priMc6ytsl5kHwvbFC" class="nav-btn" target="_blank" rel="nofollow">croma</a>
+                        <a href="https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.reliancedigital.in%2Fproduct%2Fcmf-watch-3-pro-smartwatch-light-grey-mowi68-10058986%3Finternal_source%3Dsearch_results" class="nav-btn" target="_blank" rel="nofollow">reliance</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2026 THE LOCAL PRODUCT. All Rights Reserved. As an affiliate partner, we earn commissions from qualifying purchases.</p>
+    </footer>
 
 </body>
 </html>
