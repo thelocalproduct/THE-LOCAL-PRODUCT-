@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offers | The Local Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --surface-color: #171717;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --accent-gold: #d4af37;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            padding-top: 140px; /* Increased padding to clear the taller fixed header */
+            padding-bottom: 32px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        /* Sidebar open state */
+        #sidebar.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="selection:bg-amber-500 selection:text-black">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 flex flex-col">
+        <!-- Top Row: Menu/Women left, Back right -->
+        <div class="px-4 sm:px-6 py-2.5 flex justify-between items-center w-full">
+            <div class="flex items-center gap-3">
+                <button id="menu-btn" class="focus:outline-none flex flex-col justify-between w-6 h-4 sm:w-8 sm:h-6 cursor-pointer shrink-0">
+                    <span class="block w-full h-1 bg-black rounded-sm"></span>
+                    <span class="block w-full h-1 bg-black rounded-sm"></span>
+                    <span class="block w-full h-1 bg-black rounded-sm"></span>
+                </button>
+                <a href="womens.html" class="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-black hover:opacity-75 transition-opacity bg-gray-100 hover:bg-gray-200 px-2.5 py-1 rounded-md shrink-0">Women</a>
+            </div>
+            <a href="../index.html" class="nav-link text-[11px] sm:text-xs font-medium text-black hover:opacity-75 transition-opacity shrink-0">Back →</a>
+        </div>
+        <!-- Bottom Row: Centered Brand Title -->
+        <div class="text-center px-4 pb-3 pt-1 border-t border-gray-100 w-full">
+            <a href="../index.html" class="inline-block">
+                <h1 class="text-xl sm:text-3xl font-normal tracking-tight leading-[1.1] text-black hover:opacity-75 transition-opacity" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+            </a>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="fixed top-[96px] sm:top-[112px] left-0 h-[calc(100vh-96px)] sm:h-[calc(100vh-112px)] w-80 max-w-full bg-[#1a1a1c] text-white z-40 transform -translate-x-full shadow-2xl overflow-y-auto transition-transform duration-300">
+        <div class="p-6 sm:p-10 pb-24">
+            <ul class="space-y-6 sm:space-y-8">
+                <!-- MENSWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-base sm:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>MENSWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-4 sm:pl-6 mt-3 sm:mt-4 text-[13px] sm:text-[11px] uppercase tracking-[0.12em] text-gray-400 space-y-3">
+                        <li><a href="../fashion/menswear/stylish.html" class="hover:text-white transition block py-1">BE STYLISH</a></li>
+                        <li><a href="../fashion/menswear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/menswear/formal.html" class="hover:text-white transition block py-1">BE FORMAL</a></li>
+                        <li><a href="../fashion/menswear/bottomwear.html" class="hover:text-white transition block py-1">BOTTOMWEAR</a></li>
+                        <li><a href="../fashion/menswear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                    </ul>
+                </li>
+                <!-- WOMENSWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-base sm:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>WOMENSWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-4 sm:pl-6 mt-3 sm:mt-4 text-[13px] sm:text-[11px] uppercase tracking-[0.12em] text-gray-400 space-y-3">
+                        <li><a href="../fashion/womenswear/stylish.html" class="hover:text-white transition block py-1">BE STYLISH</a></li>
+                        <li><a href="../fashion/womenswear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/womenswear/elegant.html" class="hover:text-white transition block py-1">BE ELEGANT</a></li>
+                        <li><a href="../fashion/womenswear/bottomwear.html" class="hover:text-white transition block py-1">BOTTOMWEAR</a></li>
+                        <li><a href="../fashion/womenswear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                    </ul>
+                </li>
+                <!-- FOOTWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-base sm:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>FOOTWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-4 sm:pl-6 mt-3 sm:mt-4 text-[13px] sm:text-[11px] uppercase tracking-[0.12em] text-gray-400 space-y-3">
+                        <li><a href="../fashion/footwear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/footwear/formal.html" class="hover:text-white transition block py-1">BE FORMAL</a></li>
+                        <li><a href="../fashion/footwear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                        <li><a href="../fashion/footwear/slipper.html" class="hover:text-white transition block py-1">SLIPPERS</a></li>
+                        <li><a href="../fashion/footwear/sandal.html" class="hover:text-white transition block py-1">SANDALS</a></li>
+                    </ul>
+                </li>
+                <!-- ESSENTIALS -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-base sm:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>ESSENTIALS</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-4 sm:pl-6 mt-3 sm:mt-4 text-[13px] sm:text-[11px] uppercase tracking-[0.12em] text-gray-400 space-y-3">
+                        <li><a href="../fashion/essentials/carry.html" class="hover:text-white transition block py-1">CARRY</a></li>
+                        <li><a href="../fashion/essentials/timepieces.html" class="hover:text-white transition block py-1">TIMEPIECES</a></li>
+                        <li><a href="../fashion/essentials/musthaves.html" class="hover:text-white transition block py-1">MUST HAVES</a></li>
+                    </ul>
+                </li>
+                <!-- FRAGRANCES -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-base sm:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>FRAGRANCES</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-4 sm:pl-6 mt-3 sm:mt-4 text-[13px] sm:text-[11px] uppercase tracking-[0.12em] text-gray-400 space-y-3">
+                        <li><a href="../fashion/fragrances/him.html" class="hover:text-white transition block py-1">FOR HIM</a></li>
+                        <li><a href="../fashion/fragrances/her.html" class="hover:text-white transition block py-1">FOR HER</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <div class="text-center mb-6 sm:mb-8 px-4 max-w-xl">
+        <h2 style="font-family: 'Playfair Display', serif;" class="text-2xl sm:text-3xl tracking-widest uppercase font-bold mb-2">Special Offers</h2>
+        <p class="text-[11px] sm:text-xs tracking-wide text-[#a1a1a6] font-light leading-relaxed italic border-y border-[rgba(255,255,255,0.08)] py-2">
+            ✨ Handpicked exclusive products and direct deals.
+        </p>
+    </div>
+
+    <!-- Dynamic Small Product Cards Grid -->
+    <main class="w-full max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6" id="productGrid">
+        <!-- Cards will render here automatically based on productOffers array -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full text-center py-6 sm:py-8 border-t border-[rgba(255,255,255,0.08)] text-xs text-[#a1a1a6] mt-8 sm:mt-12">
+        &copy; 2026 The Local Product. All rights reserved.
+    </footer>
+
+    <!-- Script to Handle Sidebar and Dynamic Product Offer Cards -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const accordions = document.querySelectorAll('.accordion');
+
+        // Toggle Sidebar Drawer & Prevent Body Scroll on Mobile
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : 'auto';
+        });
+
+        // Toggle Accordion Dropdowns
+        accordions.forEach(acc => {
+            acc.addEventListener('click', () => {
+                const submenu = acc.nextElementSibling;
+                const icon = acc.querySelector('.accordion-icon');
+                submenu.classList.toggle('hidden');
+                icon.textContent = submenu.classList.contains('hidden') ? '+' : '−';
+            });
+        });
+
+        // ==========================================
+        // ADD YOUR PRODUCT DETAILS HERE
+        // Format: { name: "Product Name", image: "mens/images/1.jpg", link: "AFFILIATE_URL" }
+        // ==========================================
+        const productOffers = [
+    { name: "Puma Black Essentials Rubber Print Fullzip Regular Fit Hoodie", image: "mens/images/1.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fpuma-black-essentials-rubber-print-fullzip-regular-fit-hoodie%2Fp-mp000000027859652" },
+    { name: "Arrow Sport Black Cotton Regular Fit Printed SweatShirt", image: "mens/images/3.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-black-cotton-regular-fit-printed-sweatshirt%2Fp-mp000000015046750" },
+    { name: "Allen Solly Sport Grey Black Regular Fit Colour Block Jacket", image: "mens/images/25.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fallen-solly-sport-grey-black-regular-fit-colour-block-jacket%2Fp-mp000000011413202" },
+    { name: "Arrow Sport Black Cotton Regular Fit Printed Sweatshirt", image: "mens/images/2.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-black-cotton-regular-fit-printed-sweatshirt%2Fp-mp000000019992659" },
+    { name: "Arrow Black Cotton Slim Solid Casual Shirt", image: "mens/images/22.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-black-cotton-slim-solid-casual-shirt%2Fp-mp000000030973630" },
+    { name: "Arrow Sport Black Cotton Regular Fit Striped Polo TShirt", image: "mens/images/8.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-black-cotton-regular-fit-striped-polo-tshirt%2Fp-mp000000025641689" },
+    { name: "Parx Mens Black Slim Fit Solid Linen Casual Shirt", image: "mens/images/19.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fparx-mens-black-slim-fit-solid-linen-casual-shirt%2Fp-mp000000031157184" },
+    { name: "Arrow Green Cotton Slim Solid Casual Shirt", image: "mens/images/23.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-green-cotton-slim-solid-casual-shirt%2Fp-mp000000030973669" },
+    { name: "Arrow Sport Green Cotton Regular Fit Striped Polo TShirt", image: "mens/images/12.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-green-cotton-regular-fit-striped-polo-tshirt%2Fp-mp000000028496680" },
+    { name: "Arrow Sport Blue Acrylic Skinny Fit Solid Trousers", image: "mens/images/26.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-blue-acrylic-skinny-fit-solid-trousers%2Fp-mp000000030545554" },
+    { name: "Arrow Sport Navy Regular Fit Printed Jacket", image: "mens/images/24.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-navy-regular-fit-printed-jacket%2Fp-mp000000026149544" },
+    { name: "Arrow Sport Black Cotton Slim Fit Stripes Casual Shirt", image: "mens/images/16.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-black-cotton-slim-fit-stripes-casual-shirt%2Fp-mp000000026968131" },
+    { name: "Van Heusen Green Slim Fit TShirt", image: "mens/images/15.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fvan-heusen-green-slim-fit-tshirt%2Fp-mp000000029169144" },
+    { name: "Louis Philippe Mens Soft Feel Over Dyed Solid Teal Soft Hand Feel Slim Fit Casual Shirt", image: "mens/images/20.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Flouis-philippe-mens-soft-feel-over-dyed-solid-teal-soft-hand-feel-slim-fit-casual-shirt%2Fp-mp000000011196700" },
+    { name: "Arrow Sport Blue Cotton Regular Fit Stripes Polo TShirt", image: "mens/images/10.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-blue-cotton-regular-fit-stripes-polo-tshirt%2Fp-mp000000025824833" },
+    { name: "Arrow Sport Green Acrylic Skinny Fit Solid Trousers", image: "mens/images/29.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-green-acrylic-skinny-fit-solid-trousers%2Fp-mp000000030545873" },
+    { name: "Arrow Sports Green Cotton Regular Fit Polo TShirt", image: "mens/images/11.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sports-green-cotton-regular-fit-polo-tshirt%2Fp-mp000000021322554" },
+    { name: "Us Polo Assn Navy Cotton Slim Fit Trousers", image: "mens/images/27.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fus-polo-assn-navy-cotton-slim-fit-trousers%2Fp-mp000000025773848" },
+    { name: "Parx Mens Medium Grey Slim Printed Casual Shirt", image: "mens/images/18.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fparx-mens-medium-grey-slim-printed-casual-shirt%2Fp-mp000000031604463" },
+    { name: "Wrogn Mens Brown Loose Fit Solid Cotton Chinos", image: "mens/images/31.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fwrogn-mens-brown-loose-fit-solid-cotton-chinos%2Fp-mp000000031594179" },
+    { name: "Peter England Navy Cotton Regular Fit TShirt", image: "mens/images/14.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fpeter-england-navy-cotton-regular-fit-tshirt%2Fp-mp000000028284388" },
+    { name: "Arrow Sport Mens Black Slim Fit Checked Casual Shirt", image: "mens/images/17.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-mens-black-slim-fit-checked-casual-shirt%2Fp-mp000000030652271" },
+    { name: "Wrogn Mens Beige Loose Solid Chinos", image: "mens/images/30.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fwrogn-mens-beige-loose-solid-chinos%2Fp-mp000000031594142" },
+    { name: "Arrow Sport Black Cotton Regular Fit Striped Sweatshirt", image: "mens/images/4.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-black-cotton-regular-fit-striped-sweatshirt%2Fp-mp000000026149237" },
+    { name: "Arrow Black Skinny Fit Solid Trousers", image: "mens/images/28.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-black-skinny-fit-solid-trousers%2Fp-mp000000030545066" },
+    { name: "Allen Solly Navy Slim Fit Solid Casual Shirt", image: "mens/images/21.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fallen-solly-navy-slim-fit-solid-casual-shirt%2Fp-mp000000026856310" },
+    { name: "US Polo Assn Denim Co Blue Cotton Slim Fit Logo Printed TShirt", image: "mens/images/5.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fus-polo-assn-denim-co-blue-cotton-slim-fit-logo-printed-tshirt%2Fp-mp000000025041418" },
+    { name: "Arrow Sport Black Regular Fit Printed Polo TShirt", image: "mens/images/6.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-black-regular-fit-printed-polo-tshirt%2Fp-mp000000023490961" },
+    { name: "Arrow Sport Navy Cotton Regular Fit Striped Polo TShirt", image: "mens/images/13.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-navy-cotton-regular-fit-striped-polo-tshirt%2Fp-mp000000028383519" },
+    { name: "Arrow Sport Black Cotton Regular Fit Striped Polo TShirt", image: "mens/images/9.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-sport-black-cotton-regular-fit-striped-polo-tshirt%2Fp-mp000000028171748" },
+    { name: "Arrow Beige Regular Fit Others Polo TShirt", image: "mens/images/7.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Farrow-beige-regular-fit-others-polo-tshirt%2Fp-mp000000023451286" },
+];
+
+        // Render Cards Dynamically
+        const productGrid = document.getElementById('productGrid');
+
+        function renderProducts() {
+            productGrid.innerHTML = '';
+            
+            if (productOffers.length === 0) {
+                productGrid.innerHTML = `<p class="col-span-full text-center text-sm text-gray-400 py-12">No special offers available right now.</p>`;
+                return;
+            }
+
+            productOffers.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "bg-[#171717] border border-[rgba(255,255,255,0.08)] rounded-lg sm:rounded-xl overflow-hidden shadow-lg flex flex-col justify-between group transition hover:border-[#d4af37]/40 hover:-translate-y-1";
+
+                card.innerHTML = `
+                    <div class="w-full aspect-[4/5] overflow-hidden bg-black/40 relative">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-3 sm:p-4 flex flex-col flex-grow justify-between gap-2.5 sm:gap-3">
+                        <h3 class="text-xs sm:text-sm font-semibold text-white tracking-wide line-clamp-2 text-center" title="${product.name}">${product.name}</h3>
+                        <a href="${product.link}" target="_blank" class="w-full py-2 px-3 sm:py-2.5 sm:px-4 bg-[#d4af37] hover:bg-[#c29f31] text-black font-bold uppercase tracking-wider text-[11px] sm:text-xs text-center rounded-md sm:rounded-lg transition block">
+                            check the price
+                        </a>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', renderProducts);
+    </script>
+</body>
+</html>

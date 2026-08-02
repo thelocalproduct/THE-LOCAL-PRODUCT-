@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offers | The Local Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --surface-color: #171717;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --accent-gold: #d4af37;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            padding-top: 140px;
+            padding-bottom: 32px;
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        /* Sidebar open state */
+        #sidebar.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="selection:bg-amber-500 selection:text-black">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white border-b border-gray-200 z-50 flex flex-col">
+        <!-- Top Row: Menu/Women left, Back right -->
+        <div class="px-4 sm:px-6 py-2.5 flex justify-between items-center w-full">
+            <div class="flex items-center gap-3">
+                <button id="menu-btn" class="focus:outline-none flex flex-col justify-between w-6 h-4 sm:w-8 sm:h-6 cursor-pointer shrink-0">
+                    <span class="block w-full h-1 bg-black rounded-sm"></span>
+                    <span class="block w-full h-1 bg-black rounded-sm"></span>
+                    <span class="block w-full h-1 bg-black rounded-sm"></span>
+                </button>
+                <a href="mens.html" class="text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-black hover:opacity-75 transition-opacity bg-gray-100 hover:bg-gray-200 px-2.5 py-1 rounded-md shrink-0">mens</a>
+            </div>
+            <a href="../index.html" class="nav-link text-[11px] sm:text-xs font-medium text-black hover:opacity-75 transition-opacity shrink-0">Back →</a>
+        </div>
+        <!-- Bottom Row: Centered Brand Title -->
+        <div class="text-center px-4 pb-3 pt-1 border-t border-gray-100 w-full">
+            <a href="../index.html" class="inline-block">
+                <h1 class="text-xl sm:text-3xl font-normal tracking-tight leading-[1.1] text-black hover:opacity-75 transition-opacity" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+            </a>
+        </div>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="fixed top-[96px] sm:top-[112px] left-0 h-[calc(100vh-96px)] sm:h-[calc(100vh-112px)] w-80 max-w-full bg-[#1a1a1c] text-white z-40 transform -translate-x-full shadow-2xl overflow-y-auto transition-transform duration-300">
+        <div class="p-6 sm:p-10 pb-24">
+            <ul class="space-y-6 sm:space-y-8">
+                <!-- MENSWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-base sm:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>MENSWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-4 sm:pl-6 mt-3 sm:mt-4 text-[13px] sm:text-[11px] uppercase tracking-[0.12em] text-gray-400 space-y-3">
+                        <li><a href="../fashion/menswear/stylish.html" class="hover:text-white transition block py-1">BE STYLISH</a></li>
+                        <li><a href="../fashion/menswear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/menswear/formal.html" class="hover:text-white transition block py-1">BE FORMAL</a></li>
+                        <li><a href="../fashion/menswear/bottomwear.html" class="hover:text-white transition block py-1">BOTTOMWEAR</a></li>
+                        <li><a href="../fashion/menswear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                    </ul>
+                </li>
+                <!-- WOMENSWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-base sm:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>WOMENSWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-4 sm:pl-6 mt-3 sm:mt-4 text-[13px] sm:text-[11px] uppercase tracking-[0.12em] text-gray-400 space-y-3">
+                        <li><a href="../fashion/womenswear/stylish.html" class="hover:text-white transition block py-1">BE STYLISH</a></li>
+                        <li><a href="../fashion/womenswear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/womenswear/elegant.html" class="hover:text-white transition block py-1">BE ELEGANT</a></li>
+                        <li><a href="../fashion/womenswear/bottomwear.html" class="hover:text-white transition block py-1">BOTTOMWEAR</a></li>
+                        <li><a href="../fashion/womenswear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                    </ul>
+                </li>
+                <!-- FOOTWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-base sm:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>FOOTWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-4 sm:pl-6 mt-3 sm:mt-4 text-[13px] sm:text-[11px] uppercase tracking-[0.12em] text-gray-400 space-y-3">
+                        <li><a href="../fashion/footwear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/footwear/formal.html" class="hover:text-white transition block py-1">BE FORMAL</a></li>
+                        <li><a href="../fashion/footwear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                        <li><a href="../fashion/footwear/slipper.html" class="hover:text-white transition block py-1">SLIPPERS</a></li>
+                        <li><a href="../fashion/footwear/sandal.html" class="hover:text-white transition block py-1">SANDALS</a></li>
+                    </ul>
+                </li>
+                <!-- ESSENTIALS -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-base sm:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>ESSENTIALS</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-4 sm:pl-6 mt-3 sm:mt-4 text-[13px] sm:text-[11px] uppercase tracking-[0.12em] text-gray-400 space-y-3">
+                        <li><a href="../fashion/essentials/carry.html" class="hover:text-white transition block py-1">CARRY</a></li>
+                        <li><a href="../fashion/essentials/timepieces.html" class="hover:text-white transition block py-1">TIMEPIECES</a></li>
+                        <li><a href="../fashion/essentials/musthaves.html" class="hover:text-white transition block py-1">MUST HAVES</a></li>
+                    </ul>
+                </li>
+                <!-- FRAGRANCES -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-base sm:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>FRAGRANCES</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-4 sm:pl-6 mt-3 sm:mt-4 text-[13px] sm:text-[11px] uppercase tracking-[0.12em] text-gray-400 space-y-3">
+                        <li><a href="../fashion/fragrances/him.html" class="hover:text-white transition block py-1">FOR HIM</a></li>
+                        <li><a href="../fashion/fragrances/her.html" class="hover:text-white transition block py-1">FOR HER</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page Title -->
+    <div class="text-center mb-6 sm:mb-8 px-4 max-w-xl">
+        <h2 style="font-family: 'Playfair Display', serif;" class="text-2xl sm:text-3xl tracking-widest uppercase font-bold mb-2">Special Offers</h2>
+        <p class="text-[11px] sm:text-xs tracking-wide text-[#a1a1a6] font-light leading-relaxed italic border-y border-[rgba(255,255,255,0.08)] py-2">
+            ✨ Handpicked exclusive products and direct deals.
+        </p>
+    </div>
+
+    <!-- Dynamic Small Product Cards Grid -->
+    <main class="w-full max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6" id="productGrid">
+        <!-- Cards will render here automatically based on productOffers array -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full text-center py-6 sm:py-8 border-t border-[rgba(255,255,255,0.08)] text-xs text-[#a1a1a6] mt-8 sm:mt-12">
+        &copy; 2026 The Local Product. All rights reserved.
+    </footer>
+
+    <!-- Script to Handle Sidebar and Dynamic Product Offer Cards -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const accordions = document.querySelectorAll('.accordion');
+
+        // Toggle Sidebar Drawer & Prevent Body Scroll on Mobile
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : 'auto';
+        });
+
+        // Toggle Accordion Dropdowns
+        accordions.forEach(acc => {
+            acc.addEventListener('click', () => {
+                const submenu = acc.nextElementSibling;
+                const icon = acc.querySelector('.accordion-icon');
+                submenu.classList.toggle('hidden');
+                icon.textContent = submenu.classList.contains('hidden') ? '+' : '−';
+            });
+        });
+
+        const productOffers = [
+            { name: "Mustard Geometric Printed Cotton Shirt", image: "womens/images/3.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.libas.in%2Fproducts%2Fmustard-geometric-printed-cotton-shirt-g3012" },
+            { name: "Van Heusen Navy Regular Fit Printed Shirt", image: "womens/images/22.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fvan-heusen-navy-regular-fit-printed-shirt%2Fp-mp000000025803699" },
+            { name: "Reebok Black Regular Fit Sweatshirt", image: "womens/images/18.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Freebok-black-regular-fit-sweatshirt%2Fp-mp000000026063531" },
+            { name: "Aurelia Stripes Mandarin Neck Kurta", image: "womens/images/15.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Faurelia-stripes-mandarin-neck-kurta%2Fp%2F12295193" },
+            { name: "Van Heusen Navy Cotton Regular Fit Shirt", image: "womens/images/23.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fvan-heusen-navy-cotton-regular-fit-shirt%2Fp-mp000000017072762" },
+            { name: "Varanga Black Solid Kurta Pants Set", image: "womens/images/25.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fvaranga-black-solid-kurta-pants-set%2Fp-mp000000030506893" },
+            { name: "Reebok Women Sweatshirts", image: "womens/images/19.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Freebok-women-sweatshirts%2Fp-mp000000030660747" },
+            { name: "U.S. Polo Assn. Women's Brown Relaxed Fit Textured Shirt", image: "womens/images/24.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fu-s-polo-assn-womens-brown-relaxed-fit-textured-shirt%2Fp-mp000000031698919" },
+            { name: "Aurelia Women Blue Printed Three Fourth Sleeves Round Neck Kurta", image: "womens/images/14.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Faurelia-women-blue-printed-three-fourth-sleeves-round-neck-kurta%2Fp%2F12917878" },
+            { name: "Blue Solid Cotton Trousers", image: "womens/images/2.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.libas.in%2Fproducts%2Fblue-solid-cotton-trousers-pl1653" },
+            { name: "Green Woven Design Rayon Straight Kurta", image: "womens/images/4.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.libas.in%2Fproducts%2Fgreen-woven-design-rayon-straight-kurta-29347or" },
+            { name: "Allen Solly Green Cotton Plain Sweatshirt", image: "womens/images/21.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fallen-solly-green-cotton-plain-sweatshirt%2Fp-mp000000023151281" },
+            { name: "Gap Maroon Cotton Embroidered Long Sleeves Sweater", image: "womens/images/17.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fgap-maroon-cotton-embroidered-long-sleeves-sweater%2Fp-mp000000027461919" },
+            { name: "Grey Solid Cotton Trousers", image: "womens/images/1.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.libas.in%2Fproducts%2Fgrey-solid-cotton-trousers-pl1659" },
+            { name: "Solly by Allen Solly Black Striped Sweatshirt", image: "womens/images/20.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fsolly-by-allen-solly-black-striped-sweatshirt%2Fp-mp000000005935990" },
+            { name: "Puma Women's Relaxed Fit Cropped Track Black Jacket", image: "womens/images/12.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fpuma-black-abstract-jacket%2Fp-mp000000027148228" },
+            { name: "Allen Solly Women Purple Textured Full Sleeves Shirt", image: "womens/images/9.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fallen-solly-women-purple-textured-full-sleeves-shirt%2Fp%2F20293327" },
+            { name: "Aurelia Women Black Embroidered Three Fourth Sleeves Round Neck Kurta", image: "womens/images/16.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Faurelia-women-black-embroidered-three-fourth-sleeves-round-neck-kurta%2Fp%2F12917888" },
+            { name: "Aurelia Women Black Embroidered Three Fourth Sleeves Mandarin Neck Kurti", image: "womens/images/13.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Faurelia-women-black-embroidered-three-fourth-sleeves-mandarin-neck-kurti%2Fp%2F12917907" },
+            { name: "Van Heusen Women Maroon Printed Three Fourth Sleeves Regular Fit Formal Shirt", image: "womens/images/7.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fvan-heusen-women-maroon-printed-three-fourth-sleeves-regular-fit-formal-shirt%2Fp%2F16582135" },
+            { name: "Blue A-Line Printed Kurta", image: "womens/images/6.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.wforwoman.com%2Fcollections%2Fa-line-kurtas%2Fproducts%2Fproduct-blue-a-line-printed-kurta-23auw19287-120839" },
+            { name: "Allen Solly Women Green Print Formal Top", image: "womens/images/8.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fallen-solly-women-green-print-formal-top%2Fp%2F22697112" },
+            { name: "Allen Solly Navy Blue Stripes Regular Fit Sweater", image: "womens/images/10.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fallen-solly-navy-blue-stripes-regular-fit-sweater%2Fp%2F20026442" },
+            { name: "Black Woven Design Cotton Straight Kurta", image: "womens/images/5.jpg", link: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.libas.in%2Fproducts%2Fblack-woven-design-cotton-straight-kurta-g3076" },
+        ];
+
+        const productGrid = document.getElementById('productGrid');
+
+        function renderProducts() {
+            productGrid.innerHTML = '';
+            
+            if (productOffers.length === 0) {
+                productGrid.innerHTML = `<p class="col-span-full text-center text-sm text-gray-400 py-12">No special offers available right now.</p>`;
+                return;
+            }
+
+            productOffers.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "bg-[#171717] border border-[rgba(255,255,255,0.08)] rounded-lg sm:rounded-xl overflow-hidden shadow-lg flex flex-col justify-between group transition hover:border-[#d4af37]/40 hover:-translate-y-1";
+
+                card.innerHTML = `
+                    <div class="w-full aspect-[4/5] overflow-hidden bg-black/40 relative">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="p-3 sm:p-4 flex flex-col flex-grow justify-between gap-2.5 sm:gap-3">
+                        <h3 class="text-xs sm:text-sm font-semibold text-white tracking-wide line-clamp-2 text-center" title="${product.name}">${product.name}</h3>
+                        <a href="${product.link}" target="_blank" class="w-full py-2 px-3 sm:py-2.5 sm:px-4 bg-[#d4af37] hover:bg-[#c29f31] text-black font-bold uppercase tracking-wider text-[11px] sm:text-xs text-center rounded-md sm:rounded-lg transition block">
+                            check the price
+                        </a>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', renderProducts);
+    </script>
+</body>
+</html>
