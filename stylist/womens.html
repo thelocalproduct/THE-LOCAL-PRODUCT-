@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --surface-color: #171717;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --accent-gold: #d4af37;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            padding-top: 120px;
+            padding-bottom: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        /* Sidebar open state */
+        #sidebar.open {
+            transform: translateX(0);
+        }
+
+        /* Collage Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 24px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .photo-card {
+            position: relative;
+            background: var(--surface-color);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            aspect-ratio: 9/16;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s forwards;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .photo-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Interactive Modal Pop-up */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 90vw;
+            max-height: 90vh;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+            transform: scale(0.95);
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-content img {
+            max-height: 65vh;
+            max-width: 100%;
+            border-radius: 12px;
+            object-fit: contain;
+            margin-bottom: 24px;
+        }
+
+        /* Navigational Affiliate Buttons Container */
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            padding: 10px 18px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .nav-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-color);
+            border-color: var(--text-primary);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            color: var(--text-primary);
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full px-6 pt-8 pb-8 flex justify-between items-center bg-white border-b border-gray-200 z-50">
+        <button id="menu-btn" class="focus:outline-none flex flex-col justify-between w-8 h-6">
+            <span class="block w-full h-1 bg-black"></span>
+            <span class="block w-full h-1 bg-black"></span>
+            <span class="block w-full h-1 bg-black"></span>
+        </button>
+        
+        <!-- Wrapped title inside an anchor tag for navigation -->
+        <div class="text-center">
+            <a href="../index.html" class="inline-block">
+                <h1 class="text-3xl font-normal tracking-tight leading-[0.8] text-black hover:opacity-75 transition-opacity" style="font-family: 'Playfair Display', serif;">THE LOCAL PRODUCT</h1>
+            </a>
+        </div>
+        
+        <a href="../index.html" class="nav-link text-xs font-medium text-black hover:opacity-75 transition-opacity">Back →</a>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar" class="fixed top-[72px] left-0 h-full w-full md:w-64 bg-[#1a1a1c] text-white z-40 transform -translate-x-full shadow-2xl overflow-y-auto transition-transform duration-300">
+        <div class="p-10">
+            <ul class="space-y-8">
+                <!-- MENSWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-lg md:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>MENSWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-6 mt-4 text-[13px] md:text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-4 md:space-y-3">
+                        <li><a href="../fashion/menswear/stylish.html" class="hover:text-white transition block py-1">BE STYLISH</a></li>
+                        <li><a href="../fashion/menswear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/menswear/formal.html" class="hover:text-white transition block py-1">BE FORMAL</a></li>
+                        <li><a href="../fashion/menswear/bottomwear.html" class="hover:text-white transition block py-1">BOTTOMWEAR</a></li>
+                        <li><a href="../fashion/menswear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                    </ul>
+                </li>
+
+                <!-- WOMENSWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-lg md:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>WOMENSWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-6 mt-4 text-[13px] md:text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-4 md:space-y-3">
+                        <li><a href="../fashion/womenswear/stylish.html" class="hover:text-white transition block py-1">BE STYLISH</a></li>
+                        <li><a href="../fashion/womenswear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/womenswear/elegant.html" class="hover:text-white transition block py-1">BE ELEGANT</a></li>
+                        <li><a href="../fashion/womenswear/bottomwear.html" class="hover:text-white transition block py-1">BOTTOMWEAR</a></li>
+                        <li><a href="../fashion/womenswear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                    </ul>
+                </li>
+
+                <!-- FOOTWEAR -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-lg md:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>FOOTWEAR</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-6 mt-4 text-[13px] md:text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-4 md:space-y-3">
+                        <li><a href="../fashion/footwear/casual.html" class="hover:text-white transition block py-1">BE CASUAL</a></li>
+                        <li><a href="../fashion/footwear/formal.html" class="hover:text-white transition block py-1">BE FORMAL</a></li>
+                        <li><a href="../fashion/footwear/active.html" class="hover:text-white transition block py-1">BE ACTIVE</a></li>
+                        <li><a href="../fashion/footwear/slipper.html" class="hover:text-white transition block py-1">SLIPPERS</a></li>
+                        <li><a href="../fashion/footwear/sandal.html" class="hover:text-white transition block py-1">SANDALS</a></li>
+                    </ul>
+                </li>
+
+                <!-- ESSENTIALS -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-lg md:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>ESSENTIALS</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-6 mt-4 text-[13px] md:text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-4 md:space-y-3">
+                        <li><a href="../fashion/essentials/carry.html" class="hover:text-white transition block py-1">CARRY</a></li>
+                        <li><a href="../fashion/essentials/timepieces.html" class="hover:text-white transition block py-1">TIMEPIECES</a></li>
+                        <li><a href="../fashion/essentials/musthaves.html" class="hover:text-white transition block py-1">MUST HAVES</a></li>
+                    </ul>
+                </li>
+
+                <!-- FRAGRANCES -->
+                <li>
+                    <button class="accordion w-full flex justify-between items-center text-lg md:text-[15px] font-bold uppercase tracking-[0.15em] text-gray-300 hover:text-white py-2">
+                        <span>FRAGRANCES</span>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <ul class="submenu hidden pl-6 mt-4 text-[13px] md:text-[11px] uppercase tracking-[0.12em] text-gray-500 space-y-4 md:space-y-3">
+                        <li><a href="../fashion/fragrances/him.html" class="hover:text-white transition block py-1">FOR HIM</a></li>
+                        <li><a href="../fashion/fragrances/her.html" class="hover:text-white transition block py-1">FOR HER</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Page Subheader & Creative Disclaimer -->
+    <div class="text-center mb-8 px-4 max-w-xl">
+        <div class="flex items-center justify-center gap-3 mb-3">
+            <a href="mens.html" class="px-3 py-1 text-xs uppercase tracking-wider border border-[rgba(255,255,255,0.2)] rounded-full hover:border-[#d4af37] transition-colors">Men</a>
+            <h2 style="font-family: 'Playfair Display', serif;" class="text-4xl tracking-widest uppercase font-bold">Stylist</h2>
+            <a href="womens.html" class="px-3 py-1 text-xs uppercase tracking-wider border border-[rgba(255,255,255,0.2)] rounded-full hover:border-[#d4af37] transition-colors">Women</a>
+        </div>
+        <p class="text-xs tracking-wide text-[#a1a1a6] font-light leading-relaxed italic border-y border-[rgba(255,255,255,0.08)] py-2">
+            ✨ Inspiration in sight, perfection in match — visual references set the mood, while our curated picks bring the exact fit to life.
+        </p>
+    </div>
+
+    <!-- Photo Collage Grid -->
+    <main class="gallery-grid" id="galleryGrid"></main>
+
+    <!-- Pop-up Modal Container -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <img id="modalImage" src="" alt="Selected Style">
+            
+            <!-- Dynamic Affiliate Action Links (Only visible if links exist) -->
+            <div class="nav-buttons" id="modalNavButtons"></div>
+        </div>
+    </div>
+
+    <script>
+        const galleryGrid = document.getElementById('galleryGrid');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const modalImage = document.getElementById('modalImage');
+        const closeModal = document.getElementById('closeModal');
+        const modalNavButtons = document.getElementById('modalNavButtons');
+        
+        // Sidebar & Accordion Elements
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const accordions = document.querySelectorAll('.accordion');
+
+        // Toggle Sidebar Drawer
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Toggle Accordion Dropdowns
+        accordions.forEach(acc => {
+            acc.addEventListener('click', () => {
+                const submenu = acc.nextElementSibling;
+                const icon = acc.querySelector('.accordion-icon');
+                
+                submenu.classList.toggle('hidden');
+                icon.textContent = submenu.classList.contains('hidden') ? '+' : '−';
+            });
+        });
+
+        /* ==========================================================================
+           PRODUCT / AFFILIATE DETAILS TEMPLATE
+           Instructions for adding product links later:
+           - Each key corresponds to the image index number (e.g., 1 for images/1.jpg).
+           - Add your affiliate links as string values for 'shirt', 'pant', 'tshirt', 
+             'shoe', or 'accessory'. Leave empty ("") if not applicable.
+           - Rule check: Always ensure the brand name part of your link handling (if custom configured) 
+             or descriptions match your formatting preferences.
+           ========================================================================== */
+        const affiliateData = {
+            1: {
+                shirt: "",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Ffithub-women-beige-smart-slim-fit-high-rise-formal-trouser%2Fp%2F17423038",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Ftommy-hilfiger-solid-slim-fit-cotton-black-t-shirt%2Fp%2F28255191", 
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fpuma-smashic-unisex-white-sneakers%2Fp%2F9750191",
+                accessory: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fteakwood-womens-dual-color-wear-reversible-leather-belt%2Fp%2F22156052" 
+            },
+            2: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Flounge-dreams-pure-cotton-poplin-coffee-brown-oversized-shirt%2Fp%2F20890535", 
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fallen-solly-women-black-solid-casual-trousers%2Fp%2F21204568",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fcolor-capital-black-tank-top%2Fp%2F25954930",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fcampus-white-sneakers%2Fp%2F26218210",
+                accessory: ""
+            },
+            3: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fvoxati-womens-denim-jacket-blue%2Fp%2F9698277",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fvan-heusen-women-beige-solid-casual-trousers%2Fp%2F21692750",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fjockey-mw87-women-microfiber-fabric-regular-fit-half-sleeve-t-shirt-black%2Fp%2F24515930",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fpuma-smashic-unisex-white-sneakers%2Fp%2F9750191",
+                accessory: ""
+            },
+            4: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Ffablestreet-olive-formal-shirt%2Fp-mp000000016638477",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fpeople-by-pantaloons-black-solid-jeans%2Fp-mp000000024227226",
+                tshirt: "",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fpuma-smashic-unisex-white-sneakers%2Fp%2F9750191",
+                accessory: ""
+            },
+            5: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fmish-black-polyester-full-sleeves-mandarin-neck-solid-shirt%2Fp%2F27113528",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fallen-solly-grey-trousers%2Fp%2F7946160",
+                tshirt: "",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fpuma-smashic-unisex-white-sneakers%2Fp%2F9750191",
+                accessory: ""
+            },
+            6: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fu-s-polo-assn-women-white-cotton-printed-sweatshirt%2Fp%2F21820388",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fcrimsoune-club-womens-black-joggers%2Fp%2F13949646",
+                tshirt: "",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fpuma-softride-frequence-street-white-running-shoes%2Fp%2F21053954",
+                accessory: ""
+            },
+            7: {
+                shirt: "",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fbene-kleed-women-baggy-fit-high-rise-beige-cargo-pant%2Fp%2F26703449",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fgriffel-women-basic-solid-oversized-navy-t-shirt%2Fp%2F15420476",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fcult-women-s-retroedge-white-sneakers%2Fp%2F28122278",
+                accessory: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fcult-unisex-folding-cap-olive%2Fp%2F26942748"
+            },
+            8: {
+                shirt: "",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fpopnetic-women-loose-fit-high-rise-parachute-cargo-joggers-olive%2Fp%2F23838373",
+                tshirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Ftommy-hilfiger-white-logo-slim-fit-cotton-t-shirt%2Fp%2F21288263",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fpuma-softride-frequence-street-white-running-shoes%2Fp%2F21053954",
+                accessory: ""
+            },
+            9: {
+                shirt: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.tatacliq.com%2Fthe-indian-ethnic-co-white-loose-poplin-cotton-plain-shirt-with-embroidery-details-full-sleeves%2Fp-mp000000026740140",
+                pant: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Flevi.in%2Fproducts%2Fwomens-94-light-blue-baggy-fit-high-rise-jeans-a39410103%3F_pos%3D3%26_fid%3Dc83bab2e9%26_ss%3Dc%26variant%3D51603002655010",
+                tshirt: "",
+                shoe: "https://linksredirect.com/?cid=305010&source=linkkit&url=https%3A%2F%2Fwww.nykaafashion.com%2Fpuma-smashic-unisex-white-sneakers%2Fp%2F9750191",
+                accessory: ""
+            },
+            10: {
+                shirt: "",
+                pant: "",
+                tshirt: "",
+                shoe: "",
+                accessory: ""
+            },
+            11: {
+                shirt: "",
+                pant: "",
+                tshirt: "",
+                shoe: "",
+                accessory: ""
+            },
+            12: {
+                shirt: "",
+                pant: "",
+                tshirt: "",
+                shoe: "",
+                accessory: ""
+            },
+            13: {
+                shirt: "",
+                pant: "",
+                tshirt: "",
+                shoe: "",
+                accessory: ""
+            },
+            14: {
+                shirt: "",
+                pant: "",
+                tshirt: "",
+                shoe: "",
+                accessory: ""
+            },
+            15: { 
+                shirt: "", 
+                pant: "", 
+                tshirt: "", 
+                shoe: "", 
+                accessory: "" 
+            },
+            16: { 
+                shirt: "", 
+                pant: "", 
+                tshirt: "", 
+                shoe: "", 
+                accessory: "" 
+            },
+            17: { 
+                shirt: "", 
+                pant: "", 
+                tshirt: "", 
+                shoe: "", 
+                accessory: "" 
+            },
+            18: { 
+                shirt: "", 
+                pant: "", 
+                tshirt: "", 
+                shoe: "", 
+                accessory: "" 
+            },
+            19: { 
+                shirt: "", 
+                pant: "", 
+                tshirt: "", 
+                shoe: "", 
+                accessory: "" 
+            },
+            20: { 
+                shirt: "", 
+                pant: "", 
+                tshirt: "", 
+                shoe: "", 
+                accessory: "" 
+            },
+            // Add more indices as needed (21, 22, etc.)
+        };
+            
+        function loadImagesAutomatically() {
+            let i = 1;
+            const maxImages = 30; // Adjust max limit if needed
+
+            function checkNextImage() {
+                if (i > maxImages) return;
+                
+                const displayPath = `womensimages/${i}.jpg`;
+                const imgIndex = i; 
+                const imgTest = new Image();
+                
+                imgTest.onload = function() {
+                    createPhotoCard(displayPath, imgIndex);
+                    i++;
+                    checkNextImage();
+                };
+                
+                imgTest.onerror = function() {
+                    return; 
+                };
+                
+                imgTest.src = displayPath;
+            }
+
+            checkNextImage();
+        }
+
+        function createPhotoCard(imageSrc, index) {
+            const card = document.createElement('div');
+            card.className = 'photo-card';
+            
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = imageSrc;
+
+            card.appendChild(img);
+
+            card.addEventListener('click', () => {
+                modalImage.src = imageSrc;
+                
+                const links = affiliateData[index] || {};
+                let buttonsHTML = '';
+                
+                const buttonConfigs = [
+                    { key: 'shirt', label: 'Shirt' },
+                    { key: 'pant', label: 'Pant' },
+                    { key: 'tshirt', label: 'T-Shirt' },
+                    { key: 'shoe', label: 'Shoe' },
+                    { key: 'accessory', label: 'Accessory' }
+                ];
+
+                buttonConfigs.forEach(btn => {
+                    const url = links[btn.key];
+                    if (url && url.trim() !== "" && url !== "#") {
+                        buttonsHTML += `<a href="${url}" target="_blank" class="nav-btn">${btn.label}</a>`;
+                    }
+                });
+
+                modalNavButtons.innerHTML = buttonsHTML;
+                modalOverlay.classList.add('active');
+            });
+
+            galleryGrid.appendChild(card);
+        }
+
+        closeModal.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+
+        loadImagesAutomatically();
+    </script>
+</body>
+</html>

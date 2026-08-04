@@ -283,7 +283,11 @@
 
     <!-- Page Subheader & Creative Disclaimer -->
     <div class="text-center mb-8 px-4 max-w-xl">
-        <h2 style="font-family: 'Playfair Display', serif;" class="text-4xl tracking-widest uppercase font-bold mb-3">Stylist</h2>
+        <div class="flex items-center justify-center gap-3 mb-3">
+            <a href="mens.html" class="px-3 py-1 text-xs uppercase tracking-wider border border-[rgba(255,255,255,0.2)] rounded-full hover:border-[#d4af37] transition-colors">Men</a>
+            <h2 style="font-family: 'Playfair Display', serif;" class="text-4xl tracking-widest uppercase font-bold">Stylist</h2>
+            <a href="womens.html" class="px-3 py-1 text-xs uppercase tracking-wider border border-[rgba(255,255,255,0.2)] rounded-full hover:border-[#d4af37] transition-colors">Women</a>
+        </div>
         <p class="text-xs tracking-wide text-[#a1a1a6] font-light leading-relaxed italic border-y border-[rgba(255,255,255,0.08)] py-2">
             ✨ Inspiration in sight, perfection in match — visual references set the mood, while our curated picks bring the exact fit to life.
         </p>
@@ -451,7 +455,7 @@
             function checkNextImage() {
                 if (i > maxImages) return;
                 
-                const displayPath = `images/${i}.jpg`;
+                const displayPath = `mensimages/${i}.jpg`;
                 const imgIndex = i; 
                 const imgTest = new Image();
                 
@@ -509,8 +513,6 @@
             galleryGrid.appendChild(card);
         }
 
-        window.addEventListener('DOMContentLoaded', loadImagesAutomatically);
-
         closeModal.addEventListener('click', () => {
             modalOverlay.classList.remove('active');
         });
@@ -520,6 +522,8 @@
                 modalOverlay.classList.remove('active');
             }
         });
+
+        loadImagesAutomatically();
     </script>
 </body>
 </html>
